@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+html(lang="es")
+head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+    each css in files.CSS
+        link(rel="stylesheet", href=`${css}`)
+    title medics
+
+body
+    //------SECTION MEDICS-----
+    section.m-wrapper
+        div.m-center
+            div.headerMedics.carousel-indicators
+                div.headerMedics__titleContainer
+                    h2.indicator(href="#heredoFamiliar" data-target="#myCarousel" data-slide-to="0").headerMedics__titleContainer-title Antecedentes heredo-familiares
+                div.headerMedics__arrowContainer
+                    i.headerMedics__arrowContainer-arrow.fa.fa-arrow-right
+                div.headerMedics__titleContainer
+                    h2.indicator(href="#patologicas" data-target="#myCarousel" data-slide-to="1").headerMedics__titleContainer-title Antecedentes patológicos
+                div.headerMedics__arrowContainer
+                    i.headerMedics__arrowContainer-arrow.fa.fa-arrow-right
+                div.headerMedics__titleContainer
+                    h2.indicator(href="#noPatologicas" data-target="#myCarousel" data-slide-to="2").headerMedics__titleContainer-title Antecedentes no patológicos
+                div.headerMedics__arrowContainer
+                    i.headerMedics__arrowContainer-arrow.fa.fa-arrow-right
+                div.headerMedics__titleContainer
+                    h2.indicator(href="#gineco-obst" data-target="#myCarousel" data-slide-to="3").headerMedics__titleContainer-title Antecedentes gineco-obstétricos
+
+
+
+            div#myCarousel.carousel.slide.carousel-inner
+                ol.carousel-indicators
+                    li(data-target="#myCarousel" data-slide-to="0").indicator.active
+                    li(data-target="#myCarousel" data-slide-to="1").indicator
+                    li(data-target="#myCarousel" data-slide-to="2").indicator
+                    li(data-target="#myCarousel" data-slide-to="3").indicator
+
+
+                div(data-number="0")#heredoFamiliar.heredofam.item.active
+                    //-TITLE'S DIV FOR HEREDO-FAMILIARES
+                    div.heredofam__title
+                        div.heredofam__title-container
+                            div.heredofam__title-container__icon
+                                i.heredofam__title-container__icon-ico.fa.fa-medkit
+                            div.heredofam__title-container__tit
+                                h2.heredofam__title-container__tit-h2 Antecedentes heredo-familiares
+
+                    //-FORM TO HEREDO-FAMILIARES
+                    div.heredofam__form
+                        form#hFamiliar.heredofam__form-container
+                            div.div
+                                div.heredofam__form-container__item
+                                    div.heredofam__form-container__item-wrap
+                                        div.heredofam__form-container__item-wrap__desc
+                                            h3 Diabetes mellitus:
+                                        div.heredofam__form-container__item-wrap__response
+                                            div.heredofam__form-container__item-wrap__response-opt1
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siDiab" type="radio" name="diabetes" value="DIME"> si </input>
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noDiab" type="radio" name="diabetes" value=""> no </input>
+                                            div#diabOpt.opt2.heredofam__form-container__item-wrap__response-opt2
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="diabLevel" value="PRLI"> Primera línea </input>
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="diabLevel" value="SELI"> Segunda línea </input>
+                                    div.heredofam__form-container__item-wrap
+                                        div.heredofam__form-container__item-wrap__desc
+                                            h3 Sobrepeso:
+                                        div.heredofam__form-container__item-wrap__response
+                                            div.heredofam__form-container__item-wrap__response-opt1
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siSp" type="radio" name="sobrepeso" value="SOBR"> si </input>
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noSp" type="radio" name="sobrepeso" value=""> no </input>
+                                            div#spOpt.opt2.heredofam__form-container__item-wrap__response-opt2
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="spLevel" value="PRLI"> Primera línea </input>
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="spLevel" value="SELI"> Segunda línea </input>
+                                    div.heredofam__form-container__item-wrap
+                                        div.heredofam__form-container__item-wrap__desc
+                                            h3 Cardiopatías:
+                                        div.heredofam__form-container__item-wrap__response
+                                            div.heredofam__form-container__item-wrap__response-opt1
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siCp" type="radio" name="cardiopatias" value="CARD"> si </input>
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noCp" type="radio" name="cardiopatias" value=""> no </input>
+                                            div#cpOpt.opt2.heredofam__form-container__item-wrap__response-opt2
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="cardioLevel" value="PRLI"> Primera línea </input>
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="cardioLevel" value="SELI"> Segunda línea </input>
+                                    div.heredofam__form-container__item-wrap
+                                        div.heredofam__form-container__item-wrap__desc
+                                            h3 Malformaciones:
+                                        div.heredofam__form-container__item-wrap__response
+                                            div.heredofam__form-container__item-wrap__response-opt1
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siMf" type="radio" name="malformaciones" value="MALF"> si </input>
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noMf" type="radio" name="malformaciones" value=""> no </input>
+                                            div#mfOpt.opt2.heredofam__form-container__item-wrap__response-opt2
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="malfLevel" value="PRLI"> Primera línea </input>
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="malfLevel" value="SELI"> Segunda línea </input>
+
+                                div.heredofam__form-container__item
+                                    div.heredofam__form-container__item-wrap
+                                        div.heredofam__form-container__item-wrap__desc
+                                            h3 Cáncer:
+                                        div.heredofam__form-container__item-wrap__response
+                                            div.heredofam__form-container__item-wrap__response-opt1
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" id="siCancer" name="cancer" value="CANC"> si </input>
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" id="noCancer" name="cancer" value=""> no </input>
+                                            div#cancerOpt.opt2.heredofam__form-container__item-wrap__response-opt2
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="cancerLevel" value="PRLI"> Primera línea </input>
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="cancerLevel" value="SELI"> Segunda línea </input>
+                                    div.heredofam__form-container__item-wrap
+                                        div.heredofam__form-container__item-wrap__desc
+                                            h3 Hipertensión arterial:
+                                        div.heredofam__form-container__item-wrap__response
+                                            div.heredofam__form-container__item-wrap__response-opt1
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" id="siHipertension" name="hipertension" value="HIAR"> si </input>
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" id="noHipertension" name="hipertension" value=""> no </input>
+                                            div#hipOpt.opt2.heredofam__form-container__item-wrap__response-opt2
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="hipertensionLevel" value="PRLI"> Primera línea </input>
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="hipertensionLevel" value="SELI"> Segunda línea </input>
+                                    div.heredofam__form-container__item-wrap
+                                        div.heredofam__form-container__item-wrap__desc
+                                            h3 Enfermedades respiratorias:
+                                        div.heredofam__form-container__item-wrap__response
+                                            div.heredofam__form-container__item-wrap__response-opt1
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" id="siEnfResp" name="enfRespiratorias" value="ENRE"> si </input>
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" id="noEnfResp" name="enfRespiratorias" value=""> no </input>
+                                            div#enfResOpt.opt2.heredofam__form-container__item-wrap__response-opt2
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="enfRespLevel" value="PRLI"> Primera línea </input>
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="enfRespLevel" value="SELI"> Segunda línea </input>
+                                    div.heredofam__form-container__item-wrap
+                                        div.heredofam__form-container__item-wrap__desc
+                                            h3 Nefropatías:
+                                        div.heredofam__form-container__item-wrap__response
+                                            div.heredofam__form-container__item-wrap__response-opt1
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" id="siNefropatias" name="nefropatías" value="NEFR"> si </input>
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" id="noNefropatias" name="nefropatías" value=""> no </input>
+                                            div#nefroOpt.opt2.heredofam__form-container__item-wrap__response-opt2
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="nefropatiasLevel" value="PRLI"> Primera línea </input>
+                                                div.heredofam__form-container__item-wrap__response-opt2-in
+                                                    <input type="radio" name="nefropatiasLevel" value="SELI"> Segunda línea </input>
+                                    div.heredofam__form-container__item-wrap
+                                        div#other.heredofam__form-container__item-wrap__desc
+                                            h3 Otro:
+                                        div#textarea.heredofam__form-container__item-wrap__response
+                                            div.heredofam__form-container__item-wrap__response-opt1
+                                                div.heredofam__form-container__item-wrap__response-opt1-in
+                                                    textarea(name="descOtro" placeholder="descripción opcional")
+
+                            div.form-button
+                                button(type="submit").button Guardar
+
+                div(data-number="1")#patologicas.patologicas.item
+                    //-TITLE'S DIV FOR PATOLOGICAS
+                    div.patologicas__title
+                        div.patologicas__title-container
+                            div.patologicas__title-container__icon
+                                i.patologicas__title-container__icon-ico.fa.fa-user-md
+                            div.patologicas__title-container__tit
+                                h2.patologicas__title-container__tit-h2 Antecedentes patológicos
+
+                    //-FORM TO PATOLÓGICAS
+                    div.patologicas__form
+                        form#patologics.patologicas__form-container
+                            div.div
+                                div.patologicas__form-container__item
+                                    div.patologicas__form-container__item-wrap
+                                        div.patologicas__form-container__item-wrap__desc
+                                            h3 Enfermedades de la infancia:
+                                        div.patologicas__form-container__item-wrap__response
+                                            div.patologicas__form-container__item-wrap__response-opt1
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siInf" type="radio" name="infancia" value="ENIN"> si </input>
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noInf" type="radio" name="infancia" value=""> no </input>
+                                            div#infOpt.opt2.patologicas__form-container__item-wrap__response-opt2
+                                                div.patologicas__form-container__item-wrap__response-opt2-in
+                                                    <input type="text" name="enfInfancia"  placeholder="¿Cuál?"></input>
+                                                    textarea(name="descEnfInfancia" placeholder="descríbela")
+                                    div.patologicas__form-container__item-wrap
+                                        div.patologicas__form-container__item-wrap__desc
+                                            h3 Hospitalizaciones:
+                                        div.patologicas__form-container__item-wrap__response
+                                            div.patologicas__form-container__item-wrap__response-opt1
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siHosp" type="radio" name="hospitalizaciones" value="HOSP"> si </input>
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noHosp" type="radio" name="hospitalizaciones" value=""> no </input>
+                                            div#hospOpt.opt2.patologicas__form-container__item-wrap__response-opt2
+                                                div.patologicas__form-container__item-wrap__response-opt2-in
+                                                    textarea(name="descHospitalizaciones" placeholder="descríbela")
+                                    div.patologicas__form-container__item-wrap
+                                        div.patologicas__form-container__item-wrap__desc
+                                            h3 Cirugías:
+                                        div.patologicas__form-container__item-wrap__response
+                                            div.patologicas__form-container__item-wrap__response-opt1
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siCir" type="radio" name="cirugias" value="CIRU"> si </input>
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noCir" type="radio" name="cirugias" value=""> no </input>
+                                            div#cirOpt.opt2.patologicas__form-container__item-wrap__response-opt2
+                                                div.patologicas__form-container__item-wrap__response-opt2-in
+                                                    textarea(name="descCirugias" placeholder="descríbela")
+                                    div.patologicas__form-container__item-wrap
+                                        div.patologicas__form-container__item-wrap__desc
+                                            h3 Transfusiones:
+                                        div.patologicas__form-container__item-wrap__response
+                                            div.patologicas__form-container__item-wrap__response-opt1
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siTf" type="radio" name="transfuciones" value="TRAN"> si </input>
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noTf" type="radio" name="transfuciones" value=""> no </input>
+                                            div#tfOpt.opt2.patologicas__form-container__item-wrap__response-opt2
+                                                div.patologicas__form-container__item-wrap__response-opt2-in
+                                                    textarea(name="descTransfuciones" placeholder="descríbela")
+
+                                div.patologicas__form-container__item
+                                    div.patologicas__form-container__item-wrap
+                                        div.patologicas__form-container__item-wrap__desc
+                                            h3 Fracturas:
+                                        div.patologicas__form-container__item-wrap__response
+                                            div.patologicas__form-container__item-wrap__response-opt1
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" name="fracturas" value="FRAC"> si </input>
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" name="fracturas" value=""> no </input>
+                                    div.patologicas__form-container__item-wrap
+                                        div.patologicas__form-container__item-wrap__desc
+                                            h3 Accidentes/Traumatismo:
+                                        div.patologicas__form-container__item-wrap__response
+                                            div.patologicas__form-container__item-wrap__response-opt1
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" name="traumaticos" value="ACTR"> si </input>
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" name="traumaticos" value=""> no </input>
+                                    div.patologicas__form-container__item-wrap
+                                        div.patologicas__form-container__item-wrap__desc
+                                            h3 Medicación:
+                                        div.patologicas__form-container__item-wrap__response
+                                            div.patologicas__form-container__item-wrap__response-opt1
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siMedicacion" type="radio" name="medicacion" value="MEDI"> si </input>
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noMedicacion" type="radio" name="medicacion" value=""> no </input>
+                                            div#medicacionOpt.opt2.patologicas__form-container__item-wrap__response-opt2
+                                                div.patologicas__form-container__item-wrap__response-opt2-in
+                                                    textarea(name="descMedicacion" placeholder="descríbela")
+                                    div.patologicas__form-container__item-wrap
+                                        div.patologicas__form-container__item-wrap__desc
+                                            h3 Otra enfermedad:
+                                        div.patologicas__form-container__item-wrap__response
+                                            div.patologicas__form-container__item-wrap__response-opt1
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siOE" type="radio" name="otaEnf" value="OTEN"> si </input>
+                                                div.patologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noOE" type="radio" name="otaEnf" value=""> no </input>
+                                            div#oeOpt.opt2.patologicas__form-container__item-wrap__response-opt2
+                                                div.patologicas__form-container__item-wrap__response-opt2-in
+                                                    textarea(name="descOtraEnfermedad" placeholder="descripción opcional")
+
+                            div.form-button
+                                button(type="submit").button Guardar
+
+                div(data-number="2")#noPatologicas.noPatologicas.item
+                    //-TITLE'S DIV FOR NO-PATOLOGICAS
+                    div.noPatologicas__title
+                        div.noPatologicas__title-container
+                            div.noPatologicas__title-container__icon
+                                i.noPatologicas__title-container__icon-ico.fa.fa-user-md
+                            div.noPatologicas__title-container__tit
+                                h2.noPatologicas__title-container__tit-h2 Antecedentes no patológicos
+
+                    //-FORM TO NO-PATOLÓGICAS
+                    div.noPatologicas__form
+                        form#noPatologics.noPatologicas__form-container
+                            div.div
+                                div.noPatologicas__form-container__item
+                                    div.noPatologicas__form-container__item-wrap
+                                        div.noPatologicas__form-container__item-wrap__desc
+                                            h3 Tabaquismo:
+                                        div.noPatologicas__form-container__item-wrap__response
+                                            div.noPatologicas__form-container__item-wrap__response-opt1
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siTab" type="radio" name="tabaquismo" value="TABA"> si </input>
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noTab" type="radio" name="tabaquismo" value=""> no </input>
+                                            div#tabOpt1.opt2.noPatologicas__form-container__item-wrap__response-opt2
+                                                div.noPatologicas__form-container__item-wrap__response-opt2-in
+                                                    <input class="numbers" type="number" name="cigXDia" min="0" placeholder="por día"></input>
+                                            div#tabOpt2.opt2.noPatologicas__form-container__item-wrap__response-opt2
+                                                div.noPatologicas__form-container__item-wrap__response-opt2-in
+                                                    <input class="numbers" type="number" name="cigXAnio" min="0" placeholder="años de consumo"></input>
+                                            div.noPatologicas__form-container__item-wrap__response-opt2
+                                                div.noPatologicas__form-container__item-wrap__response-opt2-in
+                                                    label ex fumador
+                                                    select
+                                                        option(value="EXFU" name="ex-fumador" required) si
+                                                        option(value="" name="ex-fumador" required selected) no
+
+                                    div.noPatologicas__form-container__item-wrap
+                                        div.noPatologicas__form-container__item-wrap__desc
+                                            h3 Alcoholismo:
+                                        div.noPatologicas__form-container__item-wrap__response
+                                            div.noPatologicas__form-container__item-wrap__response-opt1
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siAlc" type="radio" name="alcoholismo" value="ALCO"> si </input>
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noAlc" type="radio" name="alcoholismo" value=""> no </input>
+                                            div#alcOpt1.opt2.noPatologicas__form-container__item-wrap__response-opt2
+                                                div.noPatologicas__form-container__item-wrap__response-opt2-in
+                                                    <input class="numbers" type="number" name="copasXSemana" min="0" placeholder="copas por semana"></input>
+                                            div#alcOpt2.opt2.noPatologicas__form-container__item-wrap__response-opt2
+                                                div.noPatologicas__form-container__item-wrap__response-opt2-in
+                                                    <input class="numbers" type="number" name="copasXAnio" min="0" placeholder="años de consumo"></input>
+                                            div.noPatologicas__form-container__item-wrap__response-opt2
+                                                div.noPatologicas__form-container__item-wrap__response-opt2-in
+                                                    label ex alcoholico
+                                                    select
+                                                        option(value="EXAL" name="ex-alcoholico" required) si
+                                                        option(value="" name="ex-alcoholico" required selected) no
+
+                                    div.noPatologicas__form-container__item-wrap
+                                        div.noPatologicas__form-container__item-wrap__desc
+                                            h3 Alergias:
+                                        div.noPatologicas__form-container__item-wrap__response
+                                            div.noPatologicas__form-container__item-wrap__response-opt1
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siAlerg" type="radio" name="alergias" value="ALER"> si </input>
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noAlerg" type="radio" name="alergias" value=""> no </input>
+                                            div#alergOpt.opt2.noPatologicas__form-container__item-wrap__response-opt2
+                                                div.noPatologicas__form-container__item-wrap__response-opt2-in
+                                                    textarea(name="descAlergias" placeholder="descripción")
+
+                                    div.noPatologicas__form-container__item-wrap
+                                        div.noPatologicas__form-container__item-wrap__desc
+                                            h3 Alimentacion adecuada:
+                                        div.noPatologicas__form-container__item-wrap__response
+                                            div.noPatologicas__form-container__item-wrap__response-opt1
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" name="alimentacion" value="ALAD"> si </input>
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required type="radio" name="alimentacion" value=""> no </input>
+                                                    
+                                    div.sangre.noPatologicas__form-container__item-wrap
+                                        div.sangreDesc.noPatologicas__form-container__item-wrap__desc
+                                            h3 Tipo de sangre:
+                                        div.sangreRes.noPatologicas__form-container__item-wrap__response
+                                            div.noPatologicas__form-container__item-wrap__response-opt1
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    select
+                                                        option(name="tipoSangre" required value="A+") A+
+                                                        option(name="tipoSangre" required value="A-") A-
+                                                        option(name="tipoSangre" required value="B+") B+
+                                                        option(name="tipoSangre" required value="B-") B-
+                                                        option(name="tipoSangre" required value="C+") C+
+                                                        option(name="tipoSangre" required value="C-") C-
+                                                        option(name="tipoSangre" required value="AB+") AB+
+                                                        option(name="tipoSangre" required value="AB-") AB-
+                                                        option(name="tipoSangre" required value="SEDE" selected) Se desconoce
+
+
+                                div.noPatologicas__form-container__item
+                                    div#vivienda.noPatologicas__form-container__item-wrap
+                                        div.noPatologicas__form-container__item-wrap__desc
+                                            h3 Vivienda con los siguientes servicios:
+                                        div.noPatologicas__form-container__item-wrap__response
+                                            div.noPatologicas__form-container__item-wrap__response-opt1
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input type="radio" name="luz" value="LUZ"> Luz </input>
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input type="radio" name="agua" value="AGPO"> Agua potable </input>
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input type="radio" name="drenaje" value="DREN"> Drenaje </input>
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input type="radio" name="piso" value="PIFI"> Piso firme </input>
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input type="radio" name="movilidad" value="MOVI"> Movilidad </input>
+
+                                    div.noPatologicas__form-container__item-wrap
+                                        div.noPatologicas__form-container__item-wrap__desc
+                                            h3 Toxicomanias:
+                                        div.noPatologicas__form-container__item-wrap__response
+                                            div.noPatologicas__form-container__item-wrap__response-opt1
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="siTox" type="radio" name="taxicomanias" value="TOXI"> si </input>
+                                                div.noPatologicas__form-container__item-wrap__response-opt1-in
+                                                    <input required id="noTox" type="radio" name="taxicomanias" value=""> no </input>
+                                            div#toxOpt.opt2.noPatologicas__form-container__item-wrap__response-opt2
+                                                div.noPatologicas__form-container__item-wrap__response-opt2-in
+                                                    <input class="numbers" type="number" name="añosConsumoDrogas" min="0" placeholder="años de consumo"></input>
+                                            div.noPatologicas__form-container__item-wrap__response-opt2
+                                                div.noPatologicas__form-container__item-wrap__response-opt2-in
+                                                    label ex drogadicto
+                                                    select
+                                                        option(value="EXDR" name="ex-drogadicto" required) si
+                                                        option(value="" name="ex-drogadicto" required selected) no
+
+                                    div.tatuajes
+                                        div.tatuajes-item
+                                            div.tatuajes-item__tit
+                                                h3 Tatuajes
+                                            div.tatuajes-item__desc
+                                                textarea(placeholder="descripcion opcional" name="descTatuajes")
+                                        div.tatuajes-item
+                                            div.tatuajes-item__tit
+                                                h3 Inmunizaciones
+                                            div.tatuajes-item__desc
+                                                textarea(placeholder="descripcion opcional" name="descInmunizaciones")
+
+                            div.form-button
+                                button(type="submit").button Guardar
+
+                div(data-number="3")#gineco-obst.gineco.item
+                    //-TITLE'S DIV FOR GINECO-OBSTETRICOS
+                    div.gineco__title
+                        div.gineco__title-container
+                            div.gineco__title-container__icon
+                                i.gineco__title-container__icon-ico.fa.fa-female
+                            div.gineco__title-container__tit
+                                h2.gineco__title-container__tit-h2 Antecedentes gineco-obstétricos
+
+                    //-FORM TO GINECO-OBSTETRICOS
+                    div.gineco__form
+                        form#ginObs.gineco__form-container
+                            div.div
+                                div.gineco__form-container__item
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Menarca:
+                                        div.gineco__form-container__item-wrap__response
+                                            input(type="date" name="menarca")
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Ciclos regulares:
+                                        div.gineco__form-container__item-wrap__response
+                                            select
+                                                option(name="cicloRegular" value="CIRE") si
+                                                option(name="cicloRegular" value="" selected) no
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Ritmo:
+                                        div.gineco__form-container__item-wrap__response
+                                            input(class="ritmo" id="ritmo" name="ritmo" type="text" placeholder="Ej. 31/05")
+                                            div.msjError
+                                                i.fa.fa-exclamation-triangle
+                                                p.msj Ingresa datos válidos!!
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Últ. menstruación:
+                                        div.gineco__form-container__item-wrap__response
+                                            input(type="date" name="ultMenstruacion")
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Polimenorrea:
+                                        div.gineco__form-container__item-wrap__response
+                                            select
+                                                option(required name="polimenorrea" value="POLI") si
+                                                option(selected required name="polimenorrea" value="") no
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Hipermenorrea:
+                                        div.gineco__form-container__item-wrap__response
+                                            select
+                                                option(required name="hipermenorrea" value="HIPE") si
+                                                option(selected required name="hipermenorrea" value="") no
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Dismenorrea:
+                                        div.gineco__form-container__item-wrap__response
+                                            select
+                                                option(required name="dismenorrea" value="DISM") si
+                                                option(selected required name="dismenorrea" value="") no
+                                    div.gineco__form-container__item-wrap
+                                        div.ivsaDesc.gineco__form-container__item-wrap__desc
+                                            h3 Inicio de vida sexual activa:
+                                        div.ivsaRes.gineco__form-container__item-wrap__response
+                                            input(type="number" min="0" name="ivsa")
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Parejas sexuales:
+                                        div.gineco__form-container__item-wrap__response
+                                            input(required type="number" min="0" name="parejasSexuales")
+                                    div.planFam.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Método de planificación familiar:
+                                        div.gineco__form-container__item-wrap__response
+                                            textarea(required name="planFamiliar" placeholder="Descríbelo")
+
+                                div.gineco__form-container__item
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Gestaciones:
+                                        div.gineco__form-container__item-wrap__response
+                                            input(required type="number" min="0" name="gestaciones")
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Abortos:
+                                        div.gineco__form-container__item-wrap__response
+                                            input(required type="number" min="0" name="abortos")
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Partos:
+                                        div.gineco__form-container__item-wrap__response
+                                            input(required type="number" min="0" name="partos")
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Cesáreas:
+                                        div.gineco__form-container__item-wrap__response
+                                            input(required type="number" min="0" name="cesareas")
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Últ. citología:
+                                        div.gineco__form-container__item-wrap__response
+                                            input(type="date" name="ultCitologia")
+                                            textarea(placeholder="Resultados" name="resultCitologia")
+                                    div.gineco__form-container__item-wrap
+                                        div.gineco__form-container__item-wrap__desc
+                                            h3 Últ. mastografía:
+                                        div.gineco__form-container__item-wrap__response
+                                            input(type="date" name="ultMastografia")
+                                            textarea(placeholder="Resultados" name="resultMastografia")
+                                    div.gineco__form-container__item-wrap
+                                        div.vph.gineco__form-container__item-wrap__desc
+                                            h3 Detección de VPH:
+                                        div.gineco__form-container__item-wrap__response
+                                            select#vph.vphSelect
+                                                option(id="siVPH" required name="vph" value="DEVP") si
+                                                option(id="noVPH" required name="vph" value="" selected) no
+                                            textarea(name="resVPH" placeholder="Resultado")#vphDesc.txtA.opt2
+                                    
+
+                            div.form-button
+                                button(onclick="expRegular()" type="submit")#gin.button Guardar
+
+            div.control
+                div.control-Left
+                    i(href="#myCarousel" role="button" data-slide="prev")#left.left.fa.fa-chevron-left
+                div.control-Right
+                    i(href="#myCarousel" role="button" data-slide="next")#right.right.fa.fa-chevron-right
+
+
+    each js in files.JS
+        script(src=`${js}`)

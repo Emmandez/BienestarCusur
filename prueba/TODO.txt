@@ -1,0 +1,10 @@
+=============== GENERAL ===============
+= Fix panel-heading paths to show correctly
+= Show current user's role in navbar
+= Automatically Asign a 'Registered' role to any newly registered user
+= Once a good part of front-end is finished assign view permissions
+
+=============== Nutriology ===============
+= Validate and calculate fields automatically
+= Check if there are no empty fields
+

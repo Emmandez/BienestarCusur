@@ -1,0 +1,39 @@
+//::::: COLORS THEME :::::
+$text-color  : #97a0af;
+$theme-color : #47AFFF;
+$bgc-sections : hsla(0,0,0,.03);
+$elem-menu    : #858585;
+
+//::::: FONTS :::::
+$fs : 1.1em;
+@font-face {
+    font-family: 'Segoe UI Light';
+    src: url('/surface/Assets/css/fonts/all/light/segoeuil.eot');
+    src: url('/surface/Assets/css/fonts/all/light/segoeuil.eot?#iefix') format('embedded-opentype'),
+         url('/surface/Assets/css/fonts/all/light/segoeuil.woff') format('woff'),
+         url('/surface/Assets/css/fonts/all/light/segoeuil.svg#SegoeUILight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//::::: IMPORT BASE :::::
+@import "./resources/assets/sass/apartments/base/_reset";
+@import "./resources/assets/sass/apartments/base/_base";
+
+//::::: IMPORT MODULES :::::
+@import "./resources/assets/sass/apartments/module/_modules";
+
+//::::: IMPORT LAYOUT TO MEDICS:::::
+@import "./resources/assets/sass/apartments/layout/medics/_scroll";
+@import "./resources/assets/sass/apartments/layout/medics/_heredofamiliar";
+@import "./resources/assets/sass/apartments/layout/medics/_carousel";
+@import "./resources/assets/sass/apartments/layout/medics/_patologicas";
+@import "./resources/assets/sass/apartments/layout/medics/_noPatologicas";
+@import "./resources/assets/sass/apartments/layout/medics/_gineco-obtetrico";
+
+@import "./resources/assets/sass/apartments/layout/medics/_expFisica1";
+@import "./resources/assets/sass/apartments/layout/medics/_interrAparatosySistemas";
+
+//::::: IMPORT LAYOUT TO SLPCE :::::
+@import "./resources/assets/sass/apartments/layout/slpce/_headerSLPCE";
+@import "./resources/assets/sass/apartments/layout/slpce/_table";

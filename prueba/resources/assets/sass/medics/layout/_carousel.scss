@@ -1,0 +1,52 @@
+.control{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: -2em;
+
+    &-Left{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        .left{
+            font-size: 2em;
+            opacity: .5;
+            color: darken($text-color, 50);
+            &:hover{
+                cursor: pointer;
+                color: darken($text-color, 80);
+            }
+        }
+    }
+
+    &-Right{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        .right{
+            font-size: 2em;
+            opacity: .5;
+            color: darken($text-color, 50);
+            &:hover{
+                cursor: pointer;
+                color: darken($text-color, 80);
+            }
+        }
+    }
+}
+
+
+.carousel{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid $elem-menu;
+
+    .indicator{
+        border: 1px solid lighten($text-color, 5);
+    }
+}

@@ -1,0 +1,194 @@
+.noPatologicas{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &__title{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5px 15px;
+        border-bottom: 1px solid lighten($theme-color, 30);
+
+        &-container{
+            display: flex;
+
+            &__icon{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding-right: 20px;
+
+                &-ico{
+                    font-size: 25px;
+                    color: darken($text-color,30);
+                }
+            }
+
+            &__tit{
+                color: $theme-color;
+                font-size: 2em;
+            }
+        }
+    }
+
+    &__form{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 30px 0;
+
+        &-container{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 650px;
+
+            .div{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &__item{
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                width: 49%;
+
+                &-wrap:not(:last-child){
+                    border-bottom: 1px solid lighten($theme-color, 15);
+                }
+
+                &-wrap{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin-bottom: 10px;
+                    padding-bottom: 10px;
+
+                    &__desc{
+                        display: flex;
+                        align-items: flex-end;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        width: 70%;
+                    }
+
+                    &__response{
+                        display: flex;
+                        align-items: flex-start;
+                        flex-direction: column;
+                        width: 25%;
+
+                        &-opt1{
+                            display: flex;
+                            align-items: center;
+
+                            &-in:first-child{
+                                padding-right: 15px;
+                            }
+                        }
+
+                        #alergOpt{
+                            margin-left: -135px;
+                        }
+
+                        &-opt2{
+                            position: relative;
+                            margin-left: -80px;
+
+                            &-in:first-child{
+                                padding: 5px 0;
+                            }
+
+                            &-in{
+                                width: 145px;
+                            }
+                            .numbers{
+                                width: 100%;
+                            }
+                            input{
+                                width: 200px;
+                                margin-bottom: 2px;
+                            }
+                            textarea{
+                                width: 200px;
+                                height: 80px;
+                            }
+                            select{
+                                color: $theme-color;
+                            }
+                        }
+                    }
+
+                }
+                .sangre{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin-bottom: 10px;
+                    padding-bottom: 10px;
+                    &Desc{
+                        width: 50%;
+                    }
+                    &Res{
+                        display: flex;
+                        align-items: flex-end;
+                        flex-direction: column;
+                        width: 45%;
+                    }
+                }
+                #vivienda{
+                    display: flex;
+                    flex-direction: column;
+                    .noPatologicas__form-container__item-wrap__desc{
+                        width: 100%;
+                    }
+                    .noPatologicas__form-container__item-wrap__response{
+                        display: flex;
+                        align-items: flex-end;
+                        flex-direction: column;
+                        justify-content: center;
+                        width: 100%;
+
+                        &-opt1{
+                            display: flex;
+                            align-items: flex-start;
+                            flex-direction: column;
+
+                            &-in{
+                                padding-top: 7px;
+                            }
+                        }
+                    }
+                }
+                .tatuajes{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    &-item{
+                        display: flex;
+                        align-items: baseline;
+                        justify-content: space-between;
+                        width: 100%;
+                        padding-top: 10px;
+
+                        &__tit{
+                            display: flex;
+                            align-items: flex-end;
+                            align-self: stretch;
+                            flex-direction: column;
+                            width: 45%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

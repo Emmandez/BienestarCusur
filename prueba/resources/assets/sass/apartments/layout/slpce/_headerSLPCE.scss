@@ -1,0 +1,50 @@
+.slpce__header{
+    display        : flex;
+    align-items    : center;
+    flex-direction : column;
+    width          : 700px;
+    margin-bottom  : 30px;
+
+    &-container:not(:last-child){
+        display        : flex;
+        align-items    : center;
+        flex-direction : column;
+        width          : 100%;
+    }
+    &-container:last-child{
+        display       : flex;
+        align-items   : flex-start;
+        flex-direction: column;
+        width         : 100%;
+    }
+    &-container:nth-child(even){
+        margin : 20px 0;
+    }
+    &-container{
+
+        &_h1{
+            color      : $theme-color;
+            font-size  : 1.4em;
+            text-align : center;
+            margin-top : 10px;;
+        }
+
+        &_li{
+            text-align : justify;
+            color      : darken($text-color, 15);
+
+            .face{
+                font-size: 20px;
+                text-decoration: none;
+                //background-color: rgb(255, 204, 51);
+                background-color: #fff22d;
+                border-radius: 50%;
+                color: #404040;
+                &:hover{
+                    text-decoration: none;
+                    color: #404040;
+                }
+            }
+        }
+    }
+}

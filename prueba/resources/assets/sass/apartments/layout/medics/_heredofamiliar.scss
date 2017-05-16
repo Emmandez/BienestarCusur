@@ -1,0 +1,121 @@
+.div-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.heredofam{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &__title{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5px 15px;
+        border-bottom: 1px solid lighten($theme-color, 30);
+
+        &-container{
+            display: flex;
+
+            &__icon{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding-right: 20px;
+
+                &-ico{
+                    font-size: 25px;
+                    color: darken($text-color,30);
+                }
+            }
+
+            &__tit{
+                color: $theme-color;
+                font-size: 2em;
+            }
+        }
+    }
+
+    &__form{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 30px 0;
+
+        &-container{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+            //width: 900px;
+
+            &__item{
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                width: 40%;
+
+                &-wrap:not(:last-child){
+                    border-bottom: 1px solid lighten($theme-color, 15);
+                }
+                &-wrap{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin-bottom: 10px;
+                    padding-bottom: 10px;
+
+                    &__desc{
+                        display: flex;
+                        align-items: flex-end;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        width: 53%;
+                    }
+
+                    &__response{
+                        display: flex;
+                        align-items: flex-start;
+                        flex-direction: column;
+                        width: 42%;
+
+                        &-opt1{
+                            display: flex;
+                            align-items: center;
+
+                            &-in:first-child{
+                                padding-right: 15px;
+
+                                textarea{
+                                    width: 210px;
+                                    height: 80px;
+                                }
+                            }
+                        }
+
+                        &-opt2{
+                            display: flex;
+                            align-items: flex-start;
+                            flex-direction: column;
+
+                            &-in:first-child{
+                                padding: 5px 0;
+                            }
+                        }
+                    }
+                    #other{
+                        width: 20%;
+                    }
+                    #textarea{
+                        width: 78%;
+                    }
+                }
+            }
+        }
+    }
+}

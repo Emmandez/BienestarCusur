@@ -1,0 +1,44 @@
+.m-wrapper{
+    display          : flex;
+    align-items      : center;
+    flex-direction   : column;
+    background-color : $bgc-sections;
+
+    .m-center{
+        display        : flex;
+        align-items    : center;
+        flex-direction : column;
+        width          : 800px;
+        max-width      : 900px;
+
+        h3{
+            color     : darken($text-color,30);
+            font-size : 1.1em;
+        }
+
+        .form-button{
+            display         : flex;
+            align-items     : center;
+            flex-direction  : column;
+            justify-content : center;
+            margin          : 20px 0;
+
+            .button{
+                border-style     : none;
+                background-color : darken($theme-color, 10);
+                padding          : 5px 20px;
+                border-radius    : 20px;
+                font-size        : 1em;
+                color            : #efefef;
+                &:hover{
+                    cursor           : pointer;
+                    background-color : darken($theme-color, 15);
+                }
+            }
+        }
+    }
+}
+
+textarea, input, select{
+    color : darken($theme-color , 25);
+}
