@@ -1,0 +1,151 @@
+.title-container{
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    border-bottom   : 1px solid lighten($theme-color, 25);
+    margin-bottom   : 20px;
+    padding         : 5px;
+    box-sizing      : border-box;
+
+    i{
+        color        : $text-color;
+        margin-right : 17px;
+    }
+
+    .title{
+        color      : $theme-color;
+        font-size  : 1.7em;
+    }
+
+}
+
+#myCarousel{
+    border-style: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+
+.item{
+    margin-top: 20px;
+}
+.pregunta{
+    width: 100%;
+    border-top: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+.pregunta2{
+    width: 100%;
+    border-top: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 0;
+
+    .cont-txt{
+        width: 100%;
+        margin-top: 5px;
+
+        textarea{
+            width: 100% auto;
+            max-width: 400px;
+            min-width: 100%;
+            height: 70px;
+        }
+    }
+}
+
+.preguntaSegundo, .preguntaCPTAI , .preguntaTercero, .preguntaCuatro{
+    width: 100%;
+    border-top: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+input{
+    width: 100%;
+}
+label{
+    color: $text-color;
+}
+td{
+    p{
+        color: darken($text-color, 20);
+    }
+    input:not(:last-child){
+        margin-bottom : 5px;
+    }
+    input{
+        vertical-align:middle;
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+    }
+    .checkbox{
+        cursor: pointer;
+    }
+}
+
+.container-button{
+    width: 30%;
+
+    .btn{
+        border-radius: 20px;
+    }
+}
+
+.links{
+    //position: relative;
+    //left: 15%;
+    //top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    //border-left: 3px solid $theme-color;
+    //border-right: 3px solid $theme-color;
+    //border-bottom: 3px solid lighten($theme-color,30);
+
+    i{
+        color: lighten($text-color,10);
+    }
+    p{
+        cursor: pointer;
+    }
+    li{
+        border: 1px solid darken($text-color, 10);
+    }
+    .itemActive{
+        color: $theme-color;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .links{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        i{
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.container-button{
+    button{
+        border-style: none;
+        outline-style: none;
+    }
+}
