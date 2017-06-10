@@ -57,6 +57,7 @@
     $nuts = 'Nutriología ';
     $labs = 'Laboratoriales ';
     $reports = 'Reportes ';
+    $diag = 'Diagnósticos y tratamientos';
     ///////////////////////////
     $actions = ['/' => $dashboard,
         'nursery' => $dashboard . $forward . $nurse . $forward . $index,
@@ -72,12 +73,16 @@
 
         'slpce' => $dashboard . $forward . $slpce . $forward . $index,
         'slpce/create' => $dashboard . $forward . $slpce . $forward . $new,
+        'slpceAL/create' => $dashboard . $forward . $slpce . $forward . $new,
+        'slpceEML/create' => $dashboard . $forward . $slpce . $forward . $new,
         'nutriology' => $dashboard . $forward . $nuts . $forward . $index,
         'nutriology/create' => $dashboard . $forward . $nuts . $forward . $new,
-        'labs' => $dashboard . $forward . $labs . $forward . $index,
-        'labs/create' => $dashboard . $forward . $labs . $forward . $new,
+        'laboratory' => $dashboard . $forward . $labs . $forward . $index,
+        'laboratory/create' => $dashboard . $forward . $labs . $forward . $new,
         'reports' => $dashboard . $forward . $reports . $forward . $index,
         'reports/create' => $dashboard . $forward . $reports . $forward . $new,
+        'diagnostic' => $dashboard . $forward . $diag . $forward . $index,
+        'diagnostic/create' => $dashboard . $forward . $diag . $forward . $new,
     ]; ?>
 </head>
 <body>

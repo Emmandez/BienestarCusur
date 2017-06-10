@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css"/>
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
   <!--<link rel="stylesheet" href="/css/medics/main.css"/>-->
-  {!!Html::style ('/css/medics/main.css')!!}
+  {!!Html::style ('/css/apartments/main.css')!!}
   <!--<title>Exploraciones médicas</title>-->
 @endsection
 @section('content')
@@ -35,7 +35,7 @@
           <h2 class="indicator headerMedicsExp__titleContainer-title" href="#expFisica1-2" data-target="#myCarousel" data-slide-to="3">Exploración física (1.2)</h2>
         </div>
       </div>-->
-      <div class="headerMedics carousel_indicators container">
+      <div class="links headerMedics carousel_indicators container">
         <div class="headerMedics__titleContainer">
           <h2 class="indicator headerMedics__titleContainer-title" href="#interrogatorio" data-target="#myCarousel" data-slide-to="0">Interrogatorio por aparatos y sistemas</h2>
         </div>
@@ -52,7 +52,7 @@
           <h2 class="indicator headerMedics__titleContainer-title" href="#expFisica1-2" data-target="#myCarousel" data-slide-to="3">Exploración física (1.2)</h2>
         </div>
       </div>
-      <div class="carousel slide carousel-inner container" id="myCarousel">
+      <div class="carousel slide carousel-inner container" data-interval="false" id="myCarousel">
         <ol class="carousel-indicators">
           <li class="indicator active" data-target="#myCarousel" data-slide-to="0"></li>
           <li class="indicator" data-target="#myCarousel" data-slide-to="1"></li>

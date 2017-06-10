@@ -1,0 +1,180 @@
+@media screen and (max-width:1200px){
+    .title-container{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        h2{
+            text-align: center;
+        }
+    }
+    .linkers{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        i{
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.linkers{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    i{
+        color: lighten($text-color,10);
+    }
+    p{
+        cursor: pointer;
+    }
+    li{
+        border: 1px solid darken($text-color, 10);
+    }
+    .itemActive{
+        color: $theme-color;
+    }
+}
+
+.estado_civil{
+    margin-top: 20px;
+    text-align: center;
+}
+.estado_civil-items{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media screen and( max-width : 700px ){
+    .estado_civil-items{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+.last-item{
+    margin: 20px 0 30px 0;
+}
+
+.grados-cont{
+    div{
+        display: flex;
+        align-items: stretch;
+    }
+}
+
+.nivelEstudio:nth-child(even){
+    background-color: lighten($theme-color, 20);
+}
+.nivelEstudio:nth-child(odd){
+    background-color: lighten($theme-color, 30);
+}
+
+.nivelEstudio{
+    padding: 5px 15px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    p , label{
+        color: darken($text-color,10);
+    }
+    .form-inline{
+        input[type="text"]{
+            width: 70%;
+        }
+        input[type="radio"]{
+            margin-left: -7px;
+            width: 5%;
+        }
+        label{
+            width: 10%;
+        }
+    }
+}
+
+.nombramientos_container{
+    div:not(:last-child){
+        border-bottom: 1px solid lightgray;
+    }
+    div{
+        padding: 10px 0;
+    }
+    .n26{
+        border: 1px solid transparent !important;
+    }
+    #cual26{
+        position: relative;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+.tipo_cont{
+    p{
+        padding: 0 5px;
+        border-bottom: 1px solid lightgray;
+        text-align: center;
+    }
+    &-elem{
+        label{
+            color: darken($text-color,15);
+        }
+        div:nth-child(even){
+            background-color: lighten($theme-color, 20);
+        }
+        div:nth-child(odd){
+            background-color: lighten($theme-color, 30);
+        }
+        div{
+            margin-top: 10px;
+            padding: 5px;
+            box-sizing: border-box;
+            border-radius: 3px;
+        }
+        div:last-child{
+            display: flex;
+            align-items: baseline;
+        }
+    }
+}
+
+.tipo_hor{
+    p{
+        padding: 0 5px;
+        border-bottom: 1px solid lightgray;
+        text-align: center;
+    }
+    &-elem{
+        label{
+            color: darken($text-color,15);
+        }
+        div:nth-child(even){
+            background-color: lighten($theme-color, 20);
+        }
+        div:nth-child(odd){
+            background-color: lighten($theme-color, 30);
+        }
+        div{
+            margin-top: 10px;
+            padding: 5px;
+            box-sizing: border-box;
+            border-radius: 3px;
+        }
+        div:last-child{
+            display: flex;
+            align-items: baseline;
+        }
+    }
+}
+
+.antiguedad_p{
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+}

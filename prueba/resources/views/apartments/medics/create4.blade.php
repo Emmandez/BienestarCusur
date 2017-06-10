@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css"/>
 
     <!--<link rel="stylesheet" href="/css/medics/main.css"/> -->
-     {!!Html::style ('/css/medics/main.css')!!}
+     {!!Html::style ('/css/apartments/main.css')!!}
 @endsection
 
 @section('content')
@@ -24,7 +24,7 @@
 
   <section class="m-wrapper container-fluid">
     <div class="m-center container">
-      <div class="headerMedics carousel_indicators container">
+      <div class="headerMedics carousel_indicators container links">
         <div class="headerMedics__titleContainer">
           <h2 class="indicator headerMedics__titleContainer-title" href="#heredoFamiliar" data-target="#myCarousel" data-slide-to="0">Antecedentes heredo-familiares</h2>
         </div>
@@ -41,14 +41,14 @@
           <h2 class="indicator headerMedics__titleContainer-title" href="#gineco-obst" data-target="#myCarousel" data-slide-to="3">Antecedentes gineco-obstétricos</h2>
         </div>
       </div>
-      <div class="carousel slide carousel-inner container" id="myCarousel">
+      <div class="carousel slide carousel-inner col-md-12" data-interval="false" id="myCarousel">
         <ol class="carousel-indicators">
           <li class="indicator active" data-target="#myCarousel" data-slide-to="0"></li>
           <li class="indicator" data-target="#myCarousel" data-slide-to="1"></li>
           <li class="indicator" data-target="#myCarousel" data-slide-to="2"></li>
           <li class="indicator" data-target="#myCarousel" data-slide-to="3"></li>
         </ol>
-        <div class="heredofam item active" data-number="0" id="heredoFamiliar">
+        <div class="heredofam item active col-md-12" data-number="0" id="heredoFamiliar">
           <div class="heredofam__title">
             <div class="heredofam__title-container">
               <div class="heredofam__title-container__icon"><i class="heredofam__title-container__icon-ico fa fa-medkit"></i></div>
@@ -689,8 +689,8 @@
                     </div>
                     <div class="gineco__form-container__item-wrap__response">
                       <select class="vphSelect" id="vph">
-                        <option id="siVPH" required="required" name="vph" value="DEVP">si</option>
-                        <option id="noVPH" required="required" name="vph" value="" selected="selected">no</option>
+                        <option id="siVPH" required="required" name="vph" value="si">si</option>
+                        <option id="noVPH" required="required" name="vph" value="no" selected="selected">no</option>
                       </select>
                       <textarea class="txtA opt2" name="resVPH" placeholder="Resultado" id="vphDesc"></textarea>
                     </div>

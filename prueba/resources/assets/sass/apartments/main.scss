@@ -37,3 +37,11 @@ $fs : 1.1em;
 //::::: IMPORT LAYOUT TO SLPCE :::::
 @import "./resources/assets/sass/apartments/layout/slpce/_headerSLPCE";
 @import "./resources/assets/sass/apartments/layout/slpce/_table";
+@import "./resources/assets/sass/apartments/layout/slpce/_antecLab";
+@import "./resources/assets/sass/apartments/layout/slpce/_expMedicLab";
+
+//::::: IMPORT LAYOUT TO LABS:::::
+@import "./resources/assets/sass/apartments/layout/labs/_exPracticados";
+
+//::::: IMPORT LAYOUT TO DIAGNOSTICS :::::
+@import "./resources/assets/sass/apartments/layout/diagnostics/diag_trat";

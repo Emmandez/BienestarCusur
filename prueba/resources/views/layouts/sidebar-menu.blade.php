@@ -4,9 +4,12 @@ $NurseryURL     = url('nursery/create');
 $MedicsURL      = url('medics/create');
 $MedicsExpURL   = url('medicsExp/create');
 $SlpceURL_CTCPS = url('slpce/create');
+$SlpceURL_AL    = url('slpceAL/create');
+$SlpceURL_EML   = url('slpceEML/create');
 $NutURL         = url('nutriology/create');
 $LabsURL        = url('laboratory/create');
 $ReportsURL     = url('reports/create');
+$DiagURL        = url('diagnostic/create');
 ?>
 <div class="list-group sidebar-list">
     <li><a href="{{url('/')}}" class="{{ active('/') }} list-group-item text-center"><i class="fa fa-home"></i>
@@ -35,9 +38,9 @@ $ReportsURL     = url('reports/create');
             SLPCE
         </a>
         <ul id="slpceItemTog" class="dropdown-menu dropdown-menu-right" >
-            <li><a href="">Antecedentes laborales</a></li>
+            <li><a href="{{ $SlpceURL_AL }}">Antecedentes laborales</a></li>
             <li class="divider"></li>
-            <li><a href="">Expediente médico laboral</a></li>
+            <li><a href="{{ $SlpceURL_EML }}">Expediente médico laboral</a></li>
             <li class="divider"></li>
             <li><a href="{{ $SlpceURL_CTCPS }}">CTCPS-MAC</a></li>
         </ul>
@@ -46,10 +49,13 @@ $ReportsURL     = url('reports/create');
     <li><a href="{{ $NutURL }}" class="{{ active('nutriology.*') }} list-group-item text-center"><i
                     class="fa fa-cutlery"></i>
             Nutriología</a></li>
-    <li><a href="{{ $LabsURL }}" class="{{ active('labs.*') }} list-group-item text-center"><i
+    <li><a href="{{ $LabsURL }}" class="{{ active('laboratory.*') }} list-group-item text-center"><i
                     class="fa fa-flask"></i>
             Laboratoriales</a></li>
     <li><a href="{{ $ReportsURL }}" class="{{ active('reports.*') }} list-group-item text-center"><i
                     class="fa fa-folder"></i>
             Reportes</a></li>
+    <li><a href="{{ $DiagURL }}" class="{{ active('diagnostic.*') }} list-group-item text-center"><i
+                    class="fa fa-file-text"></i>
+            Diagnósticos y Tratamientos</a></li>
 </div>

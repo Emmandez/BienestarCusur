@@ -20,7 +20,7 @@
   <div class="m-center">
     <div class="slpce__header">
       <div class="slpce__header-container">
-        <h1 class="slpce__header-container_h1">ESTUDIO DE LAS CONDICIONES DE TRABAJADO DE CARÁCTER PSICOSOCIAL "CTCPS-MAC"</h1>
+        <h2 class="slpce__header-container_h1">Estudio de las condiciones de trabajo de carácter psicosocial "CTCPS-MAC"</h2>
       </div>
       <div class="slpce__header-container">
         <p class="slpce__header-container_p">Debes responder cada una de las preguntas según los siguientes criterios (selecciona tu respuesta)</p>
@@ -39,7 +39,7 @@
         <p class="btn btn-primary bot5" type="button">61-75</p>
       </div>
     </div>
-    <form class="container" method="post" action="">
+    <!--<form class="container" method="post" action="">-->
       <div class="table-responsive contenedor">
         <table class="table table-bordered">
           <thead>
@@ -1569,7 +1569,7 @@
           <button class="button btnslpce" type="submit">Guardar</button>
         </div>
       </div>
-    </form>
+    <!--</form>-->
   </div>
 </section>
 {!!Form::close() !!}
