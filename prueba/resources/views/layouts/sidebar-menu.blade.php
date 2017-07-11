@@ -12,10 +12,18 @@ $ReportsURL     = url('reports/create');
 $DiagURL        = url('diagnostic/create');
 ?>
 <div class="list-group sidebar-list">
-    <li><a href="{{url('/')}}" class="{{ active('/') }} list-group-item text-center"><i class="fa fa-home"></i>
-            Inicio</a></li>
-    <li><a href="{{ $NurseryURL }}" class="{{ active('nursery.*') }} list-group-item text-center"><i
-                    class="fa fa-stethoscope"></i> Enfermería</a>
+    <li>
+        <a href="{{url('/')}}" class="{{ active('/') }} list-group-item text-center">
+            <i class="fa fa-home"></i>
+            Inicio
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ $NurseryURL }}" class="{{ active('nursery.*') }} list-group-item text-center">
+            <i class="fa fa-stethoscope"></i>
+            Enfermería
+        </a>
     </li>
 
     <!--barra de navegación con menú desplegable para apartado de médicos-->

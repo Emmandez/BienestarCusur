@@ -1,8 +1,60 @@
 'use strict';
 
+function statusNoRange( elemEvent , status , val ){
+    elemEvent.on('keyup' , function(e){
+        e.preventDefault();
+
+        var valCO = elemEvent.val();
+
+        if( valCO ==='' )
+        {
+            status.val('');
+        }
+        else
+        {
+            var minimo = parseFloat(valCO);
+
+            if( minimo <= val )
+            {
+                status.val('Normal');
+            }
+            else
+            {
+                status.val('Anormal');
+            }
+        }
+    });
+}
+
+function statusRange( elemEvent , status , valMin , valMax ){
+    elemEvent.on('keyup' , function(e){
+        e.preventDefault();
+
+        var value = elemEvent.val();
+
+        if( value === '' )
+        {
+            status.val('');
+        }
+        else
+        {
+            var valor = parseFloat(value);
+
+            if( valor >= valMin && valor <= valMax )
+            {
+                status.val('Normal');
+            }
+            else
+            {
+                status.val('Anormal');
+            }
+        }
+    });
+}
+
 /*por defecto las secciones del contenido están ocultas,
 con valores nulos y no requeridas*/
-$('.wrap_elp-content').animate({
+$('.hideDefault').animate({
     'height' : 'hide'
 },0);
 
@@ -32,6 +84,7 @@ chkBH.on('change' , function(){
         $('#status').val('');
         $('#fechaBH').val('');
         $('#resultBH').val('');
+        $('#diagBH').val('');
         contBH.animate({
             'height' : 'hide'
         },'slow');
@@ -52,6 +105,8 @@ chkGL.on('change' , function(){
         $('#statusGL').prop('required' , true);
         $('#fechaGL').prop('required' , true);
         $('#resultGL').prop('required' , true);
+
+        statusRange( $('#resultGL') , $('#statusGL') , 70 , 110 );
     }
     else
     {
@@ -61,13 +116,14 @@ chkGL.on('change' , function(){
         $('#statusGL').val('');
         $('#fechaGL').val('');
         $('#resultGL').val('');
+        $('#diagGL').val('');
         contGL.animate({
             'height' : 'hide'
         },'slow');
     }
 });
 
-//:::::URE:::::
+//:::::UREA:::::
 var chkUR    = $('#urea') ,
     contUR   = $('.urcont');
 
@@ -81,6 +137,8 @@ chkUR.on('change' , function(){
         $('#statusUR').prop('required' , true);
         $('#fechaUR').prop('required' , true);
         $('#resultUR').prop('required' , true);
+
+        statusRange( $('#resultUR') , $('#statusUR') , 15 , 45 );
     }
     else
     {
@@ -90,6 +148,7 @@ chkUR.on('change' , function(){
         $('#statusUR').val('');
         $('#fechaUR').val('');
         $('#resultUR').val('');
+        $('#diagUR').val('');
         contUR.animate({
             'height' : 'hide'
         },'slow');
@@ -110,6 +169,8 @@ chkCR.on('change' , function(){
         $('#statusCR').prop('required' , true);
         $('#fechaCR').prop('required' , true);
         $('#resultCR').prop('required' , true);
+
+        statusRange( $('#resultCR') , $('#statusCR') , 0.5 , 1.1 );
     }
     else
     {
@@ -119,6 +180,7 @@ chkCR.on('change' , function(){
         $('#statusCR').val('');
         $('#fechaCR').val('');
         $('#resultCR').val('');
+        $('#diagCR').val('');
         contCR.animate({
             'height' : 'hide'
         },'slow');
@@ -138,13 +200,11 @@ chkOR.on('change' , function(){
 
         $('#statusOR').prop('required' , true);
         $('#fechaOR').prop('required' , true);
-        $('#resultOR').prop('required' , true);
     }
     else
     {
         $('#statusOR').removeAttr('required');
         $('#fechaOR').removeAttr('required');
-        $('#resultOR').removeAttr('required');
         $('#statusOR').val('');
         $('#fechaOR').val('');
         $('#resultOR').val('');
@@ -168,6 +228,9 @@ chkCO.on('change' , function(){
         $('#statusCO').prop('required' , true);
         $('#fechaCO').prop('required' , true);
         $('#resultCO').prop('required' , true);
+
+        statusNoRange( $('#resultCO') , $('#statusCO') , 200 ); //se ejecuta la función
+
     }
     else
     {
@@ -176,7 +239,8 @@ chkCO.on('change' , function(){
         $('#resultCO').removeAttr('required');
         $('#statusCO').val('');
         $('#fechaCO').val('');
-        $('#resulCOL').val('');
+        $('#resultCO').val('');
+        $('#diagCO').val('');
         contCO.animate({
             'height' : 'hide'
         },'slow');
@@ -197,6 +261,9 @@ chkTR.on('change' , function(){
         $('#statusTR').prop('required' , true);
         $('#fechaTR').prop('required' , true);
         $('#resultTR').prop('required' , true);
+
+        statusNoRange( $('#resultTR') , $('#statusTR') , 150 ); //se ejecuta la función
+
     }
     else
     {
@@ -206,6 +273,7 @@ chkTR.on('change' , function(){
         $('#statusTR').val('');
         $('#fechaTR').val('');
         $('#resultTR').val('');
+        $('#diagTR').val('');
         contTR.animate({
             'height' : 'hide'
         },'slow');
@@ -225,13 +293,11 @@ chkAP.on('change' , function(){
 
         $('#statusAP').prop('required' , true);
         $('#fechaAP').prop('required' , true);
-        $('#resultAP').prop('required' , true);
     }
     else
     {
         $('#statusAP').removeAttr('required');
         $('#fechaAP').removeAttr('required');
-        $('#resultAP').removeAttr('required');
         $('#statusAP').val('');
         $('#fechaAP').val('');
         $('#resultAP').val('');
@@ -254,46 +320,15 @@ chkCV.on('change' , function(){
 
         $('#statusCV').prop('required' , true);
         $('#fechaCV').prop('required' , true);
-        $('#resultCV').prop('required' , true);
     }
     else
     {
         $('#statusCV').removeAttr('required');
         $('#fechaCV').removeAttr('required');
-        $('#resultCV').removeAttr('required');
         $('#statusCV').val('');
         $('#fechaCV').val('');
         $('#resultCV').val('');
         contCV.animate({
-            'height' : 'hide'
-        },'slow');
-    }
-});
-
-//:::::ACIDO URICO:::::
-var chkAU    = $('#acidoUrico') ,
-    contAU   = $('.aucont');
-
-chkAU.on('change' , function(){
-    if( $(this).is(':checked') )
-    {
-        contAU.animate({
-            'height' : 'show'
-        },'slow');
-
-        $('#statusAU').prop('required' , true);
-        $('#fechaAU').prop('required' , true);
-        $('#resultAU').prop('required' , true);
-    }
-    else
-    {
-        $('#statusAU').removeAttr('required');
-        $('#fechaAU').removeAttr('required');
-        $('#resultAU').removeAttr('required');
-        $('#statusAU').val('');
-        $('#fechaAU').val('');
-        $('#resultAU').val('');
-        contAU.animate({
             'height' : 'hide'
         },'slow');
     }

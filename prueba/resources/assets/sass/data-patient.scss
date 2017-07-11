@@ -1,0 +1,71 @@
+.patient-container{
+    border         : 1px solid lightgray;
+    border-radius  : 5px;
+    padding        : 10px 5px;
+    box-sizing     : border-box;
+    margin-bottom  : 5px;
+    display        : flex;
+    flex-direction : column;
+
+    &_title{
+        display        : flex;
+        flex-direction : column;
+
+        &-p{
+            width         : 150px !important;
+            border-bottom : 1px solid lightgray;
+        }
+        span{
+            width            : 40px;
+            height           : 3px;
+            background-color : darken($theme-color,10);
+        }
+    }
+
+    &_data{
+        display         : flex;
+        justify-content : space-between;
+        margin-top      : 10px;
+
+        input{
+            width : 24%;
+        }
+
+        input:not(last-child){
+            border-style  : none;
+            border        : 1px solid lightgray;
+            border-radius : 5px;
+            text-align    : center;
+            outline       : none;
+            color         : darken($text-color,20);
+
+            &:hover{
+                border : 1px solid gray;
+            }
+
+            &:focus{
+                border : 1px solid gray;
+            }
+        }
+
+        input:last-child{
+            &:focus{
+                outline : none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width : 750px){
+    .patient-container_data{
+        display: flex;
+        flex-direction: column;
+
+        input{
+            width: 100%;
+        }
+        input:not(last-child){
+            margin-bottom : 10px;
+        }
+    }
+}

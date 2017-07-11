@@ -1553,8 +1553,8 @@
             <h3>77. Me doy cuenta que se realizan acciones para ser un centro saludable, incluyente, seguro y sustentable.</h3>
           </div>
           <div class="p77__opt">
-            <div class="p77__opt-item"><input type="radio" name="p77" value="SI" required> SI </input></div>
-            <div class="p77__opt-item"><input type="radio" name="p77" value="NO" require> NO </input></div>
+            <div class="p77__opt-item"><label>SI</label><input type="radio" name="p77" value="SI" required></input></div>
+            <div class="p77__opt-item"><label>NO</label><input type="radio" name="p77" value="NO" require></input></div>
           </div>
         </div>
         <div class="p78 container contenedor">

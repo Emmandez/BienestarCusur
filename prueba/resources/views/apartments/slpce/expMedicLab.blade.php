@@ -432,7 +432,43 @@
                 </div>
             </div>
 
-            <div class="for-group col-md-12">
+            <div class="edificios">
+                <label for="edif">Área de mayor permanencia durante la jornada laboral</label>
+                <select class="areaMayorPermanencia" id='edif' name="edificio_mayor_permanencia">
+                    <option value="">Elije una opción</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_z">Edificio Z</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_y">Edificio Y</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_x">Edificio X</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_w">Edificio W</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_estancia_infantil_cusur">Edificio Estancia Infantil CUSur</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_v">Edificio V</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_p">Edificio P</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_q">Edificio Q</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_r">Edificio R</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_s">Edificio S</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_t">Edificio T</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_i">Edificio I</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_u">Edificio U</option>
+                    <option name="edificio_mayor_permanencia" required value="hospital_veterinario_de_pequeñas_y_grandes_especies">Hospital veterinario de pequeñas y grandes especies</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_a">Edificio A</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_m">Edificio M</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_b">Edificio B</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_j">Edificio J</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_d">Edificio D</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_c">Edificio C</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_l">Edificio L</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_g">Edificio G</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_f">Edificio F</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_de_radio_universidad">Edificio de Radio Universidad</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_casa">Edificio CASA (Biblioteca)</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_lca">Edificio LCA (Centro Acuático)</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_tienda_insignia_universitaria_cusur">Edificio Tienda Insignia Universitaria CUSur</option>
+                    <option name="edificio_mayor_permanencia" required value="bodega_de_electricista_y_fontanero">Bodega de electricista y fontanero</option>
+                    <option name="edificio_mayor_permanencia" required value="edificio_h_dietología">Edificio H Dietología</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-12">
                 <div class="col-md-12">
                     <p class="col-md-5 antiguedad_p">Antigüedad en la institución</p>
                 </div>

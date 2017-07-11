@@ -12,6 +12,7 @@
     <link href="/css/styles.css" rel="stylesheet">
     <link href="/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    {!!Html::style ('/css/apartments/main.css')!!}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -136,7 +137,23 @@
                     @include('layouts.sidebar-menu')
                 </div>
                 <div class="col-md-10">
+
+                    <div class="patient-container">
+                        <div class="patient-container_title">
+                            <p class="patient-container_title-p">Datos del paciente</p>
+                            <span></span>
+                        </div>
+                        <form action="" method="post" class="patient-container_data">
+                            <input type="text"                    autocomplete="off" title="Nombrre completo del paciente"    name="nombre_paciente"     value="" placeholder="Nombre">
+                            <input type="text" pattern="[0-9]{9}" autocomplete="off" title="Ingresa los 9 números del código" name="codigo_paciente"     value="" placeholder="Código">
+                            <input type="text" pattern="[0-9]"    autocomplete="off" title="Ingresa el número de expediente"  name="expediente_paciente" value="" placeholder="Número de expediente">
+
+                            <input type="submit" class="patient-container_submit btn btn-default" name="" value="Obtener">
+                        </form>
+                    </div>
+
                     <div class="panel panel-default">
+
                         <div class="panel-heading">
                             <i class="fa fa-home"></i>
                             {{ $actions[Route::getCurrentRoute()->getPath()] }}

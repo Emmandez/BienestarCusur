@@ -173,6 +173,19 @@
     }
 }
 
+.edificios{
+    margin-bottom: 10px;
+    width: 100% !important;
+
+    label, select{
+        width: 100%;
+    }
+
+    label{
+        margin-bottom: 5px;
+    }
+}
+
 .antiguedad_p{
     margin-bottom: 10px;
     border-bottom: 1px solid lightgray;

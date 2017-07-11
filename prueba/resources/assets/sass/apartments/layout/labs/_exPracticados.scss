@@ -21,6 +21,34 @@
         }
     }
 
+    .other{
+        display: flex;
+        align-items: baseline;
+        justify-content: space-around;
+        input{
+            width: 80% !important;
+            border-style: none;
+            color: darken($text-color,10);
+            &:focus{
+                outline: none;
+            }
+        }
+        .cerrar_otro{
+            width: 10%;
+            color : red;
+            font-size: 1.2em;
+            border-style: none;
+            background-color: transparent;
+            &:hover{
+                cursor: pointer;
+                color: darken(red,15)
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+
     &-content{
         display: flex;
         align-items: baseline;
@@ -37,11 +65,15 @@
         }
 
         .norm_anorm{
-            width: 30%;
+            width: 24%;
             display: flex;
             align-items: center;
             flex-direction: column;
             justify-content: center;
+
+            input{
+                text-align: center;
+            }
         }
 
         .fechaExamen{
@@ -49,7 +81,7 @@
             align-items: center;
             flex-direction: column;
             justify-content: space-between;
-            width: 30%;
+            width: 24%;
         }
 
         .result{
@@ -57,7 +89,15 @@
             align-items: center;
             flex-direction: column;
             justify-content: space-between;
-            width: 30%;
+            width: 24%;
+        }
+
+        .descrip{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24%;
         }
     }
 }
@@ -80,7 +120,7 @@
     }
 }
 
-@media screen and ( max-width : 950px ) and ( min-width : 720px ){
+/*@media screen and ( max-width : 950px ) and ( min-width : 720px ){
     .container_wrap{
         display: flex;
         justify-content: space-between;
@@ -90,12 +130,44 @@
             width: 48%;
             align-self: flex-start;
         }
+        .secPrimerOtro{
+            width: 48%;
+            align-self: flex-start;
+
+            .wrap_elp{
+                width: 100% !important;
+            }
+        }
     }
-}
+}*/
 
 .cb{
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin-top: 20px;
+}
+
+.plus{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    button{
+        border: 1px solid lightgray;
+        border-radius: 7px;
+        padding: 5px 15px;
+        color: $text-color;
+        background-color: transparent;
+
+        &:hover{
+            border: 1px solid gray;
+        }
+
+        &:focus{
+            outline: none;
+        }
+    }
 }

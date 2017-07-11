@@ -193,6 +193,9 @@
 
                 &-item{
                     color: darken($text-color, 10);
+                    display: flex;
+                    justify-content: space-between;
+                    width: 50px;
                 }
             }
         }

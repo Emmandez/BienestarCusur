@@ -1086,7 +1086,10 @@ textarea, input, select {
   height: 50px; }
 
 .table-responsive .p77__opt-item {
-  color: #7a8699; }
+  color: #7a8699;
+  display: flex;
+  justify-content: space-between;
+  width: 50px; }
 
 .table-responsive .p78 {
   display: flex;
@@ -1394,6 +1397,16 @@ td .checkbox {
   display: flex;
   align-items: baseline; }
 
+.edificios {
+  margin-bottom: 10px;
+  width: 100% !important; }
+
+.edificios label, .edificios select {
+  width: 100%; }
+
+.edificios label {
+  margin-bottom: 5px; }
+
 .antiguedad_p {
   margin-bottom: 10px;
   border-bottom: 1px solid lightgray;
@@ -1420,6 +1433,33 @@ td .checkbox {
 .wrap_elp-head input {
   width: 10%; }
 
+.wrap_elp .other {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around; }
+
+.wrap_elp .other input {
+  width: 80% !important;
+  border-style: none;
+  color: #7a8699; }
+
+.wrap_elp .other input:focus {
+  outline: none; }
+
+.wrap_elp .other .cerrar_otro {
+  width: 10%;
+  color: red;
+  font-size: 1.2em;
+  border-style: none;
+  background-color: transparent; }
+
+.wrap_elp .other .cerrar_otro:hover {
+  cursor: pointer;
+  color: #b30000; }
+
+.wrap_elp .other .cerrar_otro:focus {
+  outline: none; }
+
 .wrap_elp-content {
   display: flex;
   align-items: baseline;
@@ -1433,25 +1473,35 @@ td .checkbox {
   width: 100%; }
 
 .wrap_elp-content .norm_anorm {
-  width: 30%;
+  width: 24%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center; }
+
+.wrap_elp-content .norm_anorm input {
+  text-align: center; }
 
 .wrap_elp-content .fechaExamen {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  width: 30%; }
+  width: 24%; }
 
 .wrap_elp-content .result {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  width: 30%; }
+  width: 24%; }
+
+.wrap_elp-content .descrip {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24%; }
 
 @media screen and (max-width: 1100px) {
   .wrap_elp-content {
@@ -1466,20 +1516,31 @@ td .checkbox {
   .wrap_elp-content_div select, .wrap_elp-content_div input {
     width: 100%; } }
 
-@media screen and (max-width: 950px) and (min-width: 720px) {
-  .container_wrap {
-    display: flex;
-    justify-content: space-between;
-    width: 100%; }
-  .container_wrap .wrap_elp {
-    width: 48%;
-    align-self: flex-start; } }
-
 .cb {
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-top: 20px; }
+
+.plus {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%; }
+
+.plus button {
+  border: 1px solid lightgray;
+  border-radius: 7px;
+  padding: 5px 15px;
+  color: #97a0af;
+  background-color: transparent; }
+
+.plus button:hover {
+  border: 1px solid gray; }
+
+.plus button:focus {
+  outline: none; }
 
 .wrap_diagnostics {
   display: flex;
@@ -1528,3 +1589,59 @@ td .checkbox {
     display: flex;
     align-items: center;
     flex-direction: column; } }
+
+.patient-container {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 10px 5px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column; }
+
+.patient-container_title {
+  display: flex;
+  flex-direction: column; }
+
+.patient-container_title-p {
+  width: 150px !important;
+  border-bottom: 1px solid lightgray; }
+
+.patient-container_title span {
+  width: 40px;
+  height: 3px;
+  background-color: #1499ff; }
+
+.patient-container_data {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; }
+
+.patient-container_data input {
+  width: 24%; }
+
+.patient-container_data input:not(last-child) {
+  border-style: none;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  text-align: center;
+  outline: none;
+  color: #616c7f; }
+
+.patient-container_data input:not(last-child):hover {
+  border: 1px solid gray; }
+
+.patient-container_data input:not(last-child):focus {
+  border: 1px solid gray; }
+
+.patient-container_data input:last-child:focus {
+  outline: none; }
+
+@media screen and (max-width: 750px) {
+  .patient-container_data {
+    display: flex;
+    flex-direction: column; }
+  .patient-container_data input {
+    width: 100%; }
+  .patient-container_data input:not(last-child) {
+    margin-bottom: 10px; } }
