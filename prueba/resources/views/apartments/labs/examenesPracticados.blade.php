@@ -34,20 +34,17 @@
                 <label for="fechaBH">Fecha del exámen</label>
                 <input type="date" name="fechaBH" value="" id="fechaBH">
             </div>
-            <div class="norm_anorm wrap_elp-content_div">
-                <label for="status">Estado</label>
-                <select class="" name="BHnormal/anormal" id="status">
-                    <option value="NORM">Normal</option>
-                    <option value="ANOR">Anormal</option>
-                </select>
+            <div class="HB wrap_elp-content_div">
+                <label for="hemoglobina">Hemoglobina (mg/dl)</label>
+                <input type="number" min="0" step="0.01" name="hemoglobina" value="" id="hemoglobina"placeholder="Resultado, ej: 15.2">
             </div>
-            <div class="result wrap_elp-content_div">
-                <label for="resultBH">Diagnóstico</label>
-                <select class="" name="BHresultados" id="resultBH">
-                    <option value="HB">HB</option>
-                    <option value="HTO">HTO</option>
-                    <option value="LEUC">LEUC</option>
-                </select>
+            <div class="HTO wrap_elp-content_div">
+                <label for="hematocrito">Hematocrito (%)</label>
+                <input type="number" min="0" step="0.01" name="hematocrito" value="" id="hematocrito" placeholder="Resultado, ej: 40">
+            </div>
+            <div class="LEUC wrap_elp-content_div">
+                <label for="leucocitos">Leucocitos (cel/mmᵌ)</label>
+                <input type="number" min="0" step="0.01" name="leucocitos" value="" id="leucocitos" placeholder="Resultado, ej: 66">
             </div>
             <div class="descrip wrap_elp-content_div">
                 <label for="diagBH">Descripción</label>
@@ -269,14 +266,14 @@
             :: Para el input de la descripción será: 'descOtro<NúmeroExamenNuevo>'
 
             ejemplo:
-            
+
             nombreOtro1
             fechaOtro1
             resultadoOtro1
             estadoOtro1
             descOtro1
 
-            nombreOtro
+            nombreOtro2
             fechaOtro2
             resultadoOtro2
             estadoOtro2

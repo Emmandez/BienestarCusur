@@ -1433,6 +1433,9 @@ td .checkbox {
 .wrap_elp-head input {
   width: 10%; }
 
+.wrap_elp-head input:hover {
+  cursor: pointer; }
+
 .wrap_elp .other {
   display: flex;
   align-items: baseline;
@@ -1502,6 +1505,19 @@ td .checkbox {
   flex-direction: column;
   justify-content: space-between;
   width: 24%; }
+
+.wrap_elp .bhcont {
+  display: flex;
+  flex-direction: column; }
+
+.wrap_elp .bhcont div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+
+.wrap_elp .bhcont div:not(last-child) {
+  margin-bottom: 10px; }
 
 @media screen and (max-width: 1100px) {
   .wrap_elp-content {

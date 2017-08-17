@@ -18,6 +18,9 @@
         }
         input{
             width: 10%;
+            &:hover{
+                cursor: pointer;
+            }
         }
     }
 
@@ -98,6 +101,20 @@
             flex-direction: column;
             justify-content: space-between;
             width: 24%;
+        }
+    }
+
+    .bhcont{
+        display: flex;
+        flex-direction: column;
+        div{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        div:not(last-child){
+            margin-bottom : 10px;
         }
     }
 }

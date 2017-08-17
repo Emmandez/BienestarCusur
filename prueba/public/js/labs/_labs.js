@@ -72,18 +72,21 @@ chkBH.on('change' , function(){
             'height' : 'show'
         },'slow');
 
-        $('#status').prop('required' , true);
         $('#fechaBH').prop('required' , true);
-        $('#resultBH').prop('required' , true);
+        $('#hemoglobina').prop('required' , true);
+        $('#hematocrito').prop('required' , true);
+        $('#leucocitos').prop('required' , true);
     }
     else
     {
-        $('#status').removeAttr('required');
         $('#fechaBH').removeAttr('required');
-        $('#resultBH').removeAttr('required');
-        $('#status').val('');
+        $('#hemoglobina').removeAttr('required');
+        $('#hematocrito').removeAttr('required');
+        $('#leucocitos').removeAttr('required');
         $('#fechaBH').val('');
-        $('#resultBH').val('');
+        $('#hemoglobina').val('');
+        $('#hematocrito').val('');
+        $('#leucocitos').val('');
         $('#diagBH').val('');
         contBH.animate({
             'height' : 'hide'

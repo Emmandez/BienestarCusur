@@ -17,7 +17,7 @@
                         {{
                         form::number('size',
                         null,
-                        ['placeholder' => 'Ingresa la talla del paciente en centímetros', 'class' => 'form-control', 'required'])
+                        ['placeholder' => 'Ingresa la talla del paciente en metros', 'id' => 'talla' ,  'class' => 'form-control', 'step' => '0.1' , 'min' => '0' ,  'required'])
                         }}
                     </div>
                     @if ($errors->has('size'))
@@ -34,7 +34,7 @@
                         {{
                         Form::number('current_weight',
                         null,
-                        ['placeholder' => 'Ingresa el peso actual del paciente en Kilogramos', 'class' => 'form-control', 'required'])
+                        ['placeholder' => 'Ingresa el peso actual del paciente en Kilogramos', 'id' => 'pesoActual' , 'class' => 'form-control', 'step' => '0.1' , 'min' => '0' , 'required'])
                         }}
                     </div>
                     @if ($errors->has('current_weight'))
@@ -49,9 +49,9 @@
                     <div class="input-group">
                         <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
                         {{
-                        Form::text('IMC',
+                        Form::number('IMC',
                         null,
-                        ['placeholder' => 'Ingresa el indice de masa corporal del paciente', 'class' => 'form-control', 'required'])
+                        ['placeholder' => 'Ingresa el índice de masa corporal del paciente', 'step' => '0.1' , 'min' => '0' , 'id' => 'imc' , 'class' => 'form-control', 'required'])
                         }}
                     </div>
                     @if ($errors->has('IMC'))
@@ -66,7 +66,7 @@
                     <div class="input-group">
                         <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
                         {{
-                        Form::select('weight_category', [ 'Peso bajo' => 'Peso bajo', 'Peso normal' => 'Peso normal', 'Sobrepeso' => 'Sobrepeso'], null, ['class' => 'form-control','placeholder' => 'Elije una opción'])
+                        Form::select('weight_category',  [ 'Peso bajo' => 'Peso bajo', 'Peso normal' => 'Peso normal', 'Sobrepeso' => 'Sobrepeso' , 'Obesidad grado 1' => 'Obesidad grado 1' , 'Obesidad grado 2' => 'Obesidad grado 2' , 'Obesidad grado 3' => 'Obesidad grado 3'], null, ['class' => 'form-control' , 'id' => 'categPeso' , 'placeholder' => 'Elije una opción'])
                         }}
                     </div>
                     @if ($errors->has('weight_category'))
@@ -77,6 +77,7 @@
                     @endif
                 </div>
                 <hr>
+                <!--
                 <div class="form-group">
                     <label class="control-label" for="obesity_grade">Grado de obesidad</label>
                     <div class="input-group">
@@ -92,6 +93,7 @@
              </span>
                     @endif
                 </div>
+                -->
                 <div class="form-group">
                     <label class="control-label" for="hip_circumference">Circunferencia de cadera</label>
                     <div class="input-group">
@@ -104,9 +106,24 @@
                     </div>
                     @if ($errors->has('hip_circumference'))
                         <span class="text-danger">
-               <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                <strong>{{ $errors->first('hip_circumference') }}</strong>
-             </span>
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <strong>{{ $errors->first('hip_circumference') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="waist_circumference">Circunferencia de cintura</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                        {{
+                        Form::number('waist_circumference', null, ['class' => 'form-control','placeholder' => 'Ingresa la circunferencia de cintura del paciente en centímetros'])
+                        }}
+                    </div>
+                    @if ($errors->has('waist_circumference'))
+                        <span class="text-danger">
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <strong>{{ $errors->first('waist_circumference') }}</strong>
+                        </span>
                     @endif
                 </div>
                 <div class="form-group">
@@ -121,24 +138,26 @@
                     </div>
                     @if ($errors->has('waist_danger'))
                         <span class="text-danger">
-               <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                <strong>{{ $errors->first('waist_danger') }}</strong>
-             </span>
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <strong>{{ $errors->first('waist_danger') }}</strong>
+                        </span>
                     @endif
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="waist_circumference">Circunferencia de cintura</label>
+                    <label class="control-label" for="icc">ICC</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
                         {{
-                        Form::number('waist_circumference', null, ['class' => 'form-control','placeholder' => 'Ingresa la circunferencia de cintura del paciente en centímetros'])
+                        form::number('icc',
+                        null,
+                        ['placeholder' => 'Ingresa el ICC del paciente', 'class' => 'form-control', 'required'])
                         }}
                     </div>
-                    @if ($errors->has('waist_circumference'))
+                    @if ($errors->has('icc'))
                         <span class="text-danger">
-               <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                <strong>{{ $errors->first('waist_circumference') }}</strong>
-             </span>
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <strong>{{ $errors->first('icc') }}</strong>
+                        </span>
                     @endif
                 </div>
                 <hr>
@@ -211,37 +230,20 @@
                 </div>
                 <hr>
                 <div class="form-group">
-                    <label class="control-label" for="hand_circunferency">Circunferencia de muñeca</label>
+                    <label class="control-label" for="risk_icc">Riesgo por ICC</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
                         {{
-                        form::number('hand_circunferency',
+                        form::select('risk_icc', ['bajo' => 'bajo', 'medio' => 'medio', 'alto' => 'alto'],
                         null,
-                        ['placeholder' => 'Ingresa la circunferencia de la muñeca del paciente', 'class' => 'form-control', 'required'])
+                        ['placeholder' => 'Elije una opción', 'class' => 'form-control', 'required'])
                         }}
                     </div>
-                    @if ($errors->has('hand_circunferency'))
+                    @if ($errors->has('risk_icc'))
                         <span class="text-danger">
-               <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                <strong>{{ $errors->first('hand_circunferency') }}</strong>
-             </span>
-                    @endif
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="icc">ICC</label>
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        {{
-                        form::number('icc',
-                        null,
-                        ['placeholder' => 'Ingresa el ICC del paciente', 'class' => 'form-control', 'required'])
-                        }}
-                    </div>
-                    @if ($errors->has('icc'))
-                        <span class="text-danger">
-               <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                <strong>{{ $errors->first('icc') }}</strong>
-             </span>
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <strong>{{ $errors->first('risk_icc') }}</strong>
+                        </span>
                     @endif
                 </div>
                 <div class="form-group">
@@ -256,9 +258,26 @@
                     </div>
                     @if ($errors->has('mass_distribution'))
                         <span class="text-danger">
-               <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                <strong>{{ $errors->first('mass_distribution') }}</strong>
-             </span>
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <strong>{{ $errors->first('mass_distribution') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="hand_circunferency">Circunferencia de muñeca</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                        {{
+                        form::number('hand_circunferency',
+                        null,
+                        ['placeholder' => 'Ingresa la circunferencia de la muñeca del paciente', 'class' => 'form-control', 'required'])
+                        }}
+                    </div>
+                    @if ($errors->has('hand_circunferency'))
+                        <span class="text-danger">
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <strong>{{ $errors->first('hand_circunferency') }}</strong>
+                        </span>
                     @endif
                 </div>
                 <div class="form-group">
@@ -541,9 +560,15 @@
         </div>
     </div>
 
-    {{ Form::submit('Capturar', ['class' => 'btn btn-success'])  }}
-    <a class="btn btn-success pull-right" href="{{ action('NutriologyController@index') }}">Ver registros</a>
+    {{ Form::submit('Capturar', ['class' => 'btn btn-success col-md-6 col-md-offset-1'])  }}
+    <a class="btn btn-success pull-right col-md-4" href="{{ action('NutriologyController@index') }}">Ver registros</a>
     <div class="input-group input-group-md">
         {!! Form::close() !!}
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{asset('node_modules/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/nursery/getValues.js')}}"></script>
 @endsection
