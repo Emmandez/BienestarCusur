@@ -1,3 +1,4 @@
+<!-- Formulario de antecedentes laborales. Se toman en cuenta el trabajo actual y anteriores -->
 {{-- Inherits from partial layout 'layouts' --}}
 @extends('layouts.app')
 {{-- Inherited layout --}}

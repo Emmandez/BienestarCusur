@@ -1,3 +1,4 @@
+<!-- Formulario de Condiciones de trabajo de caracter psicosocial -->
 {{-- Inherits from partial layout 'layouts' --}}
 @extends('layouts.app')
 {{-- Inherited layout --}}

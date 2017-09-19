@@ -1,3 +1,4 @@
+<!-- Pestaña con campos de texto para redactar observaciones y emitir recomendaciones.-->
 {{-- Inherits from partial layout 'layouts' --}}
 @extends('layouts.app')
 {{-- Inherited layout --}}

@@ -1,3 +1,4 @@
+<!-- Formularios de evaluación antropométrica e impedancia bioelectrica -->
 {{-- Inherits from partial layout 'layouts' --}}
 @extends('layouts.app')
 {{-- Inherited layout --}}
@@ -570,5 +571,5 @@
 @section('scripts')
     <script src="{{asset('node_modules/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{asset('node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('js/nursery/getValues.js')}}"></script>
+    <script src="{{asset('js/nutriology/getValues.js')}}"></script>
 @endsection

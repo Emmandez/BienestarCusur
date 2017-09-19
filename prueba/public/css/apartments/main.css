@@ -1197,6 +1197,11 @@ textarea, input, select {
 input {
   width: 100%; }
 
+.mi{
+  width: 15%;
+  float: left;
+  }
+
 label {
   color: #97a0af; }
 

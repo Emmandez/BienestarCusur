@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class AnthropometricEvaluation extends Model
 {
+    protected $table='anthropometric_evaluations';
+    
     protected $fillable = [
         'size',
         'current_weight',

@@ -23,16 +23,31 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                                <label for="last_name" class="col-md-4 control-label">Primer apellido</label>
+                            <div class="form-group{{ $errors->has('last_name_p') ? ' has-error' : '' }}">
+                                <label for="last_name_p" class="col-md-4 control-label">Primer apellido</label>
 
                                 <div class="col-md-6">
-                                    <input id="last_name" type="text" class="form-control" name="last_name"
-                                           value="{{ old('last_name') }}" required autofocus>
+                                    <input id="last_name_p" type="text" class="form-control" name="last_name_p"
+                                           value="{{ old('last_name_p') }}" required autofocus>
 
-                                    @if ($errors->has('last_name'))
+                                    @if ($errors->has('last_name_p'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                        <strong>{{ $errors->first('last_name_p') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('last_name_m') ? ' has-error' : '' }}">
+                                <label for="last_name_m" class="col-md-4 control-label">Segundo apellido</label>
+
+                                <div class="col-md-6">
+                                    <input id="last_name_m" type="text" class="form-control" name="last_name_m"
+                                           value="{{ old('last_name_m') }}" required autofocus>
+
+                                    @if ($errors->has('last_name_m'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('last_name_m') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -90,6 +105,21 @@
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
                                            name="password_confirmation" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('CURP') ? ' has-error' : '' }}">
+                                <label for="curp" class="col-md-4 control-label">CURP</label>
+
+                                <div class="col-md-6">
+                                    <input id="curp" type="text" class="form-control" name="curp"
+                                           value="{{ old('curp') }}" required>
+
+                                    @if ($errors->has('CURP'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('CURP') }}</strong>
+                                    </span>
+                                    @endif 
                                 </div>
                             </div>
 

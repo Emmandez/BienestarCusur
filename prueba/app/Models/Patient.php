@@ -6,21 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
+	protected $table='patients';
+	
     protected $fillable = [
-        'first_name',
-        'first_lastname',
-        'second_lastname',
-        'Control_code',
-        'civil_state',
-        'gender',
-        'birth_date',
-        'dependents',
-        'child_number',
-        'birth_place',
+    'civil_status',
+    'gender',
+    'birth_date',
+    'age',
+    'dependents',
+    'birth_place'
     ];
-
-    public function VitalSigns()
-    {
-        return $this->hasMany(VitalSigns::class);
-    }
 }

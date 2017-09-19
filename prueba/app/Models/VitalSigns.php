@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class VitalSigns extends Model
 {
+    protected $table='vital_Signs';
+    
     protected $fillable = [
         'mmHG',
         'FC',

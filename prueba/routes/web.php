@@ -5,6 +5,9 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     // Main dashboard
     Route::get('/', 'HomeController@index');
+    Route::get('/prueba', function(){
+        return view('prueba');
+    });
     // RESTful routes
     Route::resource('nursery', 'NurseryController');
     Route::resource('medics', 'MedicsController');
@@ -16,6 +19,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('reports', 'ReportsController');
     Route::resource('medicsExp','MedicsExpController');
     Route::resource('diagnostic','DiagController');
+
+    
 
 });
 // Testing controller

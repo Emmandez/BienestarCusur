@@ -1,4 +1,4 @@
-
+<!-- Formulario de interrogatorio de aparatos, sistemas y exploración física -->
   {{-- Inherits from partial layout 'layouts' --}}
 @extends('layouts.app')
 {{-- Inherited layout --}}

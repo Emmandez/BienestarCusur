@@ -1,3 +1,6 @@
+/*Oculta o muestra los campos de entrada de datos dependiendo del valor
+  dado al elemento select.
+*/
 'use strict';
 
 $('input, textarea').prop('autocomplete' , 'off');

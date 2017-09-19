@@ -1,3 +1,4 @@
+//despliega un formulario para añadir un examen adicional.
 'use strict';
 
 var boton   = $('#btnPlus');
@@ -36,7 +37,7 @@ boton.on( 'click' , function(){
     console.log(d);*/
 
 } );
-
+//Cierra los formularios abiertos por el evento anterior en este mismo código
 function cerrar(element){
     element.closest('.secOtro').remove();
     counter --;

@@ -5,7 +5,7 @@ use App\Models\Role;
 
 class CreateRoles extends Migration
 {
-
+/*
     public function up()
     {
         // Could also be...
@@ -62,6 +62,11 @@ class CreateRoles extends Migration
         $registered->display_name = 'Registrado (Sin rol)';
         $registered->description = 'Usuario sin ningún rol activo';
         $registered->save();
+    }
+    */
+    public function up(){
+        
+        
     }
 
 

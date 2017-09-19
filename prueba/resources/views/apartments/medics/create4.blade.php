@@ -1,6 +1,4 @@
-
-
-
+<!-- Vista de formularios de antecedentes heredo-familiares, patológicos, no patológicos y gineco-obstétricos -->
 {{-- Inherits from partial layout 'layouts' --}}
 @extends('layouts.app')
 {{-- Inherited layout --}}
@@ -12,6 +10,8 @@
     <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css"/>
 
     <!--<link rel="stylesheet" href="/css/medics/main.css"/> -->
+
+    
      {!!Html::style ('/css/apartments/main.css')!!}
 @endsection
 

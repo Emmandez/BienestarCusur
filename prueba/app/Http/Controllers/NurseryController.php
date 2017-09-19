@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreNurseryCapture;
-use App\Models\Patient;
+use App\Models\Compilation;
+
 use App\Models\VitalSigns;
 use Illuminate\Http\Request;
 use League\Flysystem\Exception;
@@ -39,11 +40,12 @@ class NurseryController extends Controller
      */
     public function store(StoreNurseryCapture $request)
     {
-        // Filling out the patient partially
-        $patient_data = new Patient();
-        $patient_data->first_name = $request->get('first_name');
-        $patient_data->first_lastname = $request->get('first_lastname');
-        $patient_data->second_lastname = $request->get('second_lastname');
+        // Filling out the compilation table partially
+        $Compilation_data = new Compilation();
+        $Compilation_data->first_name = $request->get('first_name');
+        $Compilation_data->first_lastname = $request->get('first_lastname');
+        $Compilation_data->second_lastname = $request->get('second_lastname');
+
         //Saving new patient
         $patient_data->save();
 

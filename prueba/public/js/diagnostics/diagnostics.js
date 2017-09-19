@@ -1,3 +1,4 @@
+//Despliega las áreas de texto al marcar una casilla. 
 //::::: SEGURIDAD LABORAL :::::
 var chkSL  = $('#chkSL'),
     contSL = $('.sl_container');

@@ -31,17 +31,23 @@ class RegisterController extends Controller
         'UDG_Code.min' => 'El código UDG debe tener mínimo 7 caracteres.',
         'password.min' => 'La contraseña debe tener mínimo 6 caracteres.',
         'UDG_Code.max' => 'El código UDG no debe tener más de 9 caracteres.',
-        'password.confirmed' => 'Las contraseñas no coinciden.'
+        'password.confirmed' => 'Las contraseñas no coinciden.',
+        'CURP.min' => 'La curp tiene pocos caracteres',
+        'CURP.max' => 'La curp tiene muchos caracteres'
+
+
     ];
 
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'first_name' => 'required|max:255',
-            'last_name' => 'required|max:255',
+            'last_name_p' => 'required|max:255',
+            'last_name_m' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'UDG_Code' => 'required|min:7|max:9|unique:users',
             'password' => 'required|min:6|confirmed',
+            'CURP' => 'min:18|max:19|unique:users'
         ], $this->messages);
     }
 
@@ -50,10 +56,12 @@ class RegisterController extends Controller
 
         $user = User::create([
             'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
+            'last_name_p' => $data['last_name_p'],
+            'last_name_m' => $data['last_name_m'],
             'email' => $data['email'],
             'UDG_Code' => $data['UDG_Code'],
             'password' => bcrypt($data['password']),
+            'CURP' => $data['curp']
         ]);
         $user->attachRole(Role::where('name', '=', 'registered')->first());
         return $user;

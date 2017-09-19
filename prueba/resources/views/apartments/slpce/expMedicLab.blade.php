@@ -1,3 +1,4 @@
+<!-- Formulario de ficha de identificación (datos generales), datos de escolaridad e información laboral -->
 {{-- Inherits from partial layout 'layouts' --}}
 @extends('layouts.app')
 {{-- Inherited layout --}}

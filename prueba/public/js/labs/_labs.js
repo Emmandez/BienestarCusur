@@ -1,5 +1,5 @@
 'use strict';
-
+//Evalua un valor e imprime si el valor es normal o anormal
 function statusNoRange( elemEvent , status , val ){
     elemEvent.on('keyup' , function(e){
         e.preventDefault();
@@ -25,7 +25,8 @@ function statusNoRange( elemEvent , status , val ){
         }
     });
 }
-
+/*Evalúa que un valor se encuentre entre un rango. 
+Si se encuentra dentro, es normal, si no, es anormal*/
 function statusRange( elemEvent , status , valMin , valMax ){
     elemEvent.on('keyup' , function(e){
         e.preventDefault();
@@ -60,6 +61,7 @@ $('.hideDefault').animate({
 
 $('select').val('');
 
+//Muestra los campos para llenar los formumlarios al checar la casilla. 
 //--------------------------------
 //:::BIOMETRÍA HEMÁTICA:::::
 var chkBH    = $('#bioHe') ,

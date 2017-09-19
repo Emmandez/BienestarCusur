@@ -1,3 +1,4 @@
+<!-- Pestaña de Registro de exámenes realizados. Los datos son tipo de examen, fecha y resultados -->
 {{-- Inherits from partial layout 'layouts' --}}
 @extends('layouts.app')
 {{-- Inherited layout --}}
