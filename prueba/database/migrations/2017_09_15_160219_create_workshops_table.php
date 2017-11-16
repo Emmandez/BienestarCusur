@@ -17,10 +17,12 @@ class CreateWorkshopsTable extends Migration
             $table->string('workshopName', 45);
             $table->enum('priority', ['1','2','3']);
 
-            $table->integer('psychosocial_idPsychosocial')->unsigned();
-            $table->foreign('psychosocial_idPsychosocial')
-                  ->references('idPsychosocial')
-                  ->on('psychosocial')->onDelete('cascade');
+            $table->integer('psychosocial_id')->unsigned();
+            
+            $table->foreign('psychosocial_id')
+                  ->references('id')
+                  ->on('psychosocial')
+                  ->onDelete('cascade');
 
             $table->timestamps();
         });

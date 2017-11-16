@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreNurseryCapture;
-use App\Models\Compilation;
+use App\Models\Patient;
 
+use App\Models\Compilation;
 use App\Models\VitalSigns;
+
 use Illuminate\Http\Request;
 use League\Flysystem\Exception;
+
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class NurseryController extends Controller
 {
@@ -18,8 +23,9 @@ class NurseryController extends Controller
      */
     public function index()
     {
-        $records = Patient::all();
-        return view('apartments.nursery.index', compact('records'));
+
+        //$records = Patient::all();
+        //return view('apartments.nursery.index', compact('records'));
     }
 
     /**
@@ -38,27 +44,46 @@ class NurseryController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreNurseryCapture $request)
+    public function store(Request $request)
     {
-        // Filling out the compilation table partially
-        $Compilation_data = new Compilation();
-        $Compilation_data->first_name = $request->get('first_name');
-        $Compilation_data->first_lastname = $request->get('first_lastname');
-        $Compilation_data->second_lastname = $request->get('second_lastname');
 
-        //Saving new patient
-        $patient_data->save();
+        $date       = getdate();
+        $formatDate = $date['year'].'-'.$date['mon'].'-'.$date['mday'].'-'.$date['hours'].'-'.$date['minutes'].'-'.$date['seconds'];
 
         // Filling out VitalSigns
-        $vs_data = new VitalSigns();
-        $vs_data->mmHG = $request->get('mmHG');
-        $vs_data->FC = $request->get('FC');
-        $vs_data->FR = $request->get('FR');
-        $vs_data->Temp = $request->get('Temp');
-        $vs_data->patient_id = $patient_data->id;
+        $vs_data                  = new VitalSigns();
+        $vs_data->mmHG            = $request->get('mmHG');
+        $vs_data->FC              = $request->get('FC');
+        $vs_data->FR              = $request->get('FR');
+        $vs_data->Temp            = $request->get('Temp');
+        
+        $vs_data->compilations_id = '214413693';
+        //$vs_data->compilations_id = $request->get('patientCode');
+
+        
+        
+        
         // Saving new VitalSigns
         $vs_data->save();
-        return redirect('nursery');
+
+        //Updating compilation table.
+        //Searching the tuple we want to update
+        //$compilation = Compilation::find($request->get('patientCode'));
+        $compilation = Compilation::find('214413693');
+
+        //Changing data's field we want to update 
+        $compilation->nurseData       = 'Y';
+        $compilation->idResponsibleN  = Auth::user()->UDG_Code;
+        $compilation->aplicationDateN = $formatDate;
+        //Saving the updated object
+        $compilation->save();
+
+
+
+        //Going back to the form
+        return redirect('nursery/create');
+
+
     }
 
     /**

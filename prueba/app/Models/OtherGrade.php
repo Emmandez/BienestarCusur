@@ -13,4 +13,8 @@ class OtherGrade extends Model
     'other_grade',
     'specifitacion'
     ];
+
+    public function scholarship(){
+    	return $this->belongsTo('App\Models\Scholarship');
+    }
 }

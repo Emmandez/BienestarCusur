@@ -279,3 +279,11 @@ antTrab.on('click' , function(){
     }
 
 });
+
+//Copiar texto del centro de trabajo del primer puesto al segundo puesto
+$('#primerCentro').on('keyup', function(){
+    var txt = $('#primerCentro').val();
+    $('#segundoCentro').val(txt);
+});
+
+

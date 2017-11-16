@@ -14,17 +14,18 @@ class CreateExplorationsTable extends Migration
     public function up()
     {
         Schema::create('explorations', function (Blueprint $table) {
-            $table->enum('orgSis', ['CACU','OJOS','OIDO', 'OROF', 'TORA','ABDO','GENI','EXTR','NEUR','PIEL']);
-            $table->enum('concept', ['TIRO','OTRO','CONJ','CORN','CAUD','TIMP','CORA','PULM','PAAB','VISC','MISU','MIIN', 'COLU','SC']);
-            $table->enum('condition',['NORM','ANOR']);
+            $table->increments('id');
+            $table->string('orgSis');
+            $table->string('concept');
+            $table->string('condition');
             $table->longText('description');
             
            //Campo para almacenar las llave foránea. Recordar que es una llave compuesta            
-            $table->string('compilation_idCode', 7)->unique();
+            $table->string('compilations_id');
             
             //definir llave foranea. Relación entre las tablas
-            $table->foreign('compilation_idCode')
-                  ->references('idCode')->on('compilations')
+            $table->foreign('compilations_id')
+                  ->references('id')->on('compilations')
                   ->onDelete('cascade');
             
             $table->timestamps();

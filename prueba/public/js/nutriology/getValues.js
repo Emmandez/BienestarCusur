@@ -53,4 +53,58 @@ $('#talla , #pesoActual').on( 'keyup' , function(){
         //categPeso.attr('placeholder' , 'Elije una opción');
     }
 } );
-//////////////////////////////////////////////////////////////////7
+//////////////////////////////////////////////////////////////////
+
+
+'use strict';
+//hide secundaries options
+$('.opt2').animate({
+    "height" : "hide"
+});
+
+//Desplegar campos ejercicio
+$("#siExcer").click(function(){
+    $('#ExcOpt').animate({
+        'height' :'show'
+    });
+    let opt = $('#ExcOpt').find('input');
+    opt.each(function(){
+        $(this).prop('required', true);
+    });
+});
+$("#noExcer").click(function(){
+    $('#ExcOpt').animate({
+        'height' :'hide'
+    });
+    let opt = $('#ExcOpt').find('input');
+    opt.each(function(){
+        $(this).prop('checked', false);
+    });
+    opt.each(function(){
+        $(this).removeAttr('required');
+    });
+});
+
+//Desplegar campos actividad física
+$("#siActFi").click(function(){
+    $('#ActFOpt').animate({
+        'height' :'show'
+    });
+    let opt = $('#ActFOpt').find('input');
+    opt.each(function(){
+        $(this).prop('required', true);
+    });
+});
+$("#noActFi").click(function(){
+    $('#ActFOpt').animate({
+        'height' :'hide'
+    });
+    let opt = $('#ActFOpt').find('input');
+    opt.each(function(){
+        $(this).prop('checked', false);
+    });
+    opt.each(function(){
+        $(this).removeAttr('required');
+    });
+});
+

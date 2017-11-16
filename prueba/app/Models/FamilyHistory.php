@@ -10,6 +10,10 @@ class FamilyHistory extends Model
 	
     protected $filliable = [
     'concept',
-    'line'
+    'description'
     ];
+
+    public function compilation(){
+    	return $this->belongsTo('App\Models\Compilation');
+    }
 }

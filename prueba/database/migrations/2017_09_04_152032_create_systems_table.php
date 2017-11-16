@@ -14,17 +14,17 @@ class CreateSystemsTable extends Migration
     public function up()
     {
         Schema::create('Systems', function (Blueprint $table) {
-            $table->increments('idSystem');
-            $table->enum('concept', ['RECA','DIGE','ENDO','MUES','GEUR','HELI','PIAN','NEPS']);
+            $table->increments('id');
+            $table->string('concept');
             $table->mediumText('description');
             
             //Campo para almacenar las llave foránea. Recordar que es una llave compuesta            
-            $table->string('Compilation_idCode', 7)->unique();
+            $table->string('compilations_id');
             //$table->integer('Compilation_idCaseFile');
 
             //definir llave foranea. Relación entre las tablas
-            $table->foreign('Compilation_idCode')
-                  ->references('idCode')
+            $table->foreign('compilations_id')
+                  ->references('id')
                   ->on('compilations')->onDelete('cascade');
             /*      
             $table->foreign('Compilation_idCaseFile')

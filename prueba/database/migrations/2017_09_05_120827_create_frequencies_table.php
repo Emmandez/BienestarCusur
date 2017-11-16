@@ -14,16 +14,19 @@ class CreateFrequenciesTable extends Migration
     public function up()
     {
         Schema::create('frequencies', function (Blueprint $table) {
-            $table->increments('idFrequencies');
-            $table->enum('concept',['TABA','ALCO','TOXI']);
+            $table->increments('id');
+            $table->string('concept');
             $table->string('years',2);
-            $table->enum('exConsumer',['SI','NO']);
+            $table->integer('frecuency'); 
+            $table->string('exConsumer');
 
-            $table->integer('nonPathHist_idNonPathlHist')->unsigned();
+            $table->integer('nonPathologicalHistories_id')->unsigned();
 
-            $table->foreign('nonPathHist_idNonPathlHist')->references('idNonPathologicalHistories')
-                ->on('nonPathologicalHistories')
-                ->onDelete('cascade');
+            $table->foreign('nonPathologicalHistories_id')
+                  ->references('id')
+                  ->on('nonPathologicalHistories')
+                  ->onDelete('cascade');
+                  
             $table->timestamps();
         });
     }

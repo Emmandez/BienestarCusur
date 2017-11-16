@@ -14,12 +14,14 @@ class CreateFoliosTable extends Migration
     public function up()
     {
         Schema::create('folios', function (Blueprint $table) {
-            $table->increments('idFolios');
+            $table->increments('id');
 
-            $table->string('Compilation_idCode')->unique();
-            $table->foreign('Compilation_idCode')
-                  ->references('idCode')
-                  ->on('compilations')->onDelete('cascade');
+            $table->string('compilations_id')->unique();
+
+            $table->foreign('compilations_id')
+                  ->references('id')
+                  ->on('compilations')
+                  ->onDelete('cascade');
 
             $table->timestamps();
         });

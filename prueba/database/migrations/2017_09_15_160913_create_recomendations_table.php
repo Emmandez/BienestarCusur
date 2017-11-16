@@ -14,7 +14,7 @@ class CreateRecomendationsTable extends Migration
     public function up()
     {
         Schema::create('recomendations', function (Blueprint $table) {
-            $table->increments('idRecomendation');
+            $table->increments('id');
             $table->mediumText('recomendation');
             $table->timestamps();
         });

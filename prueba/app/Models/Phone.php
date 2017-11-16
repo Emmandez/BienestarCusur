@@ -13,4 +13,8 @@ class Phone extends Model
     'phoneNumber',
     'type'
     ];
+
+    public function compilation(){
+    	return $this->belongsTo('App\Models\Compilation');
+    }
 }

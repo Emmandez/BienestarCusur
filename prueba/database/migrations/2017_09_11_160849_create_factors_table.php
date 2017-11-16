@@ -15,11 +15,15 @@ class CreateFactorsTable extends Migration
     {
         Schema::create('factors', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('conceptofactor',['RUID', 'VIBR', 'TEEX', 'ILUM', 'RADI', 'QUIM', 'BIOL', 'ERGO', 'OTRO', 'ACCI']);
+            $table->mediumText('conceptofactor');
 
-            $table->integer('Works_idWorks')->unsigned();
+            $table->integer('works_id')->unsigned();
 
-            $table->foreign('Works_idWorks')->references('idWorks')->on('works')->onDelete('cascade');
+            $table->foreign('works_id')
+                ->references('id')
+                ->on('works')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

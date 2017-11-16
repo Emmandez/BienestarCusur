@@ -14,18 +14,19 @@ class CreateScholarshipsTable extends Migration
     public function up()
     {
         Schema::create('scholarships', function (Blueprint $table) {
-            $table->increments('idScholarships');
-            $table->enum('lastGrade',['PRIM', 'SECU', 'BACH', 'CATE', 'LICE', 'MAES', 'DOCT']);
+            $table->increments('id');
+            $table->enum('lastGrade',['Primaria', 'Secundaria', 'Bachillerato', 'Carrera Técnica', 'Licenciatura', 'Maestría', 'Doctorado']);
             $table->string('specification', 70);
 
             //Campo para almacenar las llave foránea. Recordar que es una llave compuesta            
-            $table->string('Compilation_idCode')->unique();
+            $table->string('compilations_id')->unique();
             //$table->integer('Compilation_idCaseFile');
 
             //definir llave foranea. Relación entre las tablas
-            $table->foreign('Compilation_idCode')
-                  ->references('idCode')
-                  ->on('compilations')->onDelete('cascade');
+            $table->foreign('compilations_id')
+                  ->references('id')
+                  ->on('compilations')
+                  ->onDelete('cascade');
             /*      
             $table->foreign('Compilation_idCaseFile')
                   ->references('idCaseFile')
@@ -34,6 +35,8 @@ class CreateScholarshipsTable extends Migration
                   
             $table->timestamps();
         });
+
+        
     }
 
     /**

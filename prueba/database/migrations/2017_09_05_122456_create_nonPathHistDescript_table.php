@@ -15,13 +15,17 @@ class CreateNonPathHistDescriptTable extends Migration
     {
         Schema::create('nonPathHistDescript', function (Blueprint $table) {
             //Duda. Dejar enum o string y validar los enum en el programa.
-            $table->enum('concept',['ALER','TOXI','INMU']);
+            $table->string('concept');
             $table->longtext('description');
-            $table->integer('nonPathHist_idNonPathlHist')->unsigned();
-            $table->foreign('nonPathHist_idNonPathlHist')
-                ->references('idNonPathologicalHistories')
-                ->on('nonPathologicalHistories')
-                ->onDelete('cascade');
+
+            
+            $table->integer('nonPathologicalHistories_id')->unsigned();
+
+            $table->foreign('nonPathologicalHistories_id')
+                  ->references('id')
+                  ->on('nonPathologicalHistories')
+                  ->onDelete('cascade');
+                  
             $table->timestamps();
         });
     }

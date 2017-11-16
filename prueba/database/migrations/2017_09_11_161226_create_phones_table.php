@@ -18,13 +18,14 @@ class CreatePhonesTable extends Migration
             $table->enum('type',['CELU', 'CASA', 'TRAB', 'OTRO']);
 
             //Campo para almacenar las llave foránea. Recordar que es una llave compuesta            
-            $table->string('Compilation_idCode')->unique();
+            $table->string('compilations_id');
             //$table->integer('Compilation_idCaseFile');
 
             //definir llave foranea. Relación entre las tablas
-            $table->foreign('Compilation_idCode')
-                  ->references('idCode')
-                  ->on('compilations')->onDelete('cascade');
+            $table->foreign('compilations_id')
+                  ->references('id')
+                  ->on('compilations')
+                  ->onDelete('cascade');
             /*      
             $table->foreign('Compilation_idCaseFile')
                   ->references('idCaseFile')

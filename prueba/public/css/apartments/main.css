@@ -1203,7 +1203,8 @@ input {
   }
 
 label {
-  color: #97a0af; }
+  color: #97a0af;
+  margin-bottom: 4px; }
 
 td p {
   color: #616c7f; }
@@ -1666,3 +1667,232 @@ td .checkbox {
     width: 100%; }
   .patient-container_data input:not(last-child) {
     margin-bottom: 10px; } }
+
+.headerNutriology {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #d2d2d2; }
+
+.headerNutriology__titleContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center; }
+
+.headerNutriology__titleContainer .active {
+  color: #47AFFF;
+  display: inline-block; }
+
+.headerNutriology__titleContainer-title {
+  color: #858585;
+  width: auto; }
+
+.headerNutriology__titleContainer-title:hover {
+  cursor: pointer;
+  color: #525252; }
+
+.headerNutriology__arrowContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px; }
+
+.headerNutriology__arrowContainer-arrow {
+  color: #858585; }
+
+.evaluacionAntro {
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+
+.evaluacionAntro__title {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px 15px;
+  border-bottom: 1px solid #e0f2ff; }
+
+.evaluacionAntro__title-container {
+  display: flex; }
+
+.evaluacionAntro__title-container__icon {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-right: 20px; }
+
+.evaluacionAntro__title-container__icon-ico {
+  font-size: 25px;
+  color: #4b5462; }
+
+.evaluacionAntro__title-container__tit {
+  color: #47AFFF;
+  font-size: 2em; }
+
+.evaluacionAntro__form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px 0; }
+
+.evaluacionAntro__form-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.evaluacionAntro__form-container__item {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 48%; }
+
+.evaluacionAntro__form-container__item-wrap:not(:last-child) {
+  border-bottom: 1px solid #94d0ff; }
+
+.evaluacionAntro__form-container__item-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+  padding-bottom: 10px; }
+
+.evaluacionAntro__form-container__item-wrap__desc {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 55%; }
+
+.evaluacionAntro__form-container__item-wrap__response {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 42%; }
+
+.evaluacionAntro__form-container__item-wrap__response-opt1 {
+  display: flex;
+  align-items: center; }
+
+.evaluacionAntro__form-container__item-wrap__response-opt1-in:first-child {
+  padding-right: 15px; }
+
+.evaluacionAntro__form-container__item-wrap__response-opt1-in:first-child textarea {
+  width: 210px;
+  height: 80px; }
+
+.evaluacionAntro__form-container__item-wrap__response-opt2 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column; }
+
+.evaluacionAntro__form-container__item-wrap__response-opt2-in:first-child {
+  padding: 5px 0; }
+
+.evaluacionAntro__form-container__item-wrap #other {
+  width: 20%; }
+
+.evaluacionAntro__form-container__item-wrap #textarea {
+  width: 78%; }
+
+
+
+.heredofam__form-container__item-wrap__response__Exc {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 42%; }
+
+.heredofam__form-container__item-wrap__response__Exc-opt1 {
+  display: flex;
+  align-items: center; }
+
+.heredofam__form-container__item-wrap__response__Exc-opt1-in:first-child {
+  padding-right: 15px; }
+
+.heredofam__form-container__item-wrap__response__Exc-opt2 .opt2 {
+  display: flex;
+  padding-top: 5px;
+  padding-right: 17px;
+  align-items: flex-start;
+  flex-direction: column; 
+    
+    
+    input{
+      width: 50px;
+    }
+  }
+
+.heredofam__form-container__item-wrap__desc__Exc {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 55%;
+  height: 50% 
+}
+
+.desayunoP{
+  height: 1.3em;
+  margin: 5px 0;
+  
+}
+
+.desayunoCheck{
+  height: 1.3em;
+  width: 1.3em;
+  margin: 3px 0 0 3px;
+}
+
+.desayunoDiv{
+  display: flex;
+  align-items: center;
+  margin: 3px 0;
+  justify-content: space-around;
+}
+
+.desayunoDiv-opcion{
+  margin: 0 5px;
+
+}
+
+.desayunoDiv-otro{
+  
+  margin: 3px 0;
+}
+
+.comidaDiv{
+  border-bottom: 2px solid blue;
+  padding-bottom: 1em;
+  width: 80%;
+}
+
+
+.recordatorioHoras__form-container__item{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column; 
+}
+
+.recordatorioComidas__form-container__item{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+
+
+
+
+
+  
+

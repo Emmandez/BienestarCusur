@@ -14,24 +14,29 @@ class CreatePsychosocialResultsTable extends Migration
     public function up()
     {
         Schema::create('psychosocialResults', function (Blueprint $table) {
-            $table->increments('idPsychosocialResults');
+            $table->increments('id');
             $table->integer('point'); //2 digitos
             $table->integer('numberFactor'); //1 digito
 
             //llaves foráneas
-            $table->integer('psychosocial_idPsychosocial')->unsigned();
-            $table->integer('recomend_idRecomendations')->unsigned();
-            $table->integer('nameFactors_idNamesFactors')->unsigned();
+            $table->integer('psychosocial_id')->unsigned();
+            $table->integer('recomendations_id')->unsigned();
+            $table->integer('namesFactors_id')->unsigned();
 
-            $table->foreign('psychosocial_idPsychosocial')
-                  ->references('idPsychosocial')
-                  ->on('psychosocial')->onDelete('cascade');
-            $table->foreign('recomend_idRecomendations')
-                  ->references('idRecomendation')
-                  ->on('recomendations')->onDelete('cascade');
-            $table->foreign('nameFactors_idNamesFactors')
-                  ->references('idNamesFactors')
-                  ->on('namesFactors')->onDelete('cascade');
+            $table->foreign('psychosocial_id')
+                  ->references('id')
+                  ->on('psychosocial')
+                  ->onDelete('cascade');
+
+            $table->foreign('recomendations_id')
+                  ->references('id')
+                  ->on('recomendations')
+                  ->onDelete('cascade');
+
+            $table->foreign('namesFactors_id')
+                  ->references('id')
+                  ->on('namesFactors')
+                  ->onDelete('cascade');
 
 
 

@@ -144,12 +144,20 @@
                             <p class="patient-container_title-p">Datos del paciente</p>
                             <span></span>
                         </div>
-                        <form action="" method="post" class="patient-container_data">
-                            <input type="text"                    autocomplete="off" title="Nombrre completo del paciente"    name="nombre_paciente"     value="" placeholder="Nombre">
-                            <input type="text" pattern="[0-9]{9}" autocomplete="off" title="Ingresa los 9 números del código" name="codigo_paciente"     value="" placeholder="Código">
+                        <form action="TopController@show" method="post" class="patient-container_data">
+
+                            <input type="text" id="nombrePaciente" autocomplete="off" title="Nombre completo del paciente"    name="nombre_paciente" 
+                            value="<?php if(isset($name) and !empty($name))
+                                echo $name;
+                            else
+                                echo "";
+                             ?>" placeholder="Nombre">
+                             
+
+                            <input type="text" pattern="[0-9]{9}" id="codigoPaciente" autocomplete="off" title="Ingresa los 9 números del código" name="codigo_paciente"     value="" placeholder="Código">
                             <input type="text" pattern="[0-9]"    autocomplete="off" title="Ingresa el número de expediente"  name="expediente_paciente" value="" placeholder="Número de expediente">
 
-                            <input type="submit" class="patient-container_submit btn btn-default" name="" value="Obtener">
+                            <input type="submit" class="patient-container_submit btn btn-default" name="" id="btnQuery" value="Obtener">
                         </form>
                     </div>
 

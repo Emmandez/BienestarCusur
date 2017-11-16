@@ -8,7 +8,5 @@ class GinecoObstetricHistory extends Model
 {
 	protected $table='GynecoObstetricHistories';
 
-    protected $filliable = [
-    'concept'
-    ];
+    protected $filliable = ['concept', 'date'];
 }

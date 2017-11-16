@@ -13,10 +13,10 @@ class CreateAnthropometricEvaluationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('anthropometric_evaluations', function (Blueprint $table) {
+        Schema::create('anthropometricEvaluations', function (Blueprint $table) {
             # Is this really the case where we need to do database-level math?
             # Otherwise they should be done by front-end, and stored as strings.
-            $table->increments('idAnthropometricEvaluation');
+            $table->increments('id');
             $table->string('sizeMtrs');
             $table->string('current_weight');
             $table->string('habitual_weight');
@@ -50,23 +50,18 @@ class CreateAnthropometricEvaluationsTable extends Migration
             $table->string('totalBodywaterKgT');
 
             $table->enum('physicalActivity',['Y','N']);
-            $table->enum('intensity', ['ML','L','M','P','E']);  
             $table->enum('exercise',['Y','N']);
-            $table->string('exerciseType',100);
-            $table->string('exerciseFrequency',100);
-            $table->string('exerciseDuration',100);
-            $table->date('startExercise');
 
-
-           
-            //Campo para almacenar las llave foránea. Recordar que es una llave compuesta            
-            $table->string('Compilation_idCode')->unique();
+            //Campo para almacenar las llave foránea. 
+            $table->string('compilations_id');
             //$table->integer('Compilation_idCaseFile');
 
             //definir llave foranea. Relación entre las tablas
-            $table->foreign('Compilation_idCode')
-                  ->references('idCode')
-                  ->on('compilations')->onDelete('cascade');
+            $table->foreign('compilations_id')->references('id')->on('compilations')->onDelete('cascade');
+
+
+           
+            
             /*      
             $table->foreign('Compilation_idCaseFile')
                   ->references('idCaseFile')
@@ -84,6 +79,6 @@ class CreateAnthropometricEvaluationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anthropometric_evaluations');
+        Schema::dropIfExists('anthropometricEvaluations');
     }
 }

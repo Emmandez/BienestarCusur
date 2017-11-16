@@ -69,7 +69,7 @@
             </div>
           </div>
           <div class="interrog__form">
-            <form class="interrog__form-container container" id="interrogatorioApSis" method="post" action="">
+            <div class="interrog__form-container container" id="interrogatorioApSis">
               <div class="div-container form group">
                 <div class="interrog__form-container__item">
                   <div class="interrog__form-container__item-wrap">
@@ -141,7 +141,7 @@
               <div class="form-button">
                 <button class="button" type="submit">Guardar</button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
 
@@ -155,7 +155,7 @@
             </div>
           </div>
           <div class="expF1__form">
-            <form class="expF1__form-container" id="exploracion1" action="" method="post">
+            <div class="expF1__form-container" id="exploracion1">
               <div class="div">
                 <div class="expF1__form-container__item">
                   <div class="expF1__form-container__item-wrapper">
@@ -168,10 +168,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Corazón</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="corazon">
                             <option value="" name="opCorazon" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opCorazon">normal</option>
-                            <option value="ANOR" name="opCorazon">anormal</option>
+                            <option value="NORM" required="required" name="opCorazon">normal</option>
+                            <option value="ANOR" required="required" name="opCorazon">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -183,10 +183,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Pulmones</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="pulmonesselect">
                             <option value="" name="opPulmones" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opPulmones">normal</option>
-                            <option value="ANOR" name="opPulmones">anormal</option>
+                            <option value="NORM" required="required" name="opPulmones">normal</option>
+                            <option value="ANOR" required="required" name="opPulmones">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -205,10 +205,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Pared abdominal</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="abdomenselect">
                             <option value="" name="opParedAbdominal" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opParedAbdominal">normal</option>
-                            <option value="ANOR" name="opParedAbdominal">anormal</option>
+                            <option value="NORM" required="required" name="opParedAbdominal">normal</option>
+                            <option value="ANOR" required="required" name="opParedAbdominal">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -220,10 +220,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Vísceras</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="visceras">
                             <option value="" name="opVisceras" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opVisceras">normal</option>
-                            <option value="ANOR" name="opVisceras">anormal</option>
+                            <option value="NORM" required="required" name="opVisceras">normal</option>
+                            <option value="ANOR" required="required" name="opVisceras">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -242,10 +242,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Genitales</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="geniSelect">
                             <option value="" name="opGenitales" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opGenitales">normal</option>
-                            <option value="ANOR" name="opGenitales">anormal</option>
+                            <option value="NORM" required="required" name="opGenitales">normal</option>
+                            <option value="ANOR" required="required" name="opGenitales">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -259,7 +259,7 @@
               <div class="form-button">
                 <button class="button" type="submit">Guardar</button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
 
@@ -273,7 +273,7 @@
             </div>
           </div>
           <div class="expF1__form">
-            <form class="expF1__form-container" id="exploracion1-1" method="post" action="">
+            <div class="expF1__form-container" id="exploracion1-1">
               <div class="div">
                 <div class="expF1__form-container__item">
                   <div class="expF1__form-container__item-wrapper">
@@ -286,10 +286,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Miembros superiores</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="miembrosup">
                             <option value="" name="opMS" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opMS">normal</option>
-                            <option value="ANOR" name="opMS">anormal</option>
+                            <option value="NORM" required="required" name="opMS">normal</option>
+                            <option value="ANOR" required="required" name="opMS">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -301,10 +301,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Miembros inferiores</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="miembroslo">
                             <option value="" name="opMI" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opMI">normal</option>
-                            <option value="ANOR" name="opMI">anormal</option>
+                            <option value="NORM" required="required" name="opMI">normal</option>
+                            <option value="ANOR" required="required" name="opMI">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -323,10 +323,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Columna</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="columnaSelect">
                             <option value="" name="opColumna" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opColumna">normal</option>
-                            <option value="ANOR" name="opColumna">anormal</option>
+                            <option value="NORM" required="required" name="opColumna">normal</option>
+                            <option value="ANOR" required="required" name="opColumna">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -338,14 +338,14 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Otros</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="otroneuro">
                             <option value="" name="opOtro" selected="selected">Elije una opción..</option>
                             <option value="NORM" name="opOtro">normal</option>
                             <option value="ANOR" name="opOtro">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
-                          <textarea placeholder="Hallazgos" name="hallazgosOtro"></textarea>
+                          <textarea placeholder="Hallazgos" name="hallazgosOtroNeuro"></textarea>
                         </div>
                       </div>
                     </div>
@@ -360,10 +360,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Piel</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="pielSelect">
                             <option value="" name="opPiel" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opPiel">normal</option>
-                            <option value="ANOR" name="opPiel">anormal</option>
+                            <option value="NORM" required="required" name="opPiel">normal</option>
+                            <option value="ANOR" required="required" name="opPiel">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -377,7 +377,7 @@
               <div class="form-button">
                 <button class="button" type="submit">Guardar</button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
 
@@ -391,7 +391,7 @@
             </div>
           </div>
           <div class="expF1__form">
-            <form class="expF1__form-container" id="exploracion1-2" method="post" action="">
+            <div class="expF1__form-container" id="exploracion1-2">
               <div class="div">
                 <div class="expF1__form-container__item">
                   <div class="expF1__form-container__item-wrapper">
@@ -404,10 +404,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Tiroides</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="tiroidesSelect">
                             <option value="" name="opTiroides" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opTiroides">normal</option>
-                            <option value="ANOR" name="opTiroides">anormal</option>
+                            <option value="NORM" required="required" name="opTiroides">normal</option>
+                            <option value="ANOR" required="required" name="opTiroides">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -419,14 +419,14 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Otros</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="otrosCabezaSelect">
                             <option value="" name="opOtro" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opOtro">normal</option>
-                            <option value="ANOR" name="opOtro">anormal</option>
+                            <option value="NORM" required="required" name="opOtro">normal</option>
+                            <option value="ANOR" required="required" name="opOtro">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
-                          <textarea placeholder="Hallazgos" name="hallazgoOtro"></textarea>
+                          <textarea placeholder="Hallazgos" name="hallazgoOtroCabeza"></textarea>
                         </div>
                       </div>
                     </div>
@@ -441,10 +441,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Conjuntivas</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="conjuntivasSelect">
                             <option value="" name="opConjuntivas" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opConjuntivas">normal</option>
-                            <option value="ANOR" name="opConjuntivas">anormal</option>
+                            <option value="NORM" required="required" name="opConjuntivas">normal</option>
+                            <option value="ANOR" required="required" name="opConjuntivas">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -456,10 +456,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Córneas</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="corneas">
                             <option value="" name="opCorneas" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opCorneas">normal</option>
-                            <option value="ANOR" name="opCorneas">anormal</option>
+                            <option value="NORM" required="required" name="opCorneas">normal</option>
+                            <option value="ANOR" required="required" name="opCorneas">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -478,10 +478,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">C. auditivo</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="cauditivo">
                             <option value="" name="opCAud" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opCAud">normal</option>
-                            <option value="ANOR" name="opCAud">anormal</option>
+                            <option value="NORM" required="required" name="opCAud">normal</option>
+                            <option value="ANOR" required="required" name="opCAud">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -493,10 +493,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Tímpanos</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="timpanos">
                             <option value="" name="opTimpano" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opTimpano">normal</option>
-                            <option value="ANOR" name="opTimpano">anormal</option>
+                            <option value="NORM" required="required" name="opTimpano">normal</option>
+                            <option value="ANOR" required="required" name="opTimpano">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -515,10 +515,10 @@
                           <h3 class="expF1__form-container__item-wrapper-boxCont__content-subtitle_h3">Orofaringe</h3>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-opt">
-                          <select>
+                          <select name="OrofaringeSelect">
                             <option value="" name="opOrofaringe" selected="selected">Elije una opción..</option>
-                            <option value="NORM" name="opOrofaringe">normal</option>
-                            <option value="ANOR" name="opOrofaringe">anormal</option>
+                            <option value="NORM" required="required" name="opOrofaringe">normal</option>
+                            <option value="ANOR" required="required" name="opOrofaringe">anormal</option>
                           </select>
                         </div>
                         <div class="expF1__form-container__item-wrapper-boxCont__content-desc">
@@ -532,7 +532,7 @@
               <div class="form-button">
                 <button class="button" type="submit">Guardar</button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>

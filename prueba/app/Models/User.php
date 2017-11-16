@@ -10,6 +10,14 @@ class User extends Authenticatable
     use EntrustUserTrait;
     use Notifiable;
 
-    protected $fillable = ['first_name', 'last_name_p','last_name_m', 'email', 'password', 'UDG_Code', 'CURP'];
+    protected $fillable = [
+    	'first_name', 
+    	'last_name_p',
+    	'last_name_m', 
+    	'email', 
+    	'password', 
+    	'UDG_Code', 
+    	'CURP'
+    ];
     protected $hidden = ['password', 'remember_token'];
 }

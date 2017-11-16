@@ -4,9 +4,11 @@
 @section('content')
     <h2 class="text-center">Registros</h2>
     <br>
+    <!--
     @if(count($records) == 0)
         <h3 class="text-center">No hay registros aún..</h3>
     @else
+        -->
         <!-- FILL OUT TABLE  -->
         <table class="table table-hover table-bordered">
             <thead>
@@ -21,6 +23,7 @@
             </tr>
             </thead>
             <tbody>
+            <!--
             @foreach($records as $patient)
                 @foreach($patient->VitalSigns as $item)
                     <tr>
@@ -34,6 +37,7 @@
                     </tr>
                 @endforeach
             @endforeach
+        -->
             </tbody>
         </table>
     @endif

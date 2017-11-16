@@ -16,4 +16,8 @@ class Address extends Model
     'suburb',
     'addressType'
     ];
+
+    public function compilation(){
+       return $this->belongsTo('App\Models\Compilation');
+    }
 }

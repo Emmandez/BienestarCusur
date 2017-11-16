@@ -23,7 +23,7 @@ $('.msjError').animate({
 var opt = $('#vph');
 
 $('#vph').click(function(){
-    if(opt.val() == "si"){
+    if(opt.val() == "VPH"){
         $('.txtA').animate({
             'height' : 'show'
         });

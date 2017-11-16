@@ -12,9 +12,25 @@ seleccionado.on( 'click' , function(){
 } );
 
 
-var sextoPr    = $('#sextoPr')    ,
+var 
+    sextoPr    = $('#sextoPr')    ,
+    quintoPr   = $('#quintoPr')    ,
+    cuartoPr   = $('#cuartoPr')    ,
+    terceroPr  = $('#terceroPr')    ,
+    segundoPr  = $('#segundoPr')    ,
+    primeroPr  = $('#primeroPr')    ,
+    
     terceroSec = $('#terceroSec') ,
+    segundoSec = $('#segundoSec')    ,
+    primeroSec = $('#primeroSec')    ,
+    
     sextoBa    = $('#sextoBa')    ,
+    quintoBa   = $('#quintoBa')    ,
+    cuartoBa   = $('#cuartoBa')    ,
+    terceroBa  = $('#terceroBa')    ,
+    segundoBa  = $('#sextoBa')    ,
+    primeroBa  = $('#primeroBa')    ,
+    
     siCT       = $('#siCT')       ,
     inputCT    = $('#cualCT')     ,
     noCT       = $('#noCT')       ,
@@ -26,7 +42,11 @@ var sextoPr    = $('#sextoPr')    ,
     noMA       = $('#noMA')       ,
     siDO       = $('#siDO')       ,
     inputDO    = $('#cualDO')     ,
-    noDO       = $('#noDO')       ;
+    noDO       = $('#noDO')       ,
+    conEstudios = $('#conEstudios'),
+
+    SinEstudios = $('#SinEstudios');
+
 
 //carrera técnica, opciones de si y no, ocultar y mostrar input
 inputCT.animate({
@@ -38,6 +58,8 @@ siCT.on( 'click' , function(){
         'width' : 'show'
     },'slow');
     inputCT.prop('required' , true);
+    SinEstudios.prop('checked', false);
+    conEstudios.prop('checked', true);
     sextoPr.prop('checked' , true);
     terceroSec.prop('checked' , true);
     sextoBa.prop('checked' , true);
@@ -60,6 +82,8 @@ siLI.on( 'click' , function(){
         'width' : 'show'
     },'slow');
     inputLI.prop('required' , true);
+    SinEstudios.prop('checked', false);
+    conEstudios.prop('checked', true);
     sextoPr.prop('checked' , true);
     terceroSec.prop('checked' , true);
     sextoBa.prop('checked' , true);
@@ -94,6 +118,8 @@ siMA.on( 'click' , function(){
         'width' : 'show'
     },'slow');
     inputMA.prop('required' , true);
+    SinEstudios.prop('checked', false);
+    conEstudios.prop('checked', true);
     sextoPr.prop('checked' , true);
     terceroSec.prop('checked' , true);
     sextoBa.prop('checked' , true);
@@ -127,6 +153,8 @@ siDO.on( 'click' , function(){
         'width' : 'show'
     },'slow');
     inputDO.prop('required' , true);
+    SinEstudios.prop('checked', false);
+    conEstudios.prop('checked', true);
     sextoPr.prop('checked' , true);
     terceroSec.prop('checked' , true);
     sextoBa.prop('checked' , true);
@@ -148,6 +176,89 @@ noDO.on( 'click' , function(){
         'width' : 'hide'
     },'slow');
 });
+
+//llenar campos anteriores a primaria
+/*
+$('#primaria').find('input:radio').each(function())
+    sext.on('click', function(){
+    conEstudios.prop('checked', true);
+});
+
+
+$('#primaria').find('input:radio').each(function(){
+    
+});
+*/
+
+
+//llenar campos anteriores a secundaria
+terceroSec.on('click', function(){
+    sextoPr.prop('checked', true);
+    conEstudios.prop('checked', true);
+});
+
+//Llenar campos anteriores a bachillerato
+sextoBa.on('click', function(){
+    terceroSec.prop('checked', true);
+    sextoPr.prop('checked', true);
+    conEstudios.prop('checked', true);
+});
+
+//Borrar check de campos cuando no se tienen estudios
+SinEstudios.on('click', function(){
+    $('#primaria').find('input:radio').each(function(){
+        $(this).prop('checked', false);
+    })
+
+    $('#secundaria').find('input:radio').each(function(){
+        $(this).prop('checked', false);
+    })
+
+    $('#bachillerato').find('input:radio').each(function(){
+        $(this).prop('checked', false);
+    })
+
+    $('#tecnica').find('input:radio').each(function(){
+        noCT.prop('checked', true);
+        inputCT.val('');
+        inputCT.removeAttr('required');
+        inputCT.animate({
+            'width' : 'hide'
+        },'slow');
+    })
+
+    $('#licenciatura').find('input:radio').each(function(){
+        noLI.prop('checked', true);
+        inputLI.val('');
+        inputLI.removeAttr('required');
+        inputLI.animate({
+            'width' : 'hide'
+        },'slow');
+    })
+
+    $('#maestria').find('input:radio').each(function(){
+        noMA.prop('checked', true);
+        inputMA.val('');
+        inputMA.removeAttr('required');
+        inputMA.animate({
+            'width' : 'hide'
+        },'slow');
+    })
+
+    $('#doctorado').find('input:radio').each(function(){
+        noDO.prop('checked', true);
+        inputDO.val('');
+        inputDO.removeAttr('required');
+        inputDO.animate({
+            'width' : 'hide'
+        },'slow');
+
+    conEstudios.prop('checked', false);
+    })    
+});
+
+//Marcar el radio button síEstudia cuando se selecciona un grado.
+
 
 
 //NOMBRAMIENTOS
@@ -231,3 +342,5 @@ $('.tipo_hor-elem').find('input:radio').each(function(){
         }
     });
 });
+
+

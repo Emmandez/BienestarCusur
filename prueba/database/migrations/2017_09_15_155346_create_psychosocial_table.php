@@ -14,18 +14,19 @@ class CreatePsychosocialTable extends Migration
     public function up()
     {
         Schema::create('psychosocial', function (Blueprint $table) {
-            $table->increments('idPsychosocial');
+            $table->increments('id');
             $table->integer('question')->unsigned(); //2 digitos
             $table->integer('answer')->unsigned(); //1 digito
 
             //Campo para almacenar las llave foránea. Recordar que es una llave compuesta            
-            $table->string('Compilation_idCode')->unique();
+            $table->string('compilations_id')->unique();
             //$table->integer('Compilation_idCaseFile');
 
             //definir llave foranea. Relación entre las tablas
-            $table->foreign('Compilation_idCode')
-                  ->references('idCode')
-                  ->on('compilations')->onDelete('cascade');
+            $table->foreign('compilations_id')
+                  ->references('id')
+                  ->on('compilations')
+                  ->onDelete('cascade');
             /*      
             $table->foreign('Compilation_idCaseFile')
                   ->references('idCaseFile')

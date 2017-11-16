@@ -14,13 +14,9 @@ class CreateCompilationsTable extends Migration
     public function up()
     {
         Schema::create('compilations', function (Blueprint $table) {
-            $table->string('idCode', 7)->unique();
-            $table->primary('idCode');
+            $table->string('id', 10)->unique();
+            $table->primary('id');
 
-
-            $table->string('FirstName', 15);
-            $table->string('LastNameP', 25);
-            $table->string('LastNameM', 25);
             $table->enum('questionary', ['Y','N']);
             $table->char('idResponsibleQ',9);
             $table->dateTime('aplicationDateQ');
@@ -36,6 +32,9 @@ class CreateCompilationsTable extends Migration
             $table->enum('nutritionFacts',['Y','N']);
             $table->char('idResponsibleF',9);
             $table->dateTime('aplicationDateF');
+
+
+            
             $table->timestamps();
         });
     }

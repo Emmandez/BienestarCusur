@@ -15,8 +15,12 @@ class CreateMedicalForecastsTable extends Migration
     {
         Schema::create('medicalForecasts', function (Blueprint $table) {
             $table->mediumText('descript');
-            $table->integer('Treatments_idTreatments')->unsigned();
-            $table->foreign('Treatments_idTreatments')->references('idTreatments')->on('Treatments')->onDelete('cascade');
+            $table->integer('treatments_id')->unsigned();
+            
+            $table->foreign('treatments_id')
+                  ->references('id')
+                  ->on('Treatments')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }

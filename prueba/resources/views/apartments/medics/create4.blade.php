@@ -19,10 +19,13 @@
 
 
 
-  {!! Form::open(['action' => 'MedicsController@store']) !!}
+{!! Form::open(['action' => 'MedicsController@store']) !!}
+
+<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
 
   <section class="m-wrapper container-fluid">
+    <input type="text" name="codigoPaciente" style="visibility: hidden;">
     <div class="m-center container">
       <div class="headerMedics carousel_indicators container links">
         <div class="headerMedics__titleContainer">
@@ -58,7 +61,7 @@
             </div>
           </div>
           <div class="heredofam__form">
-            <form class="heredofam__form-container container" id="hFamiliar">
+            <div class="heredofam__form-container" id="hFamiliar">
               <div class="div-container form-group">
                 <div class="heredofam__form-container__item">
                   <div class="heredofam__form-container__item-wrap">
@@ -67,12 +70,12 @@
                     </div>
                     <div class="heredofam__form-container__item-wrap__response">
                       <div class="heredofam__form-container__item-wrap__response-opt1">
-                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required id="siDiab" type="radio" name="diabetes" value="DIME"> si </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required id="siDiab" type="radio" name="diabetes" value="Diabetes"> si </input></div>
                         <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required id="noDiab" type="radio" name="diabetes" value=""> no </input></div>
                       </div>
                       <div class="opt2 heredofam__form-container__item-wrap__response-opt2" id="diabOpt">
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="diabLevel" value="PRLI"> Primera línea </input></div>
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="diabLevel" value="SELI"> Segunda línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="diabLevel" value="Primera Linea"> Primera línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="diabLevel" value="Segunda Linea"> Segunda línea </input></div>
                       </div>
                     </div>
                   </div>
@@ -82,12 +85,12 @@
                     </div>
                     <div class="heredofam__form-container__item-wrap__response">
                       <div class="heredofam__form-container__item-wrap__response-opt1">
-                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required id="siSp" type="radio" name="sobrepeso" value="SOBR"> si </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required id="siSp" type="radio" name="sobrepeso" value="Sobrepeso"> si </input></div>
                         <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required id="noSp" type="radio" name="sobrepeso" value=""> no </input></div>
                       </div>
                       <div class="opt2 heredofam__form-container__item-wrap__response-opt2" id="spOpt">
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="spLevel" value="PRLI"> Primera línea </input></div>
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="spLevel" value="SELI"> Segunda línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="spLevel" value="Primera Linea"> Primera línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="spLevel" value="Segunda Linea"> Segunda línea </input></div>
                       </div>
                     </div>
                   </div>
@@ -97,12 +100,12 @@
                     </div>
                     <div class="heredofam__form-container__item-wrap__response">
                       <div class="heredofam__form-container__item-wrap__response-opt1">
-                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required id="siCp" type="radio" name="cardiopatias" value="CARD"> si </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required id="siCp" type="radio" name="cardiopatias" value="Cardiopatías"> si </input></div>
                         <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required id="noCp" type="radio" name="cardiopatias" value=""> no </input></div>
                       </div>
                       <div class="opt2 heredofam__form-container__item-wrap__response-opt2" id="cpOpt">
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="cardioLevel" value="PRLI"> Primera línea </input></div>
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="cardioLevel" value="SELI"> Segunda línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="cardioLevel" value="Primera Linea"> Primera línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="cardioLevel" value="Segunda Linea"> Segunda línea </input></div>
                       </div>
                     </div>
                   </div>
@@ -112,12 +115,12 @@
                     </div>
                     <div class="heredofam__form-container__item-wrap__response">
                       <div class="heredofam__form-container__item-wrap__response-opt1">
-                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required id="siMf" type="radio" name="malformaciones" value="MALF"> si </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required id="siMf" type="radio" name="malformaciones" value="Malformaciones"> si </input></div>
                         <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required id="noMf" type="radio" name="malformaciones" value=""> no </input></div>
                       </div>
                       <div class="opt2 heredofam__form-container__item-wrap__response-opt2" id="mfOpt">
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="malfLevel" value="PRLI"> Primera línea </input></div>
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="malfLevel" value="SELI"> Segunda línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="malfLevel" value="Primera Linea"> Primera línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="malfLevel" value="Segunda Linea"> Segunda línea </input></div>
                       </div>
                     </div>
                   </div>
@@ -129,12 +132,12 @@
                     </div>
                     <div class="heredofam__form-container__item-wrap__response">
                       <div class="heredofam__form-container__item-wrap__response-opt1">
-                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required type="radio" id="siCancer" name="cancer" value="CANC"> si </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required type="radio" id="siCancer" name="cancer" value="Cáncer"> si </input></div>
                         <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required type="radio" id="noCancer" name="cancer" value=""> no </input></div>
                       </div>
                       <div class="opt2 heredofam__form-container__item-wrap__response-opt2" id="cancerOpt">
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="cancerLevel" value="PRLI"> Primera línea </input></div>
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="cancerLevel" value="SELI"> Segunda línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="cancerLevel" value="Primera Linea"> Primera línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="cancerLevel" value="Segunda Linea"> Segunda línea </input></div>
                       </div>
                     </div>
                   </div>
@@ -144,12 +147,12 @@
                     </div>
                     <div class="heredofam__form-container__item-wrap__response">
                       <div class="heredofam__form-container__item-wrap__response-opt1">
-                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required type="radio" id="siHipertension" name="hipertension" value="HIAR"> si </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required type="radio" id="siHipertension" name="hipertension" value="Hipertensión"> si </input></div>
                         <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required type="radio" id="noHipertension" name="hipertension" value=""> no </input></div>
                       </div>
                       <div class="opt2 heredofam__form-container__item-wrap__response-opt2" id="hipOpt">
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="hipertensionLevel" value="PRLI"> Primera línea </input></div>
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="hipertensionLevel" value="SELI"> Segunda línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="hipertensionLevel" value="Primera Linea"> Primera línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="hipertensionLevel" value="Segunda Linea"> Segunda línea </input></div>
                       </div>
                     </div>
                   </div>
@@ -159,12 +162,12 @@
                     </div>
                     <div class="heredofam__form-container__item-wrap__response">
                       <div class="heredofam__form-container__item-wrap__response-opt1">
-                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required type="radio" id="siEnfResp" name="enfRespiratorias" value="ENRE"> si </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required type="radio" id="siEnfResp" name="enfRespiratorias" value="Enfermedades Respiratorias"> si </input></div>
                         <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required type="radio" id="noEnfResp" name="enfRespiratorias" value=""> no </input></div>
                       </div>
                       <div class="opt2 heredofam__form-container__item-wrap__response-opt2" id="enfResOpt">
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="enfRespLevel" value="PRLI"> Primera línea </input></div>
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="enfRespLevel" value="SELI"> Segunda línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="enfRespLevel" value="Primera Linea"> Primera línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="enfRespLevel" value="Segunda Linea"> Segunda línea </input></div>
                       </div>
                     </div>
                   </div>
@@ -174,12 +177,12 @@
                     </div>
                     <div class="heredofam__form-container__item-wrap__response">
                       <div class="heredofam__form-container__item-wrap__response-opt1">
-                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required type="radio" id="siNefropatias" name="nefropatías" value="NEFR"> si </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required type="radio" id="siNefropatias" name="nefropatías" value="Nefropatías"> si </input></div>
                         <div class="heredofam__form-container__item-wrap__response-opt1-in"><input required type="radio" id="noNefropatias" name="nefropatías" value=""> no </input></div>
                       </div>
                       <div class="opt2 heredofam__form-container__item-wrap__response-opt2" id="nefroOpt">
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="nefropatiasLevel" value="PRLI"> Primera línea </input></div>
-                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="nefropatiasLevel" value="SELI"> Segunda línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="nefropatiasLevel" value="Primera Linea"> Primera línea </input></div>
+                        <div class="heredofam__form-container__item-wrap__response-opt2-in"><input type="radio" name="nefropatiasLevel" value="Segunda Linea"> Segunda línea </input></div>
                       </div>
                     </div>
                   </div>
@@ -197,10 +200,7 @@
                   </div>
                 </div>
               </div>
-              <div class="form-button">
-                <button class="button" type="submit">Guardar</button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
         <div class="patologicas item" data-number="1" id="patologicas">
@@ -213,7 +213,7 @@
             </div>
           </div>
           <div class="patologicas__form">
-            <form class="patologicas__form-container" id="patologics">
+            <div class="patologicas__form-container" id="patologics">
               <div class="div">
                 <div class="patologicas__form-container__item">
                   <div class="patologicas__form-container__item-wrap">
@@ -222,11 +222,11 @@
                     </div>
                     <div class="patologicas__form-container__item-wrap__response">
                       <div class="patologicas__form-container__item-wrap__response-opt1">
-                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="siInf" type="radio" name="infancia" value="ENIN"> si </input></div>
+                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="siInf" type="radio" name="infancia" value="Enfermedad Infancia"> si </input></div>
                         <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="noInf" type="radio" name="infancia" value=""> no </input></div>
                       </div>
                       <div class="opt2 patologicas__form-container__item-wrap__response-opt2" id="infOpt">
-                        <div class="patologicas__form-container__item-wrap__response-opt2-in"><input type="text" name="enfInfancia"  placeholder="¿Cuál?"></input>
+                        <div class="patologicas__form-container__item-wrap__response-opt2-in">
                           <textarea name="descEnfInfancia" placeholder="descríbela"></textarea>
                         </div>
                       </div>
@@ -238,7 +238,7 @@
                     </div>
                     <div class="patologicas__form-container__item-wrap__response">
                       <div class="patologicas__form-container__item-wrap__response-opt1">
-                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="siHosp" type="radio" name="hospitalizaciones" value="HOSP"> si </input></div>
+                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="siHosp" type="radio" name="hospitalizaciones" value="Hospitalizaciones"> si </input></div>
                         <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="noHosp" type="radio" name="hospitalizaciones" value=""> no </input></div>
                       </div>
                       <div class="opt2 patologicas__form-container__item-wrap__response-opt2" id="hospOpt">
@@ -254,7 +254,7 @@
                     </div>
                     <div class="patologicas__form-container__item-wrap__response">
                       <div class="patologicas__form-container__item-wrap__response-opt1">
-                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="siCir" type="radio" name="cirugias" value="CIRU"> si </input></div>
+                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="siCir" type="radio" name="cirugias" value="Cirugías"> si </input></div>
                         <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="noCir" type="radio" name="cirugias" value=""> no </input></div>
                       </div>
                       <div class="opt2 patologicas__form-container__item-wrap__response-opt2" id="cirOpt">
@@ -270,8 +270,8 @@
                     </div>
                     <div class="patologicas__form-container__item-wrap__response">
                       <div class="patologicas__form-container__item-wrap__response-opt1">
-                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="siTf" type="radio" name="transfuciones" value="TRAN"> si </input></div>
-                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="noTf" type="radio" name="transfuciones" value=""> no </input></div>
+                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="siTf" type="radio" name="transfusiones" value="Transfusiones"> si </input></div>
+                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="noTf" type="radio" name="transfusiones" value=""> no </input></div>
                       </div>
                       <div class="opt2 patologicas__form-container__item-wrap__response-opt2" id="tfOpt">
                         <div class="patologicas__form-container__item-wrap__response-opt2-in">
@@ -284,33 +284,11 @@
                 <div class="patologicas__form-container__item">
                   <div class="patologicas__form-container__item-wrap">
                     <div class="patologicas__form-container__item-wrap__desc">
-                      <h3>Fracturas:</h3>
-                    </div>
-                    <div class="patologicas__form-container__item-wrap__response">
-                      <div class="patologicas__form-container__item-wrap__response-opt1">
-                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required type="radio" name="fracturas" value="FRAC"> si </input></div>
-                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required type="radio" name="fracturas" value=""> no </input></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="patologicas__form-container__item-wrap">
-                    <div class="patologicas__form-container__item-wrap__desc">
-                      <h3>Accidentes/Traumatismo:</h3>
-                    </div>
-                    <div class="patologicas__form-container__item-wrap__response">
-                      <div class="patologicas__form-container__item-wrap__response-opt1">
-                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required type="radio" name="traumaticos" value="ACTR"> si </input></div>
-                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required type="radio" name="traumaticos" value=""> no </input></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="patologicas__form-container__item-wrap">
-                    <div class="patologicas__form-container__item-wrap__desc">
                       <h3>Medicación:</h3>
                     </div>
                     <div class="patologicas__form-container__item-wrap__response">
                       <div class="patologicas__form-container__item-wrap__response-opt1">
-                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="siMedicacion" type="radio" name="medicacion" value="MEDI"> si </input></div>
+                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="siMedicacion" type="radio" name="medicacion" value="Medicación"> si </input></div>
                         <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="noMedicacion" type="radio" name="medicacion" value=""> no </input></div>
                       </div>
                       <div class="opt2 patologicas__form-container__item-wrap__response-opt2" id="medicacionOpt">
@@ -326,8 +304,8 @@
                     </div>
                     <div class="patologicas__form-container__item-wrap__response">
                       <div class="patologicas__form-container__item-wrap__response-opt1">
-                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="siOE" type="radio" name="otaEnf" value="OTEN"> si </input></div>
-                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="noOE" type="radio" name="otaEnf" value=""> no </input></div>
+                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="siOE" type="radio" name="otraEnf" value="Otra enfermedad"> si </input></div>
+                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required id="noOE" type="radio" name="otraEnf" value=""> no </input></div>
                       </div>
                       <div class="opt2 patologicas__form-container__item-wrap__response-opt2" id="oeOpt">
                         <div class="patologicas__form-container__item-wrap__response-opt2-in">
@@ -336,12 +314,31 @@
                       </div>
                     </div>
                   </div>
+                  <div class="patologicas__form-container__item-wrap">
+                    <div class="patologicas__form-container__item-wrap__desc">
+                      <h3>Fracturas:</h3>
+                    </div>
+                    <div class="patologicas__form-container__item-wrap__response">
+                      <div class="patologicas__form-container__item-wrap__response-opt1">
+                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required type="radio" name="fracturas" value="Fracturas"> si </input></div>
+                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required type="radio" name="fracturas" value=""> no </input></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="patologicas__form-container__item-wrap">
+                    <div class="patologicas__form-container__item-wrap__desc">
+                      <h3>Accidentes/Traumatismo:</h3>
+                    </div>
+                    <div class="patologicas__form-container__item-wrap__response">
+                      <div class="patologicas__form-container__item-wrap__response-opt1">
+                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required type="radio" name="traumaticos" value="Accidentes/Traumatismo"> si </input></div>
+                        <div class="patologicas__form-container__item-wrap__response-opt1-in"><input required type="radio" name="traumaticos" value=""> no </input></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="form-button">
-                <button class="button" type="submit">Guardar</button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
         <div class="noPatologicas item" data-number="2" id="noPatologicas">
@@ -354,7 +351,7 @@
             </div>
           </div>
           <div class="noPatologicas__form">
-            <form class="noPatologicas__form-container" id="noPatologics">
+            <div class="noPatologicas__form-container" id="noPatologics">
               <div class="div">
                 <div class="noPatologicas__form-container__item">
                   <div class="noPatologicas__form-container__item-wrap">
@@ -363,7 +360,7 @@
                     </div>
                     <div class="noPatologicas__form-container__item-wrap__response">
                       <div class="noPatologicas__form-container__item-wrap__response-opt1">
-                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="siTab" type="radio" name="tabaquismo" value="TABA"> si </input></div>
+                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="siTab" type="radio" name="tabaquismo" value="Tabaquismo"> si </input></div>
                         <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="noTab" type="radio" name="tabaquismo" value=""> no </input></div>
                       </div>
                       <div class="opt2 noPatologicas__form-container__item-wrap__response-opt2" id="tabOpt1">
@@ -375,9 +372,9 @@
                       <div class="noPatologicas__form-container__item-wrap__response-opt2">
                         <div class="noPatologicas__form-container__item-wrap__response-opt2-in">
                           <label>ex fumador</label>
-                          <select>
-                            <option value="EXFU" name="ex-fumador" required="required">si</option>
-                            <option value="" name="ex-fumador" required="required" selected="selected">no</option>
+                          <select name="ex-fumador">
+                            <option value="SI" name="ex-fumador" required="required">si</option>
+                            <option value="NO" name="ex-Fumador" required="required" selected="selected">no</option>
                           </select>
                         </div>
                       </div>
@@ -389,7 +386,7 @@
                     </div>
                     <div class="noPatologicas__form-container__item-wrap__response">
                       <div class="noPatologicas__form-container__item-wrap__response-opt1">
-                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="siAlc" type="radio" name="alcoholismo" value="ALCO"> si </input></div>
+                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="siAlc" type="radio" name="alcoholismo" value="Alcoholismo"> si </input></div>
                         <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="noAlc" type="radio" name="alcoholismo" value=""> no </input></div>
                       </div>
                       <div class="opt2 noPatologicas__form-container__item-wrap__response-opt2" id="alcOpt1">
@@ -401,9 +398,9 @@
                       <div class="noPatologicas__form-container__item-wrap__response-opt2">
                         <div class="noPatologicas__form-container__item-wrap__response-opt2-in">
                           <label>ex alcoholico</label>
-                          <select>
-                            <option value="EXAL" name="ex-alcoholico" required="required">si</option>
-                            <option value="" name="ex-alcoholico" required="required" selected="selected">no</option>
+                          <select name="ex-alcoholico">
+                            <option value="SI" name="ex-alcoholico" required="required">si</option>
+                            <option value="NO" name="ex-alcoholico" required="required" selected="selected">no</option>
                           </select>
                         </div>
                       </div>
@@ -415,7 +412,7 @@
                     </div>
                     <div class="noPatologicas__form-container__item-wrap__response">
                       <div class="noPatologicas__form-container__item-wrap__response-opt1">
-                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="siAlerg" type="radio" name="alergias" value="ALER"> si </input></div>
+                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="siAlerg" type="radio" name="alergias" value="Alergias"> si </input></div>
                         <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="noAlerg" type="radio" name="alergias" value=""> no </input></div>
                       </div>
                       <div class="opt2 noPatologicas__form-container__item-wrap__response-opt2" id="alergOpt">
@@ -431,8 +428,8 @@
                     </div>
                     <div class="noPatologicas__form-container__item-wrap__response">
                       <div class="noPatologicas__form-container__item-wrap__response-opt1">
-                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required type="radio" name="alimentacion" value="ALAD"> si </input></div>
-                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required type="radio" name="alimentacion" value=""> no </input></div>
+                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required type="radio" name="alimentacion" value="SI"> si </input></div>
+                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required type="radio" name="alimentacion" value="NO"> no </input></div>
                       </div>
                     </div>
                   </div>
@@ -443,13 +440,13 @@
                     <div class="sangreRes noPatologicas__form-container__item-wrap__response">
                       <div class="noPatologicas__form-container__item-wrap__response-opt1">
                         <div class="noPatologicas__form-container__item-wrap__response-opt1-in">
-                          <select>
+                          <select name="bloodtype">
                             <option name="tipoSangre" required="required" value="A+">A+</option>
                             <option name="tipoSangre" required="required" value="A-">A-</option>
                             <option name="tipoSangre" required="required" value="B+">B+</option>
                             <option name="tipoSangre" required="required" value="B-">B-</option>
-                            <option name="tipoSangre" required="required" value="C+">C+</option>
-                            <option name="tipoSangre" required="required" value="C-">C-</option>
+                            <option name="tipoSangre" required="required" value="O+">O+</option>
+                            <option name="tipoSangre" required="required" value="O-">O-</option>
                             <option name="tipoSangre" required="required" value="AB+">AB+</option>
                             <option name="tipoSangre" required="required" value="AB-">AB-</option>
                             <option name="tipoSangre" required="required" value="SEDE" selected="selected">Se desconoce</option>
@@ -466,11 +463,11 @@
                     </div>
                     <div class="noPatologicas__form-container__item-wrap__response">
                       <div class="noPatologicas__form-container__item-wrap__response-opt1">
-                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input type="radio" name="luz" value="LUZ"> Luz </input></div>
-                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input type="radio" name="agua" value="AGPO"> Agua potable </input></div>
-                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input type="radio" name="drenaje" value="DREN"> Drenaje </input></div>
-                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input type="radio" name="piso" value="PIFI"> Piso firme </input></div>
-                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input type="radio" name="movilidad" value="MOVI"> Movilidad </input></div>
+                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input type="checkbox" name="hs[]" value="Luz"> Luz </input></div>
+                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input type="checkbox" name="hs[]" value="Agua potable"> Agua potable </input></div>
+                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input type="checkbox" name="hs[]" value="Drenaje"> Drenaje </input></div>
+                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input type="checkbox" name="hs[]" value="Piso firme"> Piso firme </input></div>
+                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input type="checkbox" name="hs[]" value="Movilidad"> Movilidad </input></div>
                       </div>
                     </div>
                   </div>
@@ -480,18 +477,19 @@
                     </div>
                     <div class="noPatologicas__form-container__item-wrap__response">
                       <div class="noPatologicas__form-container__item-wrap__response-opt1">
-                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="siTox" type="radio" name="taxicomanias" value="TOXI"> si </input></div>
-                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="noTox" type="radio" name="taxicomanias" value=""> no </input></div>
+                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="siTox" type="radio" name="toxicomanias" value="Toxicomanias"> si </input></div>
+                        <div class="noPatologicas__form-container__item-wrap__response-opt1-in"><input required id="noTox" type="radio" name="toxicomanias" value=""> no </input></div>
                       </div>
                       <div class="opt2 noPatologicas__form-container__item-wrap__response-opt2" id="toxOpt">
+                        <div class="noPatologicas__form-container__item-wrap__response-opt2-in"><textarea  name="descToxi" placeholder="Sustancias consumidas"></textarea></div>
                         <div class="noPatologicas__form-container__item-wrap__response-opt2-in"><input class="numbers" type="number" name="añosConsumoDrogas" min="0" placeholder="años de consumo"></input></div>
                       </div>
                       <div class="noPatologicas__form-container__item-wrap__response-opt2">
                         <div class="noPatologicas__form-container__item-wrap__response-opt2-in">
                           <label>ex drogadicto</label>
-                          <select>
-                            <option value="EXDR" name="ex-drogadicto" required="required">si</option>
-                            <option value="" name="ex-drogadicto" required="required" selected="selected">no</option>
+                          <select name="ex-drogadicto">
+                            <option value="SI" name="ex-drogadicto" required="required">si</option>
+                            <option value="NO" name="ex-drogadicto" required="required" selected="selected">no</option>
                           </select>
                         </div>
                       </div>
@@ -517,10 +515,7 @@
                   </div>
                 </div>
               </div>
-              <div class="form-button">
-                <button class="button" type="submit">Guardar</button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
         <div class="gineco item" data-number="3" id="gineco-obst">
@@ -533,7 +528,7 @@
             </div>
           </div>
           <div class="gineco__form">
-            <form class="gineco__form-container" id="ginObs">
+            <div class="gineco__form-container" id="ginObs">
               <div class="div">
                 <div class="gineco__form-container__item">
                   <div class="gineco__form-container__item-wrap">
@@ -541,7 +536,7 @@
                       <h3>Menarca:</h3>
                     </div>
                     <div class="gineco__form-container__item-wrap__response">
-                      <input type="date" name="menarca"/>
+                      <input type="date" name="menarca" max="<?php echo date("Y-m-d");?>" value="<?php echo date("Y-m-d");?>"/>
                     </div>
                   </div>
                   <div class="gineco__form-container__item-wrap">
@@ -549,9 +544,9 @@
                       <h3>Ciclos regulares:</h3>
                     </div>
                     <div class="gineco__form-container__item-wrap__response">
-                      <select>
-                        <option name="cicloRegular" value="CIRE">si</option>
-                        <option name="cicloRegular" value="" selected="selected">no</option>
+                      <select name="ciclos">
+                        <option name="cicloRegular" required value="Ciclos Regulares">si</option>
+                        <option name="cicloRegular" required value="" selected="selected">no</option>
                       </select>
                     </div>
                   </div>
@@ -571,7 +566,8 @@
                       <h3>Últ. menstruación:</h3>
                     </div>
                     <div class="gineco__form-container__item-wrap__response">
-                      <input type="date" name="ultMenstruacion"/>
+                      <input type="date" name="ultMenstruacion" max="<?php echo date("Y-m-d");?>" 
+                        value="<?php echo date("Y-m-d");?>"/>
                     </div>
                   </div>
                   <div class="gineco__form-container__item-wrap">
@@ -579,8 +575,8 @@
                       <h3>Polimenorrea:</h3>
                     </div>
                     <div class="gineco__form-container__item-wrap__response">
-                      <select>
-                        <option required="required" name="polimenorrea" value="POLI">si</option>
+                      <select name="polimeno">
+                        <option required="required" name="polimenorrea" value="Polimenorrea">si</option>
                         <option selected="selected" required="required" name="polimenorrea" value="">no</option>
                       </select>
                     </div>
@@ -590,8 +586,8 @@
                       <h3>Hipermenorrea:</h3>
                     </div>
                     <div class="gineco__form-container__item-wrap__response">
-                      <select>
-                        <option required="required" name="hipermenorrea" value="HIPE">si</option>
+                      <select name="hipermeno">
+                        <option required="required" name="hipermenorrea" value="Hipermenorrea">si</option>
                         <option selected="selected" required="required" name="hipermenorrea" value="">no</option>
                       </select>
                     </div>
@@ -601,8 +597,8 @@
                       <h3>Dismenorrea:</h3>
                     </div>
                     <div class="gineco__form-container__item-wrap__response">
-                      <select>
-                        <option required="required" name="dismenorrea" value="DISM">si</option>
+                      <select name="dismeno">
+                        <option required="required" name="dismenorrea" value="Dismenorrea">si</option>
                         <option selected="selected" required="required" name="dismenorrea" value="">no</option>
                       </select>
                     </div>
@@ -670,7 +666,8 @@
                       <h3>Últ. citología:</h3>
                     </div>
                     <div class="gineco__form-container__item-wrap__response">
-                      <input type="date" name="ultCitologia"/>
+                      <input type="date" name="ultCitologia" max="<?php echo date("Y-m-d");?>" 
+                        value="<?php echo date("Y-m-d");?>"/>
                       <textarea placeholder="Resultados" name="resultCitologia"></textarea>
                     </div>
                   </div>
@@ -679,7 +676,8 @@
                       <h3>Últ. mastografía:</h3>
                     </div>
                     <div class="gineco__form-container__item-wrap__response">
-                      <input type="date" name="ultMastografia"/>
+                      <input type="date" name="ultMastografia" max="<?php echo date("Y-m-d");?>" 
+                        value="<?php echo date("Y-m-d");?>"/>
                       <textarea placeholder="Resultados" name="resultMastografia"></textarea>
                     </div>
                   </div>
@@ -688,20 +686,21 @@
                       <h3>Detección de VPH:</h3>
                     </div>
                     <div class="gineco__form-container__item-wrap__response">
-                      <select class="vphSelect" id="vph">
-                        <option id="siVPH" required="required" name="vph" value="si">si</option>
-                        <option id="noVPH" required="required" name="vph" value="no" selected="selected">no</option>
+                      <select class="vphSelect" id="vph" name="vphYN">
+                        <option id="siVPH" required="required" name="vph" value="VPH">si</option>
+                        <option id="noVPH" required="required" name="vph" value="" selected="selected">no</option>
                       </select>
                       <textarea class="txtA opt2" name="resVPH" placeholder="Resultado" id="vphDesc"></textarea>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="form-button">
-                <button class="button" onclick="expRegular()" type="submit" id="gin">Guardar</button>
-              </div>
-            </form>
+            </div>
           </div>
+        </div>
+
+        <div class="container-button">
+            <button class="btn btn-info btn-block" onclick="expRegular()" id="gin" type="submit">Guardar</button>
         </div>
       </div>
       <div class="control">

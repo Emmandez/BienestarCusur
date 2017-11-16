@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\prueba;
+use App\Models\Prueba;
 use Illuminate\Http\Request;
 
 class pruebaBase extends Controller
@@ -14,9 +14,9 @@ class pruebaBase extends Controller
      */
     public function index()
     {
-        $records = Patient::all();
+        
         //Regresa la vista 
-        return view('prueba', compact('records'));
+        return view('prueba');
     }
 
     /**
@@ -36,8 +36,24 @@ class pruebaBase extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        //Crear instancia de la clase prueba
+        $prueba = new Prueba;
+
+        //Asignación Masiva
+        //objeto->variable a llenar -> solicita el valor del campo con el nombre
+        //en el archivo html ['']
+        $prueba->texto = $request->get('txt');
+        $prueba->numero = $request->get('number');
+
+        
+
+        $prueba->save();
+
+        return create();
+
+
+
     }
 
     /**

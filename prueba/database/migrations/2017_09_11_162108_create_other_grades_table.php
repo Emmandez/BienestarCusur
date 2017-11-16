@@ -14,12 +14,15 @@ class CreateOtherGradesTable extends Migration
     public function up()
     {
         Schema::create('otherGrades', function (Blueprint $table) {
-            $table->enum('other_grade',['CATE', 'LICE', 'MAES']);
+            $table->enum('other_grade',['Carrera Técnica', 'Licenciatura', 'Maestría']);
             $table->string('specification', 45);
 
-            $table->integer('Scholarships_idScholarships')->unsigned();
+            $table->integer('scholarships_id')->unsigned();
 
-            $table->foreign('Scholarships_idScholarships')->references('idScholarships')->on('scholarships')->onDelete('cascade');
+            $table->foreign('scholarships_id')
+                ->references('id')
+                ->on('scholarships')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });

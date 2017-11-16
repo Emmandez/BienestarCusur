@@ -4,20 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReminderTable extends Migration
+class CreateRemindersTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
-     * Al parecer esta tabla se relaciona con la tabla anthopometricEvaluation
-     *
-     *
      */
     public function up()
     {
         Schema::create('reminders', function (Blueprint $table) {
-            $table->increments('idReminder');
+            $table->increments('id');
 
             $table->string('totalFoods',45);
             $table->string('totalCaloriesDay',45);
@@ -28,8 +25,16 @@ class CreateReminderTable extends Migration
             $table->time('morningCollationHour');
             $table->time('eveningCollationHour');
 
+            $table->integer('anthropometricEvaluations_id')->unsigned();
+
+            $table->foreign('anthropometricEvaluations_id')
+                  ->references('id')
+                  ->on('anthropometricEvaluations')
+                  ->onDelete('cascade');
+
 
             $table->timestamps();
+
         });
     }
 
@@ -40,6 +45,6 @@ class CreateReminderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reminder');
+        Schema::dropIfExists('reminders');
     }
 }

@@ -14,7 +14,7 @@ class CreateNamesFactorsTable extends Migration
     public function up()
     {
         Schema::create('namesFactors', function (Blueprint $table) {
-            $table->increments('idNamesFactors');
+            $table->increments('id');
             $table->mediumText('recomendation');
             $table->timestamps();
         });

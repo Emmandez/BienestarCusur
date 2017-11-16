@@ -14,19 +14,19 @@ class CreateAnalysesTable extends Migration
     public function up()
     {
         Schema::create('Analyses', function (Blueprint $table) {
-            $table->increments('idAnalyses');
+            $table->increments('id');
             $table->string('concept',50);
             $table->enum('state',['ANOR', 'NORM']);
             $table->datetime('date');
             $table->mediumText('result');
 
             //Campo para almacenar las llave foránea. Recordar que es una llave compuesta            
-            $table->string('Compilation_idCode')->unique();
+            $table->string('compilations_id')->unique();
             //$table->integer('Compilation_idCaseFile');
 
             //definir llave foranea. Relación entre las tablas
-            $table->foreign('Compilation_idCode')
-                  ->references('idCode')
+            $table->foreign('compilations_id')
+                  ->references('id')
                   ->on('compilations')->onDelete('cascade');
             /*      
             $table->foreign('Compilation_idCaseFile')
