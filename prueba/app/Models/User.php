@@ -16,7 +16,8 @@ class User extends Authenticatable
     	'last_name_m', 
     	'email', 
     	'password', 
-    	'UDG_Code', 
+    	'UDG_Code',
+        'area', 
     	'CURP'
     ];
     protected $hidden = ['password', 'remember_token'];

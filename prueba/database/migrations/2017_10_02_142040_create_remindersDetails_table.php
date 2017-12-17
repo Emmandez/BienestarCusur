@@ -14,12 +14,11 @@ class CreateRemindersDetailsTable extends Migration
     public function up()
     {
         Schema::create('remindersDetails', function (Blueprint $table) {
-            $table->enum('concept',['DESA','COMA','COMI','COVE','CENA','BREH','FOOH','DINH','MOCH','EVCH']);
+            $table->string('concept');
+            $table->string('detail');
+            $table->integer('reminder_id')->unsigned();
 
-            $table->string('detail', 45);
-            $table->integer('reminders_id')->unsigned();
-
-            $table->foreign('reminders_id')
+            $table->foreign('reminder_id')
                 ->references('id')
                 ->on('reminders')
                 ->onDelete('cascade');

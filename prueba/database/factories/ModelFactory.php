@@ -27,6 +27,7 @@ $factory->define(User::class, function () {
         'UDG_Code' => '214413693',
         'password' => $password ?: $password = bcrypt('123456'),
         'curp' => '123123123123',
+        'area' => 'Medicina' ,
         'remember_token' => str_random(60)
     ];
 });

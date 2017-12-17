@@ -15,9 +15,9 @@ class CreateMedicalForecastsTable extends Migration
     {
         Schema::create('medicalForecasts', function (Blueprint $table) {
             $table->mediumText('descript');
-            $table->integer('treatments_id')->unsigned();
+            $table->integer('treatment_id')->unsigned();
             
-            $table->foreign('treatments_id')
+            $table->foreign('treatment_id')
                   ->references('id')
                   ->on('Treatments')
                   ->onDelete('cascade');

@@ -21,9 +21,9 @@ class CreateGynecoResultsTable extends Migration
             Resultados de ultima citología
             */
 
-            $table->integer('GynecoObstetricHistories_id')->unsigned();
+            $table->integer('GynecoObstetricHistory_id')->unsigned();
 
-            $table->foreign('GynecoObstetricHistories_id')
+            $table->foreign('GynecoObstetricHistory_id')
                   ->references('id')
                   ->on('GynecoObstetricHistories')
                   ->onDelete('cascade');

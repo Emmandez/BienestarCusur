@@ -25,9 +25,11 @@ class Compilation extends Model
     'idResponsibleF'
     ];
 
+    //Relationships from SplceEML controller
     public function patient(){
         //OneToOne Relationship. Model, Foreign key, Local key
-        return $this->hasOne('App\Models\Patient');
+        //Example: return $this->hasOne('modelo ruta o clase', 'nombre del campo de la llave foranea en la tabla');
+        return $this->hasOne('App\Models\Patient::class');
     }
 
     public function job(){
@@ -46,13 +48,64 @@ class Compilation extends Model
         return $this->hasOne('App\Models\Scholarship');
     }
 
-    public function otherGrades(){
-        return $this->hasMany('App\Models\OtherGrade');
+    //Relationships from NurseryController
+    public function vitalSigns(){
+        return $this->hasMany('App\Models\VitalSigns');
     }
 
+    //Relationships from MedicsController
     public function familyHistories(){
         return $this->hasMany('App\Models\FamilyHistory');
     }
+
+    public function pathologicalHistory(){
+        return $this->hasMany('App\Models\PathologicalHistory');
+    }
+
+    public function nonPathologicalHistory(){
+        return $this->hasMany('App\Models\NonPathologicalHistory');
+    }
+
+    public function ginecoObstetricHistory(){
+        return $this->hasMany('App\Models\GinecoObstetricHistory');
+    }
+
+    public function generalGynecoData(){
+        return $this->hasMany('App\Models\GeneralGynecoData');
+    }
+
+    public function datosGineco(){
+        return $this->hasMany('App\Models\DatosGineco');
+    }
+
+    
+    //Relationships from SplceALController
+    public function work(){
+        return $this->hasMany('App\Models\Work');
+    }
+
+    //Relationships from MedicsEXPController
+    public function system(){
+        return $this->hasMany('App\Models\System');
+    }
+
+    public function exploration(){
+        return $this->hasMany('App\Models\Exploration');
+    }
+
+    //Relationships from NutriologyController
+    public function anthropometricEvaluation(){
+        return $this->hasMany('App\Models\AnthropometricEvaluation');
+    }
+
+    public function Cuestionario(){
+        return $this->hasMany('App\Models\Cuestionario');
+    }
+
+
+
+ 
+    
 
 
 

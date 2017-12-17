@@ -261,7 +261,7 @@
                         <label>¿Cuenta con un 2º empleo actual?</label>
                         <select class="segundoEmpleoActual" name="segEmpAct">
                             <option name="segEmpAct" value="Si">Si</option>
-                            <option name="segEmpAct" value="No" selected>No</option>
+                            <option name="segEmpAct" value="" selected>No</option>
                         </select>
                     </div>
                 </div>
@@ -308,7 +308,7 @@
                                 <p>Ruido</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="ruido2_1" value="RU2_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes2_2[]" value="RUIDO">
                             </td>
                         </tr>
                         <tr>
@@ -316,7 +316,7 @@
                                 <p>Vibraciones</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="vibracionnes2_1" value="VI2_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes2_2[]" value="VIBRACIONES">
                             </td>
                         </tr>
                         <tr>
@@ -324,7 +324,7 @@
                                 <p>Temperatura extrema</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="temp_extrema2_1" value="TE2_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes2_2[]" value="TEMPERATURA EXTREMA">
                             </td>
                         </tr>
                         <tr>
@@ -332,7 +332,7 @@
                                 <p>Iluminación</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="iluminacion2_1" value="IL2_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes2_2[]" value="ILUMINACIÓN">
                             </td>
                         </tr>
                         <tr>
@@ -340,7 +340,7 @@
                                 <p>Radiación</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="radiacion2_1" value="RA2_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes2_2[]" value="RADIACIÓN">
                             </td>
                         </tr>
                         <tr>
@@ -348,7 +348,7 @@
                                 <p>Químicos</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="quimicos2_1" value="QU2_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes2_2[]" value="QUÍMICOS">
                             </td>
                         </tr>
                         <tr>
@@ -356,7 +356,7 @@
                                 <p>Biológicos</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="biologicos2_1" value="BI2_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes2_2[]" value="BIOLÓGICOS">
                             </td>
                         </tr>
                         <tr>
@@ -364,7 +364,7 @@
                                 <p>Ergonómicos</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="ergonomicos2_1" value="ER2_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes2_2[]" value="ERGONÓMICOS">
                             </td>
                         </tr>
                         <tr>
@@ -394,7 +394,7 @@
                         <label>Empleo anterior inmediato</label>
                         <select class="empleoAnteriorInmediato" name="empAntInm">
                             <option name="empAntInm" value="Si">Si</option>
-                            <option name="empAntInm" value="No" selected>No</option>
+                            <option name="empAntInm" value="" selected>No</option>
                         </select>
                     </div>
                 </div>
@@ -479,10 +479,10 @@
                                 <p>Ruido</p>
                             </td>
                             <td class="colUno">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="ruido3_1" value="RU3_1">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI1[]" value="RUIDO">
                             </td>
                             <td class="colDos">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="ruido3_2" value="RU3_2">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI2[]" value="RUIDO">
                             </td>
                         </tr>
                         <tr>
@@ -490,10 +490,10 @@
                                 <p>Vibraciones</p>
                             </td>
                             <td class="colUno">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="vibraciones3_1" value="VI3_1">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI1[]" value="VIBRACIONES">
                             </td>
                             <td class="colDos">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="vibraciones3_2" value="VI3_2">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI2[]" value="VIBRACIONES">
                             </td>
                         </tr>
                         <tr>
@@ -501,10 +501,10 @@
                                 <p>Temperatura extrema</p>
                             </td>
                             <td class="colUno">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="temp_extrema3_1" value="TE3_1">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI1[]" value="TEMPERATURA EXTREMA">
                             </td>
                             <td class="colDos">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="temp_extrema3_2" value="TE3_2">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI2[]" value="TEMPERATURA EXTREMA">
                             </td>
                         </tr>
                         <tr>
@@ -512,10 +512,10 @@
                                 <p>Iluminación</p>
                             </td>
                             <td class="colUno">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="iluminacion3_1" value="IL3_1">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI1[]" value="ILUMINACIÓN">
                             </td>
                             <td class="colDos">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="iluminacion3_2" value="IL3_2">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI2[]" value="ILUMINACIÓN">
                             </td>
                         </tr>
                         <tr>
@@ -523,10 +523,10 @@
                                 <p>Radiación</p>
                             </td>
                             <td class="colUno">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="radiacion3_1" value="RA3_1">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI1[]" value="RADIACIÓN">
                             </td>
                             <td class="colDos">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="radiacion3_2" value="RA3_2">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI2[]" value="RADIACIÓN">
                             </td>
                         </tr>
                         <tr>
@@ -534,10 +534,10 @@
                                 <p>Químicos</p>
                             </td>
                             <td class="colUno">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="quimicos3_1" value="QU3_1">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI1[]" value="QUÍMICOS">
                             </td>
                             <td class="colDos">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="quimicos3_2" value="QU3_2">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI2[]" value="QUÍMICOS">
                             </td>
                         </tr>
                         <tr>
@@ -545,10 +545,10 @@
                                 <p>Biológicos</p>
                             </td>
                             <td class="colUno">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="biologicos3_1" value="BI3_1">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI1[]" value="BIOLÓGICOS">
                             </td>
                             <td class="colDos">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="biologicos3_2" value="BI3_2">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI2[]" value="BIOLÓGICOS">
                             </td>
                         </tr>
                         <tr>
@@ -556,10 +556,10 @@
                                 <p>Ergonómicos</p>
                             </td>
                             <td class="colUno">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="ergonomicos3_1" value="ER3_1">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI1[]" value="ERGONÓMICOS">
                             </td>
                             <td class="colDos">
-                                <input class="noRequired" class="checkbox" type="checkbox" name="ergonomicos3_2" value="ER3_2">
+                                <input class="noRequired" class="checkbox" type="checkbox" name="agentesAI2[]" value="ERGONÓMICOS">
                             </td>
                         </tr>
                         <tr>
@@ -595,7 +595,7 @@
                         <label>Empleo anterior</label>
                         <select class="empAnt" name="empAnt">
                             <option name="empAnt" value="Si">Si</option>
-                            <option name="empAnt" value="No" selected>No</option>
+                            <option name="empAnt" value="" selected>No</option>
                         </select>
                     </div>
                 </div>
@@ -642,7 +642,7 @@
                                 <p>Ruido</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="ruido4_1" value="RU4_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes4[]" value="RUIDO">
                             </td>
                         </tr>
                         <tr>
@@ -650,7 +650,7 @@
                                 <p>Vibraciones</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="vibracionnes4_1" value="VI4_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes4[]" value="VIBRACIONES">
                             </td>
                         </tr>
                         <tr>
@@ -658,7 +658,7 @@
                                 <p>Temperatura extrema</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="temp_extrema4_1" value="TE4_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes4[]" value="TEMPERATURA EXTREMA">
                             </td>
                         </tr>
                         <tr>
@@ -666,7 +666,7 @@
                                 <p>Iluminación</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="iluminacion4_1" value="IL4_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes4[][]" value="ILUMINACIÓN">
                             </td>
                         </tr>
                         <tr>
@@ -674,7 +674,7 @@
                                 <p>Radiación</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="radiacion4_1" value="RA4_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes4" value="RADIACIÓN">
                             </td>
                         </tr>
                         <tr>
@@ -682,7 +682,7 @@
                                 <p>Químicos</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="quimicos4_1" value="QU4_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes4[][]" value="QUÍMICOS">
                             </td>
                         </tr>
                         <tr>
@@ -690,7 +690,7 @@
                                 <p>Biológicos</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="biologicos4_1" value="BI4_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes4[][]" value="BIOLÓGICOS">
                             </td>
                         </tr>
                         <tr>
@@ -698,7 +698,7 @@
                                 <p>Ergonómicos</p>
                             </td>
                             <td>
-                                <input class="checkbox noRequired" type="checkbox" name="ergonomicos4_1" value="ER4_1">
+                                <input class="checkbox noRequired" type="checkbox" name="agentes4[]" value="ERGONÓMICOS">
                             </td>
                         </tr>
                         <tr>

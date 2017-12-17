@@ -15,14 +15,14 @@ class CreateExercisesTable extends Migration
     {
         Schema::create('exercises', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('intensity', ['ML','L','M','P','E']);
-            $table->string('exercise_type', 45);
-            $table->integer('exercise_frequency');
-            $table->float('exercise_duration');
+            $table->string('type');
+            $table->integer('frequency');
+            $table->float('duration');
+            $table->date('start_date');
 
-            $table->integer('anthropometricEvaluations_id')->unsigned();
+            $table->integer('anthropometricEvaluation_id')->unsigned();
 
-            $table->foreign('anthropometricEvaluations_id')
+            $table->foreign('anthropometricEvaluation_id')
                   ->references('id')
                   ->on('anthropometricEvaluations')
                   ->onDelete('cascade');

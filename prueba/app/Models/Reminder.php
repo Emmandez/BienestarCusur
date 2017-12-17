@@ -11,11 +11,18 @@ class Reminder extends Model
     [
     'totalFoods',
     'totalCaloriesDay',
-    'elaborated',
     'breakfastHour',
    	'foodHour',
    	'dinnerHour',
    	'morningCollationHour',
    	'eveningCollationHour'
     ];
+
+    public function reminderDetail(){
+      return $this->hasMany('App\Models\ReminderDetail');
+    }
+
+    public function compilation(){
+      return $this->belongsTo('App\Models\Compilation');
+    }
 }

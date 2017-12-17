@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('UDG_Code')->unique();
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('area');
             $table->string('curp')->unique();
             $table->rememberToken();
             $table->timestamps();

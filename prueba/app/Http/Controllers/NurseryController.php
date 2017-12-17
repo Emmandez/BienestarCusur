@@ -57,7 +57,7 @@ class NurseryController extends Controller
         $vs_data->FR              = $request->get('FR');
         $vs_data->Temp            = $request->get('Temp');
         
-        $vs_data->compilations_id = '214413693';
+        $vs_data->compilation_id = '214413693';
         //$vs_data->compilations_id = $request->get('patientCode');
 
         

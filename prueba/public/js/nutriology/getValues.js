@@ -23,11 +23,11 @@ $('#talla , #pesoActual').on( 'keyup' , function(){
 
         if( Imc < 18.5 )
         {
-            categPeso.val('Peso bajo');
+            categPeso.val('Peso Bajo');
         }
         else if ( Imc >= 18.5 && Imc <= 24.9 )
         {
-            categPeso.val('Peso normal');
+            categPeso.val('Peso Normal');
         }
         else if ( Imc >= 25 && Imc <= 29.9 )
         {

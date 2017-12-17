@@ -65,7 +65,7 @@ class MedicsExpController extends Controller
 
                 $system->concept         = $systemsConcept[$i];
                 $system->description     = $systemsDesc[$i];
-                $system->compilations_id = '214413693';
+                $system->compilation_id = '214413693';
 
                 $system->save();
             }
@@ -163,10 +163,10 @@ class MedicsExpController extends Controller
         for ($i=0; $i < sizeof($sysTwoOrg); $i++) { 
             $exploration = new Exploration;
 
-            $exploration->orgsis          = $sysTwoOrg[$i]['OrgSys'];
-            $exploration->concept         = $sysTwoOrg[$i]['Concept1'];
-            $exploration->condition       = $sysTwoOrg[$i]['Condition1'];
-            $exploration->compilations_id = '214413693';
+            $exploration->orgsis         = $sysTwoOrg[$i]['OrgSys'];
+            $exploration->concept        = $sysTwoOrg[$i]['Concept1'];
+            $exploration->condition      = $sysTwoOrg[$i]['Condition1'];
+            $exploration->compilation_id = '214413693';
 
             if(!empty($sysTwoOrg[$i]['description1'])){
                 $exploration->description = $sysTwoOrg[$i]['description1'];
@@ -178,10 +178,10 @@ class MedicsExpController extends Controller
 
             $exploration = new Exploration;
 
-            $exploration->orgsis          = $sysTwoOrg[$i]['OrgSys'];
-            $exploration->concept         = $sysTwoOrg[$i]['Concept2'];
-            $exploration->condition       = $sysTwoOrg[$i]['Condition2'];
-            $exploration->compilations_id = '214413693';
+            $exploration->orgsis         = $sysTwoOrg[$i]['OrgSys'];
+            $exploration->concept        = $sysTwoOrg[$i]['Concept2'];
+            $exploration->condition      = $sysTwoOrg[$i]['Condition2'];
+            $exploration->compilation_id = '214413693';
 
             if(!empty($sysTwoOrg[$i]['description2'])){
                 $exploration->description = $sysTwoOrg[$i]['description2'];
@@ -195,10 +195,10 @@ class MedicsExpController extends Controller
         for ($i=0; $i < sizeof($SysOrg) ; $i++) { 
             $exploration = new Exploration;
 
-            $exploration->orgsis          = $SysOrg[$i]['OrgSys'];
-            $exploration->concept         = $SysOrg[$i]['Concept'];
-            $exploration->condition       = $SysOrg[$i]['Condition'];
-            $exploration->compilations_id = '214413693';
+            $exploration->orgsis         = $SysOrg[$i]['OrgSys'];
+            $exploration->concept        = $SysOrg[$i]['Concept'];
+            $exploration->condition      = $SysOrg[$i]['Condition'];
+            $exploration->compilation_id = '214413693';
 
             if(!empty($SysOrg[$i]['description'])){
                 $exploration->description = $SysOrg[$i]['description'];

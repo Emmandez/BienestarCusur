@@ -19,11 +19,11 @@ class CreateGynecoObstetricHistoriesTable extends Migration
             $table->dateTime('date');
 
             //Campo para almacenar las llave foránea. Recordar que es una llave compuesta            
-            $table->string('compilations_id');
+            $table->string('compilation_id');
             //$table->integer('Compilation_idCaseFile');
 
             //definir llave foranea. Relación entre las tablas
-            $table->foreign('compilations_id')
+            $table->foreign('compilation_id')
                   ->references('id')
                   ->on('compilations')
                   ->onDelete('cascade');

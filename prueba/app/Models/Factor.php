@@ -11,4 +11,8 @@ class Factor extends Model
     protected $filliable = [
     'conceptofactor'
     ];
+
+    public function work(){
+    	return $this->belongsTo('App\Models\Work');
+    }
 }

@@ -13,4 +13,8 @@ class ReminderDetail extends Model
     'concept',
     'detail'
     ];
+
+    public function reminder(){
+    	return $this->belongsTo('App\Models\Reminder');
+    }
 }

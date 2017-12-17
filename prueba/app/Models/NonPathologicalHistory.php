@@ -14,5 +14,22 @@ class NonPathologicalHistory extends Model
     'properFeeding'
     ];
 
+
+    public function compilation(){
+    	return $this->belongsTo('App\Models\Compilation');
+    }
+
+    public function frecuency(){
+        return $this->hasMany('App\Models\Frecuency');
+    }
+
+    public function desc_Toxico(){
+        return $this->hasMany('App\Models\Desc_Toxico');
+    }
+
+    public function nonPathHistDescription(){
+        return $this->hasMany('App\Models\NonPathHistDescription');
+    }
+
 	
 }

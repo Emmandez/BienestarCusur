@@ -95,7 +95,7 @@ class SlpceEMLController extends Controller
         //Change this feature. PLEASE
         $folio = new Folio;
 
-        $folio->compilations_id = $request->get('codigo');
+        $folio->compilation_id = $request->get('codigo');
         
         $folio->save();
 
@@ -116,7 +116,7 @@ class SlpceEMLController extends Controller
         $patient->dependents      = $request->get('numFamCargo');
         $patient->child_number    = $request->get('numHijos');
         $patient->dateRegistry    = $request->get('fechaRegistro');
-        $patient->compilations_id = $request->get('codigo');
+        $patient->compilation_id = $request->get('codigo');
 
         $patient->save();
         
@@ -129,7 +129,7 @@ class SlpceEMLController extends Controller
         $direccion->suburb          = $request->get('colonia');
         $direccion->postalCode      = $request->get('cp');
         $direccion->addressType     = $request->get('TipoVivienda');
-        $direccion->compilations_id = $request->get('codigo');
+        $direccion->compilation_id = $request->get('codigo');
 
         $direccion->save();
         
@@ -140,7 +140,7 @@ class SlpceEMLController extends Controller
         
         $housePhone->phoneNumber     = $request->get('telefonoCasa');
         $housePhone->type            = 'CASA';
-        $housePhone->compilations_id = $request->get('codigo');
+        $housePhone->compilation_id = $request->get('codigo');
 
         $housePhone->save();
         
@@ -148,7 +148,7 @@ class SlpceEMLController extends Controller
         
         $cellPhone->phoneNumber     = $request->get('telefonoCel');
         $cellPhone->type            = 'CELU';
-        $cellPhone->compilations_id = $request->get('codigo');
+        $cellPhone->compilation_id = $request->get('codigo');
 
         $cellPhone->save();
         
@@ -215,7 +215,7 @@ class SlpceEMLController extends Controller
                         
                         $scholarship->lastGrade       = $Lastgrade; 
                         $scholarship->specification   = $LastgradeDescription;
-                        $scholarship->compilations_id = $request->get('codigo');
+                        $scholarship->compilation_id = $request->get('codigo');
 
                         $scholarship->save();
 
@@ -231,7 +231,7 @@ class SlpceEMLController extends Controller
                             
                             $scholarship->lastGrade       = $Lastgrade; 
                             $scholarship->specification   = $LastgradeDescription;
-                            $scholarship->compilations_id = $request->get('codigo');
+                            $scholarship->compilation_id = $request->get('codigo');
 
                             $scholarship->save();
                             
@@ -241,7 +241,7 @@ class SlpceEMLController extends Controller
                             $LastgradeDescription         = "Trunco";
                             $scholarship->lastGrade       = $Lastgrade; 
                             $scholarship->specification   = $LastgradeDescription;
-                            $scholarship->compilations_id = $request->get('codigo');
+                            $scholarship->compilation_id = $request->get('codigo');
 
                             $scholarship->save();
                             
@@ -259,13 +259,13 @@ class SlpceEMLController extends Controller
                     $otherGrade->specification = $otherGradeDescription;
                     
 
-                    $scholarshipCode = Scholarship::where('compilations_id', $request->get('codigo'))->get(array('id'));
+                    $scholarshipCode = Scholarship::where('compilation_id', $request->get('codigo'))->get(array('id'));
                     
                     foreach ($scholarshipCode as $y ) {
                             $x = $y->id;
                     }
 
-                    $otherGrade->scholarships_id = $x;
+                    $otherGrade->scholarship_id = $x;
 
                     $otherGrade->save();
 
@@ -295,7 +295,7 @@ class SlpceEMLController extends Controller
         $job->antiquity_years           = $request->get('aniosAntiguedad');
         $job->antiquity_months          = $request->get('mesesAntiguedad');
         $job->incapacity_days_last_year = $request->get('diasIncapacidad');
-        $job->compilations_id           = $request->get('codigo');
+        $job->compilation_id           = $request->get('codigo');
 
         $job->save();
 

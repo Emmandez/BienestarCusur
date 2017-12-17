@@ -33,7 +33,8 @@ class RegisterController extends Controller
         'UDG_Code.max' => 'El código UDG no debe tener más de 9 caracteres.',
         'password.confirmed' => 'Las contraseñas no coinciden.',
         'CURP.min' => 'La curp tiene pocos caracteres',
-        'CURP.max' => 'La curp tiene muchos caracteres'
+        'CURP.max' => 'La curp tiene muchos caracteres',
+
 
 
     ];
@@ -61,7 +62,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'UDG_Code' => $data['UDG_Code'],
             'password' => bcrypt($data['password']),
-            'CURP' => $data['curp']
+            'CURP' => $data['curp'],
+            'area' => $data['area']
         ]);
         $user->attachRole(Role::where('name', '=', 'registered')->first());
         return $user;

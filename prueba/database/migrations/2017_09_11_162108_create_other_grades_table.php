@@ -17,9 +17,9 @@ class CreateOtherGradesTable extends Migration
             $table->enum('other_grade',['Carrera Técnica', 'Licenciatura', 'Maestría']);
             $table->string('specification', 45);
 
-            $table->integer('scholarships_id')->unsigned();
+            $table->integer('scholarship_id')->unsigned();
 
-            $table->foreign('scholarships_id')
+            $table->foreign('scholarship_id')
                 ->references('id')
                 ->on('scholarships')
                 ->onDelete('cascade');

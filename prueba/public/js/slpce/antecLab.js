@@ -125,7 +125,7 @@ segTrab.on('click' , function(){
         });
         $('.noRequired').removeAttr('required');
     }
-    else if( segTrab.val() == 'No' )
+    else // if( segTrab.val() == 'No' )
     {
         tabSegP.animate({
             'height' : 'hide'
@@ -161,7 +161,7 @@ tercTrab.on('click', function(){
             'height' : 'show'
         },400);
     }
-    else if( tercTrab.val() == 'No' )
+    else //if( tercTrab.val() == 'No' )
     {
         cantidad.val('Elije..');
         colUno.each(function(){
@@ -266,7 +266,7 @@ antTrab.on('click' , function(){
         });
         $('.noRequired').removeAttr('required');
     }
-    else if( antTrab.val() == 'No' )
+    else //if( antTrab.val() == 'No' )
     {
         tabCuatro.animate({
             'height' : 'hide'

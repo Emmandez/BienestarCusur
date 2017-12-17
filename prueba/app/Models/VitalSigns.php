@@ -18,6 +18,6 @@ class VitalSigns extends Model
 
     protected function Patient()
     {
-        return $this->belongsTo(Patient::class, 'patient_id', 'id');
+        return $this->belongsTo(Compilation::class);
     }
 }

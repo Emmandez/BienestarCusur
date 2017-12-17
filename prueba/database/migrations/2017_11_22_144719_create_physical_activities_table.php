@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWorkshopsTable extends Migration
+class CreatePhysicalActivitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateWorkshopsTable extends Migration
      */
     public function up()
     {
-        Schema::create('workshops', function (Blueprint $table) {
-            $table->string('workshopName', 45);
-            $table->enum('priority', ['1','2','3']);
+        Schema::create('physical_activities', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('intensity');
+            $table->integer('anthropometricEvaluation_id')->unsigned();
 
-            $table->integer('psychosocial_id')->unsigned();
-            
-            $table->foreign('psychosocial_id')
+            $table->foreign('anthropometricEvaluation_id')
                   ->references('id')
-                  ->on('psychosocial')
+                  ->on('anthropometricEvaluations')
                   ->onDelete('cascade');
 
             $table->timestamps();
@@ -35,6 +34,6 @@ class CreateWorkshopsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('workshops');
+        Schema::dropIfExists('physical_activities');
     }
 }

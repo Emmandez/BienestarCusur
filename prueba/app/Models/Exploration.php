@@ -14,4 +14,8 @@ class Exploration extends Model
     'condition',
     'description'
     ];
+
+    public function compilation(){
+    	return $this->belongsTo('App\Models\Compilation');
+    }
 }

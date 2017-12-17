@@ -27,9 +27,9 @@ class CreateGeneralGynecoDatasTable extends Migration
 
             */
             $table->string('answer');
-            $table->string('compilations_id');
+            $table->string('compilation_id');
 
-            $table->foreign('compilations_id')
+            $table->foreign('compilation_id')
                   ->references('id')
                   ->on('compilations')
                   ->onDelete('cascade');

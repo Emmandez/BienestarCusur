@@ -17,47 +17,48 @@ class CreateAnthropometricEvaluationsTable extends Migration
             # Is this really the case where we need to do database-level math?
             # Otherwise they should be done by front-end, and stored as strings.
             $table->increments('id');
-            $table->string('sizeMtrs');
+            $table->string('height');
             $table->string('current_weight');
             $table->string('habitual_weight');
-            $table->string('ideal_weight');
-            $table->string('imc');
-            $table->enum('weightType',['BJ','PN','SP','O1','O2','O3']);
-            $table->string('usualWeightPorcent');
-            $table->enum('desnutritionType',['DL','DM','DG','NA','N']);
-            $table->string('waist_circumference');
             $table->string('hip_circumference');
-            $table->enum('waist_danger',['Y','N']);
-            $table->string('ICC');
-            $table->enum('ICCRisk',['B','M','A']);
-            $table->string('mass_distribution');
+            $table->string('waist_circumference');
             $table->string('wrist_circumference');
-            $table->enum('complexity',['P','M','G']);
             $table->string('cmb');
             $table->string('pcb');
             $table->string('pct');
+            $table->string('imc');
+            $table->string('weight_category');
+            $table->string('ideal_weight');
+            $table->string('habitual_weightPercent');
+            $table->string('icc');
+            $table->string('waist_danger');
+            $table->string('iccRisk');
+            $table->string('mass_distribution');
+            $table->string('complexity');
             $table->string('pcse');
             $table->string('pcsi');
-            $table->string('totalMuscleMass');
-            $table->string('leanMass');
-            $table->string('percentajeFat');
-            $table->string('fatMass');
-            $table->string('totalBodywater');
-            //Campos para la báscula tanita
-            $table->string('percentajeFatMassT');
-            $table->string('fatMassT');
-            $table->string('leanMassKgT');
-            $table->string('totalBodywaterKgT');
-
-            $table->enum('physicalActivity',['Y','N']);
-            $table->enum('exercise',['Y','N']);
+            $table->string('muscleKG');
+            $table->string('lean_MassKg');
+            $table->string('lean_MassKgTanita');
+            $table->string('total_water_tanita');
+            $table->string('desnutrition_grade');
+            $table->string('greasePercent');
+            $table->string('grease_massKG');
+            $table->string('total_corporal_water');
+            $table->string('masa_grasaTanitaPercent');
+            $table->string('masa_grasaTanitaKG');
+            $table->enum('physicalActivity',['SI','NO']);
+            $table->enum('exercise',['SI','NO']);
 
             //Campo para almacenar las llave foránea. 
-            $table->string('compilations_id');
+            $table->string('compilation_id');
             //$table->integer('Compilation_idCaseFile');
 
             //definir llave foranea. Relación entre las tablas
-            $table->foreign('compilations_id')->references('id')->on('compilations')->onDelete('cascade');
+            $table->foreign('compilation_id')
+                  ->references('id')
+                  ->on('compilations')
+                  ->onDelete('cascade');
 
 
            

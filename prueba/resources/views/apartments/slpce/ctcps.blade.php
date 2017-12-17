@@ -16,7 +16,7 @@
 
 @section('content')
 
-{!! Form::open(['action' => 'SlpceController@store']) !!}
+{!! Form::open(['action' => 'SlpceController@store', 'id'=>'formulario']) !!}
 <section class="m-wrapper">
   <div class="m-center">
     <div class="slpce__header">
@@ -1490,6 +1490,11 @@
             <textarea name="comentariosCuest" placeholder="Utiliza éste espacio si desea comentar alguna situación que no haya ido tratada en ésta evaluación"></textarea>
           </div>
         </div>
+        <div class="ocultos">
+          <input type="text" id="oculto1" name="oculto1">
+          <input type="text" id="oculto2" name="oculto2">
+          <input type="text" id="oculto3" name="oculto3">
+        </div>
         <div class="p76 container contenedor">
           <div class="p76__tit">
             <h3>76. Arrastra el número a la tabla según la prioridad del taller, en caso de ser uno distinto arrastrarlo al campo de texto y describirlo.</h3>
@@ -1567,7 +1572,7 @@
           </div>
         </div>
         <div class="form-button">
-          <button class="button btnslpce" type="submit">Guardar</button>
+          <button class="button btnslpce" type="submit" id="btnSubmit">Guardar</button>
         </div>
       </div>
     <!--</form>-->

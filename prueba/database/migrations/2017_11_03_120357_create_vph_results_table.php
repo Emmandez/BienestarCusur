@@ -16,9 +16,9 @@ class CreateVphResultsTable extends Migration
         Schema::create('vph_results', function (Blueprint $table) {
             $table->increments('id');
             $table->string('result');
-            $table->integer('datos_ginecos_id')->unsigned();
+            $table->integer('datosGineco_id')->unsigned();
 
-            $table->foreign('datos_ginecos_id')
+            $table->foreign('datosGineco_id')
                   ->references('id')
                   ->on('datos_ginecos')
                   ->onDelete('cascade');

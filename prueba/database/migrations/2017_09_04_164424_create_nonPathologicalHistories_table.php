@@ -20,11 +20,11 @@ class CreateNonPathologicalHistoriesTable extends Migration
             $table->string('properFeeding');
 
             //Campo para almacenar las llave foránea. Recordar que es una llave compuesta            
-            $table->string('compilations_id')->unique();
+            $table->string('compilation_id')->unique();
             //$table->integer('Compilation_idCaseFile');
 
             //definir llave foranea. Relación entre las tablas
-            $table->foreign('compilations_id')
+            $table->foreign('compilation_id')
                   ->references('id')
                   ->on('compilations')
                   ->onDelete('cascade');

@@ -16,9 +16,9 @@ class CreateFoliosTable extends Migration
         Schema::create('folios', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('compilations_id')->unique();
+            $table->string('compilation_id')->unique();
 
-            $table->foreign('compilations_id')
+            $table->foreign('compilation_id')
                   ->references('id')
                   ->on('compilations')
                   ->onDelete('cascade');

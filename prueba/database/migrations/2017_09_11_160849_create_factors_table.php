@@ -17,9 +17,9 @@ class CreateFactorsTable extends Migration
             $table->increments('id');
             $table->mediumText('conceptofactor');
 
-            $table->integer('works_id')->unsigned();
+            $table->integer('work_id')->unsigned();
 
-            $table->foreign('works_id')
+            $table->foreign('work_id')
                 ->references('id')
                 ->on('works')
                 ->onDelete('cascade');

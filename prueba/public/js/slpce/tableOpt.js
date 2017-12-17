@@ -112,6 +112,11 @@ var otro = $('.p76__otro').find('li');
 var boton = $('.btnslpce');
 var contenedor = $('.contDragDrop').find('input').length;
 
+var hidden1 = $('oculto1');
+var hidden2 = $('oculto2');
+var hidden3 = $('oculto3');
+var i;
+
 seleccionados.each(function () {
     $(this).on('drop', function () {
         if ($(this).find('input').length) {
@@ -171,7 +176,63 @@ boton.on('click', function () {
         $('.otro76').removeAttr('required');
         $('.otro76').val('');
     }
+
+    //hidden1.html(findValues(seleccionados[0].className));
+
+    for (i =  0; i < 9; i++){
+        if(seleccionados[i].value!=0){
+            if(seleccionados[i].value=="1"){
+                console.log(findValues(seleccionados[i].className));
+                $('#oculto1').val(findValues(seleccionados[i].className));
+            }
+            else if(seleccionados[i].value=="2"){
+                console.log(findValues(seleccionados[i].className));
+                $('#oculto2').val(findValues(seleccionados[i].className));
+                //hidden2.html(findValues(seleccionados[i].className));
+            }
+            else if(seleccionados[i].value=="3"){
+                console.log(findValues(seleccionados[i].className));
+                //hidden3.html(findValues(seleccionados[i].className));
+                $('#oculto3').val(findValues(seleccionados[i].className));
+            }
+        }
+    }
+
+    //document.getElementById("formulario").submit();
 });
+
+//determina qué valor corresponde a un input
+function findValues(index){
+    if(index=='op1'){
+        return "Alimentación-Nutrición";
+    }
+    else if(index=='op2'){
+        return "Habilidades Sociales";
+    }
+    else if(index=='op3'){
+        return "Activación Física";
+    }
+    else if(index=='op4'){
+        return "Manejo de estrés";
+    }
+    else if(index=='op5'){
+        return "Plan Integral de vida";
+    }
+    else if(index=='op6'){
+        return "Sistema de Pensión y seguro";
+    }
+    else if(index=='op7'){
+        return "Dinámica Familiar";
+    }
+    else if(index=='op8'){
+        return "Manejo de la adversidad (Resilencia)";
+    }
+    else if(index=''){
+
+    }
+}
+
+
 
 /*
 $("#stick").sticky({

@@ -20,9 +20,9 @@ class CreateFrequenciesTable extends Migration
             $table->integer('frecuency'); 
             $table->string('exConsumer');
 
-            $table->integer('nonPathologicalHistories_id')->unsigned();
+            $table->integer('nonPathologicalHistory_id')->unsigned();
 
-            $table->foreign('nonPathologicalHistories_id')
+            $table->foreign('nonPathologicalHistory_id')
                   ->references('id')
                   ->on('nonPathologicalHistories')
                   ->onDelete('cascade');

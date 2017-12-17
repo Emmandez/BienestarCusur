@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDescToxicoTable extends Migration
+class CreateRespuestasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateDescToxicoTable extends Migration
      */
     public function up()
     {
-        Schema::create('desc_toxico', function (Blueprint $table) {
+        Schema::create('respuestas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description_toxico');
-            $table->integer('frecuency_id')->unsigned();
+            $table->integer('question');
+            $table->integer('answer');
+            $table->integer('factor_dims_id')->unsigned();
 
-            $table->foreign('frecuency_id')
+            $table->foreign('factor_dims_id')
                   ->references('id')
-                  ->on('frequencies')
+                  ->on('factor_dims')
                   ->onDelete('cascade');
-
+                  
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ class CreateDescToxicoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('desc_toxico');
+        Schema::dropIfExists('respuestas');
     }
 }

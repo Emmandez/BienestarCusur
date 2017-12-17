@@ -18,16 +18,15 @@ class CreateRemindersTable extends Migration
 
             $table->string('totalFoods',45);
             $table->string('totalCaloriesDay',45);
-            $table->string('elaborated',45);
             $table->time('breakfastHour');
             $table->time('foodHour');
             $table->time('dinnerHour');
             $table->time('morningCollationHour');
             $table->time('eveningCollationHour');
 
-            $table->integer('anthropometricEvaluations_id')->unsigned();
+            $table->integer('anthropometricEvaluation_id')->unsigned();
 
-            $table->foreign('anthropometricEvaluations_id')
+            $table->foreign('anthropometricEvaluation_id')
                   ->references('id')
                   ->on('anthropometricEvaluations')
                   ->onDelete('cascade');

@@ -123,6 +123,26 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('area') ? ' has-error' : '' }}">
+                                <label for="area" class="col-md-4 control-label">Área</label>
+
+                                <div class="col-md-6">
+                                    <select id="area" type="text" class="form-control" name="area"
+                                           value="{{ old('area') }}" required>
+                                        <option value=""> Selecciona una área </option>
+                                        <option value="Medicina"> Medicina </option>
+                                        <option value="SLPCE"> SLPCE </option>
+                                        <option value="Nutricion"> Nutricion </option>
+                                    </select>
+
+                                    @if ($errors->has('area'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('area') }}</strong>
+                                    </span>
+                                    @endif 
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">

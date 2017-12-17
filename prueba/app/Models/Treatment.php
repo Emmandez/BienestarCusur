@@ -10,9 +10,8 @@ class Treatment extends Model
 	
     protected $fillable=
     [
-    'specialist',
-    'diagnosis',
-    'plan',
-    'responsible'
+    'responsible_id',
+    'observation',
+    'treatment'
     ];
 }

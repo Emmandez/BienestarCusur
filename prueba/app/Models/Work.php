@@ -18,4 +18,12 @@ class Work extends Model
     'EPP',
     'accidents'
     ];
+
+    public function factor(){
+        return $this->hasMany('App\Models\Factor');
+    }
+
+    public function compilation(){
+        return $this->belongsTo('App\Models\Compilation');
+    }
 }

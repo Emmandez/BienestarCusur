@@ -1,28 +1,35 @@
 <?php
 
 /*DELETE ALL '214413693' and replace it with functional code.
-    this 214413693 is just for executing the program without looking
-    for the compilation id.
+    this 214413693 code is just for executing the program without looking
+    for the compilation id in the DB.
+
+    To do this, you have to send a request using ajax and passing the id from 
+    the compilation object to the frame(?) below (the one where there are field to 
+    add the information)
 */
 
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Patient;
-use App\Models\GinecoObstetricHistory;
-use App\Models\DatosGineco;
-use App\Models\GeneralGynecoData;
 use App\Models\GynecoResult;
 use App\Models\VphResult;
 use App\Models\NonPathHist;
-use App\Models\NonPathologicalHistory;
-use App\Models\PathologicalHistory;
-use App\Models\FamilyHistory;
-use App\Models\Compilation;
 use App\Models\Desc_Toxico;
 use App\Models\Frecuency;
 use App\Models\NonPathHistDescription;
+
+
+use App\Models\Compilation;
+//Related with Compilation
+use App\Models\FamilyHistory;
+use App\Models\PathologicalHistory;
+use App\Models\NonPathologicalHistory;
+use App\Models\GinecoObstetricHistory;
+use App\Models\GeneralGynecoData;
+use App\Models\DatosGineco;
+use App\Models\Patient;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
@@ -109,7 +116,7 @@ class MedicsController extends Controller
 
                 $famHist->concept         = $ynAnswer[$i];
                 $famHist->description     = $descriptionsFH[$i];
-                $famHist->compilations_id = "214413693";
+                $famHist->compilation_id = "214413693";
                 
                 $famHist->save();
             }
@@ -118,7 +125,7 @@ class MedicsController extends Controller
                 
                 $famHist->concept         = "OTRO";
                 $famHist->description     = $request->get("descOtro");
-                $famHist->compilations_id = "214413693";
+                $famHist->compilation_id = "214413693";
 
                 $famHist->save();
             }
@@ -153,7 +160,7 @@ class MedicsController extends Controller
                 
                 $patoHist->concept         = $ynAnswerPH[$i];
                 $patoHist->description     = $descriptionsPH[$i];
-                $patoHist->compilations_id = "214413693";
+                $patoHist->compilation_id = "214413693";
 
                 $patoHist->save();
             }
@@ -162,7 +169,7 @@ class MedicsController extends Controller
                 
                 $patoHist->concept         = $ynAnswerPH[$i];
                 $patoHist->description     = 'N/A';
-                $patoHist->compilations_id = "214413693";
+                $patoHist->compilation_id = "214413693";
 
                 $patoHist->save();
             }
@@ -189,7 +196,7 @@ class MedicsController extends Controller
         
         
         $nonPathHist->housingServices = $housingServices;
-        $nonPathHist->compilations_id = '214413693';
+        $nonPathHist->compilation_id = '214413693';
 
         $nonPathHist->save();
 
@@ -219,7 +226,7 @@ class MedicsController extends Controller
             $request->get('añosConsumoDrogas')
         ];
 
-        $foreignkey = NonPathologicalHistory::where('compilations_id','214413693')->first();
+        $foreignkey = NonPathologicalHistory::where('compilation_id','214413693')->first();
 
 
         for ($i=0; $i < sizeof($ynAnswerFr) ; $i++) { 
@@ -230,7 +237,7 @@ class MedicsController extends Controller
                 $frecuency->years                       = $consumptionYears[$i];
                 $frecuency->frecuency                   = $consumptionFrecuency[$i];
                 $frecuency->exConsumer                  = $exconsumer[$i];
-                $frecuency->nonPathologicalHistories_id = $foreignkey->id;
+                $frecuency->nonPathologicalHistory_id = $foreignkey->id;
 
                 $frecuency->save();
 
@@ -238,10 +245,10 @@ class MedicsController extends Controller
                     $desc = new Desc_Toxico;
 
                     $desc->description_toxico = $request->get('descToxi');
-                    $fkFrec                   = Frecuency::where('nonPathologicalHistories_id',$foreignkey->id)
+                    $fkFrec                   = Frecuency::where('nonPathologicalHistory_id',$foreignkey->id)
                         ->where('concept','Toxicomanias')
                         ->first();
-                    $desc->frecuencies_id     = $fkFrec->id;
+                    $desc->frecuency_id     = $fkFrec->id;
 
                     $desc->save();
                 }
@@ -268,7 +275,7 @@ class MedicsController extends Controller
 
                 $nonPathHistDesc->concept                     = $conceptNonPath[$i];
                 $nonPathHistDesc->description                 = $descNonPath[$i];
-                $nonPathHistDesc->nonPathologicalHistories_id = $foreignkey->id;
+                $nonPathHistDesc->nonPathologicalHistory_id = $foreignkey->id;
 
                 $nonPathHistDesc->save();
 
@@ -280,7 +287,7 @@ class MedicsController extends Controller
         //Fourth Slide gineco obstetric history
 
         
-        //$patient = Patient::where('compilations_id','214413693')->first();
+        //$patient = Patient::where('compilation_id','214413693')->first();
 
         //IF   if(strcmp($patient->gender, 'FEME')==0){
 
@@ -304,7 +311,7 @@ class MedicsController extends Controller
                 
                     $gynecoHist->concept         = $conceptGineco[$i];
                     $gynecoHist->date            = $dateGineco[$i];
-                    $gynecoHist->compilations_id = '214413693';
+                    $gynecoHist->compilation_id = '214413693';
 
                     $gynecoHist->save();
                 }
@@ -319,7 +326,7 @@ class MedicsController extends Controller
             ];
 
             //array with ginecoobstetric history objects
-            $GynDescFK = GinecoObstetricHistory::where('compilations_id','214413693')
+            $GynDescFK = GinecoObstetricHistory::where('compilation_id','214413693')
                 ->where('concept','Última Citología')
                 ->orwhere('concept','Última Mastografía')
                 ->get();
@@ -328,7 +335,7 @@ class MedicsController extends Controller
                 if($gynecoResults[$i]!=null){
                     $gynecoResult                              = new GynecoResult;
                     $gynecoResult->result                      = $gynecoResults[$i];
-                    $gynecoResult->GynecoObstetricHistories_id =$GynDescFK[$i]->id;
+                    $gynecoResult->GynecoObstetricHistory_id =$GynDescFK[$i]->id;
 
                     $gynecoResult->save();
                 }
@@ -361,7 +368,7 @@ class MedicsController extends Controller
 
                     $generalData->concept         = $generalDataConcept[$i];
                     $generalData->answer          = $generalDataArray[$i];
-                    $generalData->compilations_id = '214413693';
+                    $generalData->compilation_id = '214413693';
 
                     $generalData->save();
                 }
@@ -380,7 +387,7 @@ class MedicsController extends Controller
                     $datosgineco = new DatosGineco;
 
                     $datosgineco->concept         = $datosGinecoAnswers[$i];
-                    $datosgineco->compilations_id = "214413693";
+                    $datosgineco->compilation_id = "214413693";
 
                     $datosgineco->save();
                 }
@@ -392,13 +399,13 @@ class MedicsController extends Controller
 
             if(!empty($datosGinecoAnswers[4])){
                 echo "entra VphResult";
-                $vphFK = DatosGineco::where('compilations_id', '214413693')
+                $vphFK = DatosGineco::where('compilation_id', '214413693')
                             ->where('concept','VPH')->first();
 
                 $vphresult = new VphResult;
 
                 $vphresult->result           = $request->get('resVPH');
-                $vphresult->datos_ginecos_id = $vphFK->id;
+                $vphresult->datosGineco_id = $vphFK->id;
 
                 $vphresult->save();
             }

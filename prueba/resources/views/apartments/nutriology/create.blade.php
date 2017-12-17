@@ -58,7 +58,7 @@
                </div>
             </div>
           
-          <!--Parte izquierda del formulario.-->
+          <!--Parte izquierda del formulario. Se ingresan datos-->
           <div class="heredofam__form">
             <form class="heredofam__form-container container" id="hFamiliar">
               <div class="div-container form-group">
@@ -68,54 +68,54 @@
                      <label for="height" class="control-label">Talla</label>
                      <div class="input-group">
                         <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        <input type="number" name="height" class="form-control" placeholder="Ingresa la talla del paciente en metros" step="0.1" min="0" required="">        
+                        <input type="number" name="height" id="talla" class="form-control" placeholder="Ingresa la talla del paciente en metros" step="0.1" min="0" required="">        
                       </div>
-                      @if ($errors->has('size'))
+                      @if ($errors->has('talla'))
                         <span class="text-danger">
                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                          <strong>{{ $errors->first('size') }}</strong>
+                          <strong>{{ $errors->first('talla') }}</strong>
                         </span>
                       @endif
+                  </div>
+
+                  <div class="form-group">
+                     <label for="current-weight" class="control-label">Peso Actual</label>
+                     <div class="input-group">
+                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                        <input type="number" name="current_weight" id="pesoActual" class="form-control" placeholder="Ingresa el peso del paciente en Kg" step="0.1" min="0" required>        
+                     </div>
+                     @if ($errors->has('current-weight'))
+                        <span class="text-danger">
+                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                           <strong>{{ $errors->first('current-weight') }}</strong>
+                        </span>
+                     @endif
                   </div>
 
                   <div class="form-group">
                      <label for="habitual-weight" class="control-label">Peso Habitual</label>
                      <div class="input-group">
                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                       <input type="number" name="habitual-weight" class="form-control" placeholder="Ingresa el peso habitual del paciente en Kg." step="0.1" min="0" required>        
+                       <input type="number" name="habitual_weight" class="form-control" placeholder="Ingresa el peso habitual del paciente en Kg." step="0.1" min="0" required>        
                      </div>
-                     @if ($errors->has('size'))
+                     @if ($errors->has('habitual'))
                         <span class="text-danger">
                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('size') }}</strong>
+                           <strong>{{ $errors->first('habitual') }}</strong>
                       </span>
                      @endif
                   </div>
 
                   <div class="form-group">
-                     <label for="IMC" class="control-label">Indice de masa corporal</label>
-                     <div class="input-group">
+                    <label for="hip_circumference" class="control-label">Circunferencia de cadera</label>
+                      <div class="input-group">
                         <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        <input type="number" id="IMC" class="form-control" placeholder="Ingresa el indice de masa corporal" step="0.1" min="0" required>        
-                     </div>
-                     @if ($errors->has('size'))
-                      <span class="text-danger">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                        <strong>{{ $errors->first('size') }}</strong>
-                      </span>
-                     @endif
-                  </div>
-
-                  <div class="form-group">
-                     <label for="habitual_weight_percentage" class="control-label">Peso habitual %</label>
-                     <div class="input-group">
-                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        <input type="number" id="habitual_weight_percentage" class="form-control" placeholder="Porcentaje peso habitual" step="0.1" min="0" required>        
-                     </div>
-                     @if ($errors->has('size'))
+                        <input type="number" id="hip_circumference" name="hip_c" class="form-control" placeholder="Circunferencia de cadera en cm." step="0.1" min="0" required>        
+                      </div>
+                     @if ($errors->has('hip_circumference'))
                         <span class="text-danger">
                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('size') }}</strong>
+                           <strong>{{ $errors->first('hip_circumference') }}</strong>
                         </span>
                      @endif
                   </div>
@@ -124,7 +124,7 @@
                      <label for="waist_circumference" class="control-label">Circunferencia de cintura</label>
                      <div class="input-group">
                         <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        <input type="number" id="waist_circumference" class="form-control" placeholder="Circunferencia de cintura en cm." step="0.1" min="0" required>        
+                        <input type="number" id="waist_circumference" name="waist_c" class="form-control" placeholder="Circunferencia de cintura en cm." step="0.1" min="0" required>        
                      </div>
                      @if ($errors->has('size'))
                         <span class="text-danger">
@@ -135,11 +135,156 @@
                   </div>
 
                   <div class="form-group">
-                     <label for="icc" class="control-label">ICC</label>
-                      <div class="input-group">
+                     <label for="hand_circumference" class="control-label">Circunferencia de muñeca</label>
+                     <div class="input-group">
                         <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        <input type="number" id="icc" class="form-control" placeholder="Ingrese el ICC del paciente." step="0.1" min="0" required>        
+                        <input type="number" id="hand_circumference" name="wrist_c" class="form-control" placeholder="Circunferencia de la muñeca en cm." step="0.1" min="0" required>        
+                     </div>
+                     @if ($errors->has('hand_circumference'))
+                        <span class="text-danger">
+                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                           <strong>{{ $errors->first('hand_circumference') }}</strong>
+                        </span>
+                     @endif
+                  </div>
+
+                  <div class="form-group">
+                     <label for="cmb" class="control-label">CMB</label>
+                     <div class="input-group">
+                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                        <input type="number" name="cmb" class="form-control" placeholder="Ingresa la CMB del paciente en centimetros" step="0.1" min="0" required="">        
                       </div>
+                      @if ($errors->has('cmb'))
+                        <span class="text-danger">
+                          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                          <strong>{{ $errors->first('cmb') }}</strong>
+                        </span>
+                      @endif
+                  </div>
+
+                  <div class="form-group">
+                     <label for="pcb" class="control-label">PCB</label>
+                     <div class="input-group">
+                       <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                       <input type="number" name="pcb" class="form-control" placeholder="Ingresa el PCB en mm." step="0.1" min="0" required>        
+                     </div>
+                     @if ($errors->has('pcb'))
+                        <span class="text-danger">
+                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                           <strong>{{ $errors->first('pcb') }}</strong>
+                      </span>
+                     @endif
+                  </div>
+
+                  <div class="form-group">
+                     <label for="pct" class="control-label">PCT</label>
+                     <div class="input-group">
+                       <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                       <input type="number" name="pct" class="form-control" placeholder="Ingresa el PCT en mm." step="0.1" min="0" required>        
+                     </div>
+                     @if ($errors->has('pct'))
+                        <span class="text-danger">
+                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                           <strong>{{ $errors->first('pct') }}</strong>
+                      </span>
+                     @endif
+                  </div>
+
+                  
+                </div>
+                <!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha
+                Se calculan los datos de la parte izquierda
+              -->
+                <div class="heredofam__form-container__item">
+
+                  <div class="form-group">
+                     <label for="IMC" class="control-label">Indice de masa corporal</label>
+                     <div class="input-group">
+                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                        <input type="number" id="imc" name="indicemc" class="form-control" placeholder="Ingresa el indice de masa corporal" step="0.1" min="0" required>        
+                     </div>
+                     @if ($errors->has('imc'))
+                      <span class="text-danger">
+                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        <strong>{{ $errors->first('imc') }}</strong>
+                      </span>
+                     @endif
+                  </div>
+
+                  <div class="form-group">
+                     <label for="weight_category" class="control-label">Categoría de peso</label>
+                        <div class="input-group">
+                          <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                          <select class="form-control" name="categoPeso" id="categPeso" placeholder="Elije una opción" required>
+                            <option value="">Elige una opción</option>
+                            <option value="Peso Bajo">Peso Bajo</option>
+                            <option value="Peso Normal">Peso Normal</option>
+                            <option value="Sobrepeso">Sobrepeso</option>
+                            <option value="Obesidad grado 1">Obesidad grado 1</option>
+                            <option value="Obesidad grado 2">Obesidad grado 2</option>
+                            <option value="Obesidad grado 3">Obesidad grado 3</option>
+                          </select>    
+                        </div>
+                     @if ($errors->has('categPeso'))
+                        <span class="text-danger">
+                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                           <strong>{{ $errors->first('categPeso') }}</strong>
+                        </span>
+                     @endif
+                  </div>
+                  
+                  <div class="form-group">
+                     <label for="ideal_weight" class="control-label">Peso Ideal</label>
+                     <div class="input-group">
+                       <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                       <input type="number" id="idealWeitght" name="ideal_weight" class="form-control" placeholder="Ingresa el peso ideal del paciente en Kg." step="0.1" min="0" required>        
+                     </div>
+                     @if ($errors->has('idealWeitght'))
+                        <span class="text-danger">
+                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                           <strong>{{ $errors->first('idealWeitght') }}</strong>
+                        </span>
+                     @endif
+                  </div>
+
+                  <div class="form-group">
+                     <label for="habitual_weight_percentage" class="control-label">Peso habitual %</label>
+                     <div class="input-group">
+                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                        <input type="number" id="habitual_weight_percentage" name="habitual_wP" class="form-control" placeholder="Porcentaje peso habitual" step="0.1" min="0" required>        
+                     </div>
+                     @if ($errors->has('habitual_weight_percentage'))
+                        <span class="text-danger">
+                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                           <strong>{{ $errors->first('habitual_weight_percentage') }}</strong>
+                        </span>
+                     @endif
+                  </div>
+
+                  <div class="form-group">
+                     <label for="icc" class="control-label">ICC</label>
+                     <div class="input-group">
+                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                        <input type="number" name="indicecc" id="icc" class="form-control" placeholder="Indice cadera cintura" step="0.1" min="0" required>     
+                      </div>
+                     @if ($errors->has('icc'))
+                        <span class="text-danger">
+                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                           <strong>{{ $errors->first('icc') }}</strong>
+                        </span>
+                     @endif
+                  </div>
+
+                  <div class="form-group">
+                     <label for="waist_danger" class="control-label">Riesgo por Circunferencia de cintura</label>
+                     <div class="input-group">
+                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                        <select class="form-control" name="ccrisk" id="waist_danger" placeholder="Elije una opción" required>
+                          <option value="">Elige una opción</option>
+                          <option value="1">Sí</option>
+                          <option value="2">No</option>
+                        </select>    
+                     </div>
                      @if ($errors->has('size'))
                         <span class="text-danger">
                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
@@ -148,11 +293,11 @@
                      @endif
                   </div>
 
-                  <div class="form-group">
+                   <div class="form-group">
                      <label for="risk_icc" class="control-label">Riesgo ICC</label>
                      <div class="input-group">
                         <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        <select class="form-control" name="" id="risk_icc" placeholder="Elije una opción" required>
+                        <select class="form-control" name="riskIcc" id="risk_icc" placeholder="Elije una opción" required>
                           <option value="">Elige una opción</option>
                           <option value="bajo">Bajo</option>
                           <option value="medio">Medio</option>
@@ -167,123 +312,7 @@
                      @endif
                   </div>
 
-                  <div class="form-group">
-                     <label for="hand_circumference" class="control-label">Circunferencia de muñeca</label>
-                     <div class="input-group">
-                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        <input type="number" id="hand_circumference" class="form-control" placeholder="Circunferencia de la muñeca en cm." step="0.1" min="0" required>        
-                     </div>
-                     @if ($errors->has('hand_circumference'))
-                        <span class="text-danger">
-                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('hand_circumference') }}</strong>
-                        </span>
-                     @endif
-                  </div>
-                </div>
-                <!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha-->
-                <div class="heredofam__form-container__item">
-
-                  <div class="form-group">
-                     <label for="current-weight" class="control-label">Peso Actual</label>
-                     <div class="input-group">
-                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        <input type="number" name="current-weight" class="form-control" placeholder="Ingresa la talla del paciente en metros" step="0.1" min="0" required>        
-                     </div>
-                     @if ($errors->has('size'))
-                        <span class="text-danger">
-                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('size') }}</strong>
-                        </span>
-                     @endif
-                  </div>
-
-                  <div class="form-group">
-                     <label for="ideal_weight" class="control-label">Peso Ideal</label>
-                     <div class="input-group">
-                       <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                       <input type="number" name="ideal_weight" class="form-control" placeholder="Ingresa el peso ideal del paciente en Kg." step="0.1" min="0" required>        
-                     </div>
-                     @if ($errors->has('size'))
-                        <span class="text-danger">
-                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('size') }}</strong>
-                        </span>
-                     @endif
-                  </div>
-
-                  <div class="form-group">
-                     <label for="weight_category" class="control-label">Categoría de peso</label>
-                        <div class="input-group">
-                          <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                          <select class="form-control" name="" id="categPeso" placeholder="Elije una opción" required>
-                            <option value="">Elige una opción</option>
-                            <option value="Peso Bajo">Peso Bajo</option>
-                            <option value="Peso Normal">Peso Normal</option>
-                            <option value="Sobrepeso">Sobrepeso</option>
-                            <option value="Obesidad grado 1">Obesidad grado 1</option>
-                            <option value="Obesidad grado 2">Obesidad grado 2</option>
-                            <option value="Obesidad grado 3">Obesidad grado 3</option>
-                          </select>    
-                        </div>
-                     @if ($errors->has('size'))
-                        <span class="text-danger">
-                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('size') }}</strong>
-                        </span>
-                     @endif
-                  </div>
-
-                  <div class="form-group">
-                     <label for="desnutrition_grade" class="control-label">Desnutrición</label>
-                        <div class="input-group">
-                          <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                          <select class="form-control" name="" id="categPeso" placeholder="Elije una opción" required>
-                            <option value="">Elige una opción</option>
-                            <option value="1">Desnutrición leve</option>
-                            <option value="2">Desnutrición moderada</option>
-                            <option value="3">Desnutrición grave</option>
-                          </select>    
-                        </div>
-                     @if ($errors->has('size'))
-                        <span class="text-danger">
-                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('size') }}</strong>
-                        </span>
-                     @endif
-                  </div>
-  
-                  <div class="form-group">
-                    <label for="hip_circumference" class="control-label">Circunferencia de cadera</label>
-                      <div class="input-group">
-                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        <input type="number" id="hip_circumference" class="form-control" placeholder="Circunferencia de cadera en cm." step="0.1" min="0" required>        
-                      </div>
-                     @if ($errors->has('size'))
-                        <span class="text-danger">
-                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('size') }}</strong>
-                        </span>
-                     @endif
-                  </div>
-
-                  <div class="form-group">
-                     <label for="waist_danger" class="control-label">Riesgo por Circunferencia de cintura</label>
-                     <div class="input-group">
-                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        <select class="form-control" name="" id="waist_danger" placeholder="Elije una opción" required>
-                          <option value="">Elige una opción</option>
-                          <option value="1">Sí</option>
-                          <option value="2">No</option>
-                        </select>    
-                     </div>
-                     @if ($errors->has('size'))
-                        <span class="text-danger">
-                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('size') }}</strong>
-                        </span>
-                     @endif
-                  </div>
+                  
 
                   <div class="form-group">
                     <label for="mass_distribution" class="control-label">Distribución de Masa</label>
@@ -323,8 +352,6 @@
                   </div>
                 </div>
               </div>
-
-
               <div class="form-button">
                 <button class="button" type="submit">Guardar</button>
               </div>
@@ -351,50 +378,6 @@
             <form class="patologicas__form-container container" id="hFamiliar">
               <div class="div-container form-group">
                 <div class="patologicas__form-container__item col-md-6">
-
-                  <div class="form-group">
-                     <label for="cmb" class="control-label">CMB</label>
-                     <div class="input-group">
-                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        <input type="number" name="cmb" class="form-control" placeholder="Ingresa la CMB del paciente en centimetros" step="0.1" min="0" required="">        
-                      </div>
-                      @if ($errors->has('cmb'))
-                        <span class="text-danger">
-                          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                          <strong>{{ $errors->first('cmb') }}</strong>
-                        </span>
-                      @endif
-                  </div>
-
-                  
-
-                  <div class="form-group">
-                     <label for="pcb" class="control-label">PCB</label>
-                     <div class="input-group">
-                       <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                       <input type="number" name="pcb" class="form-control" placeholder="Ingresa el PCB en mm." step="0.1" min="0" required>        
-                     </div>
-                     @if ($errors->has('pcb'))
-                        <span class="text-danger">
-                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('pcb') }}</strong>
-                      </span>
-                     @endif
-                  </div>
-
-                  <div class="form-group">
-                     <label for="pct" class="control-label">PCT</label>
-                     <div class="input-group">
-                       <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                       <input type="number" name="pct" class="form-control" placeholder="Ingresa el PCT en mm." step="0.1" min="0" required>        
-                     </div>
-                     @if ($errors->has('pct'))
-                        <span class="text-danger">
-                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('pct') }}</strong>
-                      </span>
-                     @endif
-                  </div>
 
                   <div class="form-group">
                      <label for="pcse" class="control-label">PCSE</label>
@@ -451,10 +434,58 @@
                       </span>
                      @endif
                   </div>
+
+                  <div class="form-group">
+                     <label for="leanMassKgTani" class="control-label">Masa magra Kg (Tanita)</label>
+                     <div class="input-group">
+                       <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                       <input type="number" name="leanMassKgTani" class="form-control" placeholder="Ingresa la masa magra en Kg." step="0.1" min="0" required>        
+                     </div>
+                     @if ($errors->has('leanMassKgTani'))
+                        <span class="text-danger">
+                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                           <strong>{{ $errors->first('leanMassKgTani') }}</strong>
+                      </span>
+                     @endif
+                  </div>
+
+                  <div class="form-group">
+                     <label for="total_water" class="control-label">Agua total (Tanita)</label>
+                     <div class="input-group">
+                       <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                       <input type="number" name="total_water" class="form-control" placeholder="Ingresa el agua total en Kg." step="0.1" min="0" required>        
+                     </div>
+                     @if ($errors->has('total_water'))
+                        <span class="text-danger">
+                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                           <strong>{{ $errors->first('total_water') }}</strong>
+                      </span>
+                     @endif
+                  </div>
                   
                 </div>
                 <!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha--><!--Parte derecha-->
                 <div class="patologicas__form-container__item col-md-6">
+
+                  <div class="form-group">
+                     <label for="desnutrition_grade" class="control-label">Desnutrición</label>
+                        <div class="input-group">
+                          <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
+                          <select class="form-control" name="desnutritionGrade" id="categPeso" placeholder="Elije una opción" required>
+                            <option value="">Elige una opción</option>
+                            <option value="1">No aplica / Normal</option>
+                            <option value="2">Desnutrición leve</option>
+                            <option value="3">Desnutrición moderada</option>
+                            <option value="4">Desnutrición grave</option>
+                          </select>    
+                        </div>
+                     @if ($errors->has('categPeso'))
+                        <span class="text-danger">
+                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                           <strong>{{ $errors->first('categPeso') }}</strong>
+                        </span>
+                     @endif
+                  </div>
 
                   <div class="form-group">
                      <label for="fatPercentage" class="control-label">Porcentaje de grasa</label>
@@ -502,7 +533,7 @@
                      <label for="grease%" class="control-label">Masa grasa % (Tanita)</label>
                      <div class="input-group">
                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                       <input type="number" name="grease%" class="form-control" placeholder="Ingresa el porcentaje de masa grasa." step="0.1" min="0" required>        
+                       <input type="number" name="greasePercentTani" class="form-control" placeholder="Ingresa el porcentaje de masa grasa." step="0.1" min="0" required>        
                      </div>
                      @if ($errors->has('grease%'))
                         <span class="text-danger">
@@ -516,7 +547,7 @@
                      <label for="grease_mass" class="control-label">Masa grasa Kg (Tanita)</label>
                      <div class="input-group">
                        <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                       <input type="number" name="grease_mass" class="form-control" placeholder="Ingresa la masa grasa en Kg." step="0.1" min="0" required>        
+                       <input type="number" name="grease_massKGTani" class="form-control" placeholder="Ingresa la masa grasa en Kg." step="0.1" min="0" required>        
                      </div>
                      @if ($errors->has('grease_mass'))
                         <span class="text-danger">
@@ -525,37 +556,6 @@
                       </span>
                      @endif
                   </div>
-
-                  <div class="form-group">
-                     <label for="leanMassKgTani" class="control-label">Masa magra Kg (Tanita)</label>
-                     <div class="input-group">
-                       <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                       <input type="number" name="leanMassKgTani" class="form-control" placeholder="Ingresa la masa magra en Kg." step="0.1" min="0" required>        
-                     </div>
-                     @if ($errors->has('leanMassKgTani'))
-                        <span class="text-danger">
-                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('leanMassKgTani') }}</strong>
-                      </span>
-                     @endif
-                  </div>
-
-                  <div class="form-group">
-                     <label for="total_water" class="control-label">Agua total (Tanita)</label>
-                     <div class="input-group">
-                       <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                       <input type="number" name="total_water" class="form-control" placeholder="Ingresa el agua total en Kg." step="0.1" min="0" required>        
-                     </div>
-                     @if ($errors->has('total_water'))
-                        <span class="text-danger">
-                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                           <strong>{{ $errors->first('total_water') }}</strong>
-                      </span>
-                     @endif
-                  </div>
-
-
-
                 </div>
               </div>
 
@@ -593,8 +593,8 @@
 
                     <div class="heredofam__form-container__item-wrap__response__Exc">
                       <div class="heredofam__form-container__item-wrap__response__Exc-opt1">
-                        <div class="heredofam__form-container__item-wrap__response__Exc-opt1-in"><input required id="siActFi" type="radio" name="is_active" value="Y"> si </input></div>
-                        <div class="heredofam__form-container__item-wrap__response__Exc-opt1-in"><input required id="noActFi" type="radio" name="is_active" value="N" checked> no </input></div>
+                        <div class="heredofam__form-container__item-wrap__response__Exc-opt1-in"><input required id="siActFi" type="radio" name="is_active" value="SI"> Sí </input></div>
+                        <div class="heredofam__form-container__item-wrap__response__Exc-opt1-in"><input required id="noActFi" type="radio" name="is_active" value="NO" checked> No </input></div>
                       </div>
 
                       <div class="heredofam__form-container__item-wrap__response__Exc-opt2 opt2 " id="ActFOpt">
@@ -602,7 +602,7 @@
                            <label for="exercise_intensity" class="control-label">Intensidad</label>
                            <div class="input-group">
                               <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                              <select class="form-control" name="" id="exercise_intensity" placeholder="Elije una opción" required>
+                              <select class="form-control" name="exercise_intensity" id="exercise_intensity" placeholder="Elije una opción" required>
                                 <option value="">Intensidad</option>
                                 <option value="ML">Muy ligera</option>
                                 <option value="L">Ligera</option>
@@ -641,8 +641,8 @@
 
                     <div class="heredofam__form-container__item-wrap__response__Exc">
                       <div class="heredofam__form-container__item-wrap__response__Exc-opt1">
-                        <div class="heredofam__form-container__item-wrap__response__Exc-opt1-in"><input required id="siExcer" type="radio" name="does_exercise" value="Y"> si </input></div>
-                        <div class="heredofam__form-container__item-wrap__response__Exc-opt1-in"><input required id="noExcer" type="radio" name="does_exercise" value="N" checked> no </input></div>
+                        <div class="heredofam__form-container__item-wrap__response__Exc-opt1-in"><input required id="siExcer" type="radio" name="does_exercise" value="SI"> Sí </input></div>
+                        <div class="heredofam__form-container__item-wrap__response__Exc-opt1-in"><input required id="noExcer" type="radio" name="does_exercise" value="NO" checked> No </input></div>
                       </div>
 
                       <div class="opt2 heredofam__form-container__item-wrap__response__Exc-opt2" id="ExcOpt">
@@ -693,7 +693,7 @@
                            <label for="star_date" class="control-label">¿Cuándo inició?</label>
                              <div class="input-group">
                                <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                               <input type="date" name="star_date" class="form-control" placeholder="Fecha de inicio del ejercicio"  required>        
+                               <input type="date" name="start_date" class="form-control" placeholder="Fecha de inicio del ejercicio"  required>        
                              </div>
                              @if ($errors->has('star_date'))
                                 <span class="text-danger">
@@ -749,28 +749,28 @@
                           <!--Div 1,1-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Fruta</p>
-                            <input type="checkbox" value="fruta" name="desayuno" class="desayunoCheck"  />
+                            <input type="checkbox" value="fruta" name="desayuno[]" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,2-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Cereal</p>
-                            <input type="checkbox" name="desayuno" value="cereal" class="desayunoCheck"  />
+                            <input type="checkbox" name="desayuno[]" value="cereal" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,3-->
                           <div class="desayunoDiv-opcion"> 
                             <p class="desayunoP">Frijoles</p>
-                            <input type="checkbox" name="desayuno" value="frijoles" class="desayunoCheck"  />
+                            <input type="checkbox" name="desayuno[]" value="frijoles" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,4-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Huevo</p>
-                            <input type="checkbox" name="desayuno" value="huevo" class="desayunoCheck"  />
+                            <input type="checkbox" name="desayuno[]" value="huevo" class="desayunoCheck"  />
                           </div>
 
                           <!--Div 1,5-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Chilaquiles</p>
-                            <input type="checkbox" name="desayuno" value="chilaquiles" class="desayunoCheck"  />
+                            <input type="checkbox" name="desayuno[]" value="chilaquiles" class="desayunoCheck"  />
                           </div>
                           
                         </div>
@@ -778,7 +778,7 @@
                         <div class="row desayunoDiv-otro">
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Otro</p>
-                            <input type="text" name="desayuno" placeholder="Ingrese valores separados por comas."  />
+                            <input type="text" name="desayunoOtro" placeholder="Ingrese valores separados por comas."  />
                           </div>                          
                         </div>
                        </div>
@@ -802,22 +802,22 @@
                           <!--Div 1,1-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Fruta</p>
-                            <input type="checkbox" name="colacionM" value="fruta" class="desayunoCheck"  />
+                            <input type="checkbox" name="colacionM[]" value="fruta" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,2-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Verduras</p>
-                            <input type="checkbox" name="colacionM" value="verduras" class="desayunoCheck"  />
+                            <input type="checkbox" name="colacionM[]" value="verduras" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,3-->
                           <div class="desayunoDiv-opcion"> 
                             <p class="desayunoP">Yogurt</p>
-                            <input type="checkbox" name="colacionM" value="yogurt" class="desayunoCheck"  />
+                            <input type="checkbox" name="colacionM[]" value="yogurt" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,4-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Pan</p>
-                            <input type="checkbox" name="colacionM" value="pan" class="desayunoCheck"  />
+                            <input type="checkbox" name="colacionM[]" value="pan" class="desayunoCheck"  />
                           </div>
 
                           
@@ -826,7 +826,7 @@
                         <div class="row desayunoDiv-otro">
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Otro</p>
-                            <input type="text" name="colacionM" placeholder="Ingrese valores separados por comas."  />
+                            <input type="text" name="colacionMOtro" placeholder="Ingrese valores separados por comas."  />
                           </div>                          
                         </div>
                      </div>
@@ -849,35 +849,35 @@
                           <!--Div 1,1-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Verduras</p>
-                            <input type="checkbox" name="comida" value="verduras" class="desayunoCheck"  />
+                            <input type="checkbox" name="comida[]" value="verduras" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,2-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Arroz</p>
-                            <input type="checkbox" name="comida" value="arroz" class="desayunoCheck"  />
+                            <input type="checkbox" name="comida[]" value="arroz" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,3-->
                           <div class="desayunoDiv-opcion"> 
                             <p class="desayunoP">Tostadas</p>
-                            <input type="checkbox" name="comida" value="tostadas" class="desayunoCheck"  />
+                            <input type="checkbox" name="comida[]" value="tostadas" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,4-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Pasta</p>
-                            <input type="checkbox" name="comida" value="pasta" class="desayunoCheck"  />
+                            <input type="checkbox" name="comida[]" value="pasta" class="desayunoCheck"  />
                           </div>   
 
                           <!--Div 1,5-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Guisado</p>
-                            <input type="checkbox" name="comida" value="guisado" class="desayunoCheck"  />
+                            <input type="checkbox" name="comida[]" value="guisado" class="desayunoCheck"  />
                           </div>
                         </div>
                         <!--Div abajo-->
                         <div class="row desayunoDiv-otro">
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Otro</p>
-                            <input type="text" name="comida" placeholder="Ingrese valores separados por comas."  />
+                            <input type="text" name="comidaOtro" placeholder="Ingrese valores separados por comas."  />
                           </div>                          
                         </div>
                        </div>
@@ -901,22 +901,22 @@
                           <!--Div 1,1-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Fruta</p>
-                            <input type="checkbox" name="colacionV" value="fruta" class="desayunoCheck"  />
+                            <input type="checkbox" name="colacionV[]" value="fruta" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,2-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Verduras</p>
-                            <input type="checkbox" name="colacionV" value="verduras" class="desayunoCheck"  />
+                            <input type="checkbox" name="colacionV[]" value="verduras" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,3-->
                           <div class="desayunoDiv-opcion"> 
                             <p class="desayunoP">Yogurt</p>
-                            <input type="checkbox" name="colacionV" value="yogurt" class="desayunoCheck"  />
+                            <input type="checkbox" name="colacionV[]" value="yogurt" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,4-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Pan</p>
-                            <input type="checkbox" name="colacionV" value="pan" class="desayunoCheck"  />
+                            <input type="checkbox" name="colacionV[]" value="pan" class="desayunoCheck"  />
                           </div>
                           
                         </div>
@@ -924,7 +924,7 @@
                         <div class="row desayunoDiv-otro">
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Otro</p>
-                            <input type="text" name="colacionV" placeholder="Ingrese valores separados por comas."  />
+                            <input type="text" name="colacionVOtro" placeholder="Ingrese valores separados por comas."  />
                           </div>                          
                         </div>
                      </div>
@@ -947,35 +947,35 @@
                           <!--Div 1,1-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Fruta</p>
-                            <input type="checkbox" name="cena" value="fruta" class="desayunoCheck"  />
+                            <input type="checkbox" name="cena[]" value="fruta" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,2-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Leche</p>
-                            <input type="checkbox" name="cena" value="leche" class="desayunoCheck"  />
+                            <input type="checkbox" name="cena[]" value="leche" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,3-->
                           <div class="desayunoDiv-opcion"> 
                             <p class="desayunoP">Tostadas</p>
-                            <input type="checkbox" name="cena" value="tostadas" class="desayunoCheck"  />
+                            <input type="checkbox" name="cena[]" value="tostadas" class="desayunoCheck"  />
                           </div>
                           <!--Div 1,4-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Verduras</p>
-                            <input type="checkbox" name="cena" value="verduras" class="desayunoCheck"  />
+                            <input type="checkbox" name="cena[]" value="verduras" class="desayunoCheck"  />
                           </div>   
 
                           <!--Div 1,5-->
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Tacos</p>
-                            <input type="checkbox" name="cena" value="tacos" class="desayunoCheck"  />
+                            <input type="checkbox" name="cena[]" value="tacos" class="desayunoCheck"  />
                           </div>
                         </div>
                         <!--Div abajo-->
                         <div class="row desayunoDiv-otro">
                           <div class="desayunoDiv-opcion">
                             <p class="desayunoP">Otro</p>
-                            <input type="text" name="cena" placeholder="Ingrese valores separados por comas."  />
+                            <input type="text" name="cenaOtro" placeholder="Ingrese valores separados por comas."  />
                           </div>                          
                         </div>
                        </div>
@@ -1086,12 +1086,12 @@
                      <label for="totalMeals" class="control-label">Total de calorias</label>
                      <div class="input-group">
                         <div class="input-group-addon"><i class="" aria-hidden="true"></i></div>
-                        <input type="number" name="totalMeals" class="form-control" placeholder="Total de calorias" step="1" min="1"  required=>        
+                        <input type="number" name="totalCalories" class="form-control" placeholder="Total de calorias" step="100" min="500"  required=>        
                       </div>
-                      @if ($errors->has('totalMeals'))
+                      @if ($errors->has('totalCalories'))
                         <span class="text-danger">
                           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                          <strong>{{ $errors->first('totalMeals') }}</strong>
+                          <strong>{{ $errors->first('totalCalories') }}</strong>
                         </span>
                       @endif
                   </div>

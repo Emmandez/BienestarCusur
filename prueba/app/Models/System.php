@@ -13,4 +13,8 @@ class System extends Model
     'concept',
     'description'
     ];
+
+    public function compilation(){
+    	return $this->belongsTo('App\Models\Compilation');
+    }
 }

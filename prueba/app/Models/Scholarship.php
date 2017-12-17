@@ -18,7 +18,7 @@ class Scholarship extends Model
     	return $this->belongsTo('App\Models\Compilation');
     }
 
-    public function otherGrades(){
+    public function otherGrade(){
         return $this->hasMany('App\Models\OtherGrade');
     }
 }
