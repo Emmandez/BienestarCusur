@@ -4,8 +4,8 @@
     this 214413693 code is just for executing the program without looking
     for the compilation id in the DB.
 
-    To do this, you have to send a request using ajax and passing the id from 
-    the compilation object to the frame(?) below (the one where there are field to 
+    To do this, you have to send a request using ajax and passing the id from
+    the compilation object to the frame(?) below (the one where there are field to
     add the information)
 */
 
@@ -76,14 +76,21 @@ class MedicsController extends Controller
         //Searching the tuple we want to update
         //$compilation = Compilation::find($request->get('patientCode'));
         $compilation = Compilation::find('214413693');
+        //$compilation = new Compilation;
 
-        //Changing data's field we want to update 
+        $compilation->delete();
+
+
+        //Changing data's field we want to update
         $compilation->medicalData     = 'Y';
         $compilation->idResponsibleM  = Auth::user()->UDG_Code;
         $compilation->aplicationDateM = $formatDate;
         //Saving the updated object
-        
+
+
         $compilation->save();
+
+
 
         //Filling up FamilyHistory Table
         //Request 0 to 17
@@ -110,19 +117,19 @@ class MedicsController extends Controller
             $request->get('nefropatiasLevel')
         ];
 
-        for ($i=0; $i < sizeof($ynAnswer); $i++){ 
+        for ($i=0; $i < sizeof($ynAnswer); $i++){
             if($i < (sizeof($ynAnswer)-1) and !empty($ynAnswer[$i])){
                 $famHist                  = new FamilyHistory;
 
                 $famHist->concept         = $ynAnswer[$i];
                 $famHist->description     = $descriptionsFH[$i];
                 $famHist->compilation_id = "214413693";
-                
+
                 $famHist->save();
             }
             elseif (!empty($ynAnswer[$i]) and $i == sizeof($ynAnswer)-1) {
                 $famHist                  = new FamilyHistory;
-                
+
                 $famHist->concept         = "OTRO";
                 $famHist->description     = $request->get("descOtro");
                 $famHist->compilation_id = "214413693";
@@ -142,7 +149,7 @@ class MedicsController extends Controller
             $request->get('fracturas'),//index 6 item 7
             $request->get('traumaticos')//index 7 item 8
         ];
-        
+
 
         $descriptionsPH = [
             $request->get('descEnfInfancia'),
@@ -157,7 +164,7 @@ class MedicsController extends Controller
         for ($i=0; $i<sizeof($ynAnswerPH); $i++){
             if($i < (sizeof($ynAnswerPH)-2) and !empty($ynAnswerPH[$i])){
                 $patoHist                  = new PathologicalHistory;
-                
+
                 $patoHist->concept         = $ynAnswerPH[$i];
                 $patoHist->description     = $descriptionsPH[$i];
                 $patoHist->compilation_id = "214413693";
@@ -166,7 +173,7 @@ class MedicsController extends Controller
             }
             elseif (!empty($ynAnswerPH[$i]) and $i >= sizeof($ynAnswerPH)-2) {
                 $patoHist                  = new PathologicalHistory;
-                
+
                 $patoHist->concept         = $ynAnswerPH[$i];
                 $patoHist->description     = 'N/A';
                 $patoHist->compilation_id = "214413693";
@@ -181,8 +188,8 @@ class MedicsController extends Controller
 
         $nonPathHist->bloodType     = $request->get('bloodtype');
         $nonPathHist->properFeeding = $request->get('alimentacion');
-        
-        
+
+
         /*to get a checkbox array, set a name and add '[]' just netx to the name
         for example: name='array[]'
         to access to that array, write the name without brackets as shown below
@@ -193,14 +200,14 @@ class MedicsController extends Controller
         else{
             $housingServices = "";
         }
-        
-        
+
+
         $nonPathHist->housingServices = $housingServices;
         $nonPathHist->compilation_id = '214413693';
 
         $nonPathHist->save();
 
-        
+
 
         $ynAnswerFr = [
             $request->get('tabaquismo'),
@@ -229,7 +236,7 @@ class MedicsController extends Controller
         $foreignkey = NonPathologicalHistory::where('compilation_id','214413693')->first();
 
 
-        for ($i=0; $i < sizeof($ynAnswerFr) ; $i++) { 
+        for ($i=0; $i < sizeof($ynAnswerFr) ; $i++) {
             if (!empty($ynAnswerFr[$i])) {
                 $frecuency = new Frecuency;
 
@@ -255,7 +262,7 @@ class MedicsController extends Controller
             }
         }
 
-        
+
 
         $descNonPath =[
             $request->get('descAlergias'),
@@ -269,7 +276,7 @@ class MedicsController extends Controller
             'Inmunizaciones'
         ];
 
-        for ($i=0; $i < sizeof($descNonPath) ; $i++) { 
+        for ($i=0; $i < sizeof($descNonPath) ; $i++) {
             if(!empty($descNonPath[$i])){
                 $nonPathHistDesc = new NonPathHistDescription;
 
@@ -286,7 +293,7 @@ class MedicsController extends Controller
 
         //Fourth Slide gineco obstetric history
 
-        
+
         //$patient = Patient::where('compilation_id','214413693')->first();
 
         //IF   if(strcmp($patient->gender, 'FEME')==0){
@@ -302,13 +309,13 @@ class MedicsController extends Controller
                 $request->get('menarca'),
                 $request->get('ultMenstruacion'),
                 $request->get('ultCitologia'),
-                $request->get('ultMastografia')            
+                $request->get('ultMastografia')
             ];
 
             for($i=0; $i<sizeof($dateGineco); $i++) {
                 if($dateGineco[$i]!=null){
                     $gynecoHist = new GinecoObstetricHistory;
-                
+
                     $gynecoHist->concept         = $conceptGineco[$i];
                     $gynecoHist->date            = $dateGineco[$i];
                     $gynecoHist->compilation_id = '214413693';
@@ -331,7 +338,7 @@ class MedicsController extends Controller
                 ->orwhere('concept','Última Mastografía')
                 ->get();
 
-            for ($i=0; $i < sizeof($gynecoResults); $i++) { 
+            for ($i=0; $i < sizeof($gynecoResults); $i++) {
                 if($gynecoResults[$i]!=null){
                     $gynecoResult                              = new GynecoResult;
                     $gynecoResult->result                      = $gynecoResults[$i];
@@ -350,7 +357,7 @@ class MedicsController extends Controller
                 $request->get('gestaciones'),
                 $request->get('abortos'),
                 $request->get('partos'),
-                $request->get('cesareas')   
+                $request->get('cesareas')
             ];
             $generalDataConcept = [
                 'Ritmo',

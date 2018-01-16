@@ -40,17 +40,17 @@ class SlpceController extends Controller
      */
     public function store(Request $request)
     {
-        
+
 
         $cuestionario = new Cuestionario;
         $workshop     = new Workshop;
-        
 
-        
+
+
 
         /*first we need to calculate the results and then insert them into
-        the psychosocialResults table. Next we need to insert data into 
-        the psychosocial, namesFactor, workshops, recomendations tables 
+        the psychosocialResults table. Next we need to insert data into
+        the psychosocial, namesFactor, workshops, recomendations tables
         to link that data to the psychosocialresult inserted before at the
         beggining
 
@@ -79,7 +79,7 @@ class SlpceController extends Controller
         /*Each factor is located into the corresponding dimension.
         Example: to access to factor 1 from dimension A we use the following syntaxis
             $DimensionA[0]
-        
+
         */
         $answersArray = $request->all();
         $AnswersInverted = SlpceController::invertAnswer($answersArray);
@@ -130,7 +130,7 @@ class SlpceController extends Controller
         echo sizeof($dimensions[0]);
 
         /*
-        * First we need to calculate the IV for each factor, add them up and obtain the 
+        * First we need to calculate the IV for each factor, add them up and obtain the
         IV for each dimension.
 
         then with that value obtain the grade(1 muy bueno,2 bueno ...) and obtain the
@@ -143,7 +143,7 @@ class SlpceController extends Controller
         $IVDimension        =0;
 
 
-        for ($i=0; $i <4 ; $i++) { 
+        for ($i=0; $i <4 ; $i++) {
             $IVDimension += $DimensionA[1][$i][2];
         }
 
@@ -165,9 +165,9 @@ class SlpceController extends Controller
             'Interrelación trabajo con problemas familiares o sociales',
             'Relaciones interpersonales en el trabajo'
         ];
-        
 
-        for ($i=0; $i<4 ; $i++) { 
+
+        for ($i=0; $i<4 ; $i++) {
             $factor                = new FactorDim;
             $factor->Type          = $numbFactor[$i];
             $factor->Concept       = $factorConcepts[$i];
@@ -176,10 +176,10 @@ class SlpceController extends Controller
             $factor->Grade         = $DimensionA[1][$i][1];
             $factor->IV            = $DimensionA[1][$i][2];
             $factor->dimensions_id = $dimension->id;
-            for ($j=0; $j < $DimensionA[0][$i]; $j++) { 
+            for ($j=0; $j < $DimensionA[0][$i]; $j++) {
                 $respuesta    = new Respuesta;
-                $
                 
+
             }
         }
 
@@ -188,7 +188,7 @@ class SlpceController extends Controller
         $dimension->Concept = $dimConcepts[1];
 
         $IVDimension=0;
-        for ($i=0; $i <4 ; $i++) { 
+        for ($i=0; $i <4 ; $i++) {
             $IVDimension += $DimensionB[1][$i][2];
         }
         $dimension->IV = $IVDimension;
@@ -208,7 +208,7 @@ class SlpceController extends Controller
             'Equipos y agentes físicos',
             'Concepción de las tareas del puesto de trabajo'
         ];
-        for ($i=0; $i<4 ; $i++) { 
+        for ($i=0; $i<4 ; $i++) {
             $factor                = new FactorDim;
             $factor->Type          = $numbFactor[$i];
             $factor->Concept       = $factorConcepts[$i];
@@ -224,7 +224,7 @@ class SlpceController extends Controller
         $dimension->Concept = $dimConcepts[2];
 
         $IVDimension=0;
-        for ($i=0; $i <4 ; $i++) { 
+        for ($i=0; $i <4 ; $i++) {
             $IVDimension += $DimensionC[1][$i][2];
         }
         $dimension->IV = $IVDimension;
@@ -243,7 +243,7 @@ class SlpceController extends Controller
             'Características de la Empresa',
             'Características Personales'
         ];
-        for ($i=0; $i<3 ; $i++) { 
+        for ($i=0; $i<3 ; $i++) {
             $factor                = new FactorDim;
             $factor->Type          = $numbFactor[$i];
             $factor->Concept       = $factorConcepts[$i];
@@ -259,7 +259,7 @@ class SlpceController extends Controller
         $dimension->Concept = $dimConcepts[2];
 
         $IVDimension=0;
-        for ($i=0; $i <4 ; $i++) { 
+        for ($i=0; $i <4 ; $i++) {
             $IVDimension += $DimensionC[1][$i][2];
         }
         $dimension->IV               = $IVDimension;
@@ -277,7 +277,7 @@ class SlpceController extends Controller
             'Síntomas subjetivos y alteraciones de la salud - Estados psicológicos - Respuesta Conductal',
             'Síntomas subjetivos y alteraciones de la salud - Estados psicológicos - Respuesta fisiológica'
         ];
-        for ($i=0; $i<3 ; $i++) { 
+        for ($i=0; $i<3 ; $i++) {
             $factor                = new FactorDim;
             $factor->Type          = $numbFactor[$i];
             $factor->Concept       = $factorConcepts[$i];
@@ -294,7 +294,7 @@ class SlpceController extends Controller
 
 
 
-        /*        
+        /*
         echo $DimensionA[0][0];
         echo $DimensionA[0][1];
         echo $DimensionA[0][2];
@@ -783,7 +783,7 @@ class SlpceController extends Controller
             '4' =>  '2',
             '5' =>  '1'];
 
-        for ($i=0; $i <sizeof($posicionesInvert); $i++) { 
+        for ($i=0; $i <sizeof($posicionesInvert); $i++) {
             $Answers[$posicionesInvert[$i]] = $invert[$Answers[$posicionesInvert[$i]]];
         }
 
@@ -794,7 +794,7 @@ class SlpceController extends Controller
     Divide all the answers into dimensions and then into factors
     */
     public static function divideInDimensionA($Answers){
-        
+
         $f1           = ['3', '8', '10', '14', '22', '39', '51', '63'];
         $f2           = ['1', '16', '29', '31', '45', '69', '73'];
         $f3           = ['40', '64', '67', '70'];
@@ -813,8 +813,8 @@ class SlpceController extends Controller
 
 
 
-        for ($i=0; $i <sizeof($indicesArray) ; $i++) { 
-            for ($j=0; $j <sizeof($indicesArray[$i]) ; $j++) { 
+        for ($i=0; $i <sizeof($indicesArray) ; $i++) {
+            for ($j=0; $j <sizeof($indicesArray[$i]) ; $j++) {
                 $arrayRespuestas[$i][$j] = $Answers['p'.$indicesArray[$i][$j]];
                 //echo $arrayRespuestas[$i][$j];
             }
@@ -822,7 +822,7 @@ class SlpceController extends Controller
         }
 
         //obtain values from each factor to calculate the IV after this
-        for ($i=0; $i <sizeof($arrayRespuestas); $i++) { 
+        for ($i=0; $i <sizeof($arrayRespuestas); $i++) {
             $countNumbers[$i] = SlpceController::countNumbers($arrayRespuestas[$i]);
         }
 
@@ -831,11 +831,11 @@ class SlpceController extends Controller
         $ivFactor[1] = SlpceController::evaluateFactorG2($countNumbers[1]);
         $ivFactor[2] = SlpceController::evaluateFactorG3($countNumbers[2]);
         $ivFactor[3] = SlpceController::evaluateFactorG4($countNumbers[3]);
-        
+
 
         //return IV value from each factor to calculate afterwards the IV fr
 
-        
+
 
         $return = [
             $arrayRespuestas,
@@ -865,7 +865,7 @@ class SlpceController extends Controller
         echo "\n";
         echo $ivFactor[3][2];
 
-        
+
         echo "Return";
         echo $return[1][0][2];
         echo "\n";
@@ -875,7 +875,7 @@ class SlpceController extends Controller
         echo "\n";
         echo $return[1][3][2];
         */
-        
+
 
         return $return;
     }
@@ -896,8 +896,8 @@ class SlpceController extends Controller
         $f4a =[];
         $arrayRespuestas = [$f1a, $f2a, $f3a, $f4a];
 
-        for ($i=0; $i <sizeof($indicesArray) ; $i++) { 
-            for ($j=0; $j <sizeof($indicesArray[$i]) ; $j++) { 
+        for ($i=0; $i <sizeof($indicesArray) ; $i++) {
+            for ($j=0; $j <sizeof($indicesArray[$i]) ; $j++) {
                 $arrayRespuestas[$i][$j] = $Answers['p'.$indicesArray[$i][$j]];
                 //echo $arrayRespuestas[$i][$j];
             }
@@ -905,7 +905,7 @@ class SlpceController extends Controller
         }
 
         //obtain values from each factor to calculate the IV after this
-        for ($i=0; $i <sizeof($arrayRespuestas); $i++) { 
+        for ($i=0; $i <sizeof($arrayRespuestas); $i++) {
             $countNumbers[$i] = SlpceController::countNumbers($arrayRespuestas[$i]);
         }
 
@@ -937,9 +937,9 @@ class SlpceController extends Controller
         $f2a =[];
         $f3a =[];
         $arrayRespuestas = [$f1a, $f2a, $f3a];
-       
-        for ($i=0; $i <sizeof($indicesArray) ; $i++) { 
-            for ($j=0; $j <sizeof($indicesArray[$i]) ; $j++) { 
+
+        for ($i=0; $i <sizeof($indicesArray) ; $i++) {
+            for ($j=0; $j <sizeof($indicesArray[$i]) ; $j++) {
                 $arrayRespuestas[$i][$j] = $Answers['p'.$indicesArray[$i][$j]];
                 //echo $arrayRespuestas[$i][$j];
             }
@@ -947,7 +947,7 @@ class SlpceController extends Controller
         }
 
         //obtain values from each factor to calculate the IV after this
-        for ($i=0; $i <sizeof($arrayRespuestas); $i++) { 
+        for ($i=0; $i <sizeof($arrayRespuestas); $i++) {
             $countNumbers[$i] = SlpceController::countNumbers($arrayRespuestas[$i]);
         }
 
@@ -955,7 +955,7 @@ class SlpceController extends Controller
         $ivFactor[0] = SlpceController::evaluateFactorG7($countNumbers[0]);
         $ivFactor[1] = SlpceController::evaluateFactorG7($countNumbers[1]);
         $ivFactor[2] = SlpceController::evaluateFactorG3($countNumbers[2]);
-        
+
 
         $result = [
             $arrayRespuestas,
@@ -977,11 +977,11 @@ class SlpceController extends Controller
 
         $f1a =[];
         $f2a =[];
-        $f3a =[];    
+        $f3a =[];
         $arrayRespuestas = [$f1a, $f2a, $f3a];
-        
-        for ($i=0; $i <sizeof($indicesArray) ; $i++) { 
-            for ($j=0; $j <sizeof($indicesArray[$i]) ; $j++) { 
+
+        for ($i=0; $i <sizeof($indicesArray) ; $i++) {
+            for ($j=0; $j <sizeof($indicesArray[$i]) ; $j++) {
                 $arrayRespuestas[$i][$j] = $Answers['p'.$indicesArray[$i][$j]];
                 //echo $arrayRespuestas[$i][$j];
             }
@@ -989,7 +989,7 @@ class SlpceController extends Controller
         }
 
         //obtain values from each factor to calculate the IV after this
-        for ($i=0; $i <sizeof($arrayRespuestas); $i++) { 
+        for ($i=0; $i <sizeof($arrayRespuestas); $i++) {
             $countNumbers[$i] = SlpceController::countNumbers($arrayRespuestas[$i]);
         }
 
@@ -997,7 +997,7 @@ class SlpceController extends Controller
         $ivFactor[0] = SlpceController::evaluateFactorG2($countNumbers[0]);
         $ivFactor[1] = SlpceController::evaluateFactorG5($countNumbers[1]);
         $ivFactor[2] = SlpceController::evaluateFactorG2($countNumbers[2]);
-        
+
         $result = [
             $arrayRespuestas,
             $ivFactor,
@@ -1043,7 +1043,7 @@ class SlpceController extends Controller
                     break;
                 case '5':
                     $number['5']+=1;
-                    break;    
+                    break;
                 default:
                     break;
             }
@@ -1059,8 +1059,8 @@ class SlpceController extends Controller
         $result=0;
         $i=1;
         foreach ($number as $num){
-            $result += $num * $i; 
-            $i++;  
+            $result += $num * $i;
+            $i++;
         }
 
         //echo "ESTO ES EL FACTOR";
