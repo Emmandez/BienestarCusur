@@ -47,7 +47,6 @@ class SlpceController extends Controller
 
 
 
-
         /*first we need to calculate the results and then insert them into
         the psychosocialResults table. Next we need to insert data into
         the psychosocial, namesFactor, workshops, recomendations tables
@@ -68,6 +67,7 @@ class SlpceController extends Controller
         $workshop->T1               = $request->get('oculto1');
         $workshop->T2               = $request->get('oculto2');
         $workshop->T3               = $request->get('oculto3');
+        //hacer un if
         $workshop->cuestionarios_id = Cuestionario::where('compilations_id','214413693')
                                         ->pluck('id')
                                         ->first();
@@ -88,6 +88,12 @@ class SlpceController extends Controller
         $DimensionB = SlpceController::divideInDimensionB($AnswersInverted);
         $DimensionC = SlpceController::divideInDimensionC($AnswersInverted);
         $DimensionD = SlpceController::divideInDimensionD($AnswersInverted);
+
+        for ($i=0; $i <sizeof($DimensionA[1]) ; $i++) {
+          echo $DimensionA[1][$i][2];
+        }
+
+
 
         $dimensions = [
             $DimensionA,
@@ -140,20 +146,27 @@ class SlpceController extends Controller
         //Dimension A
         $dimension          = new Dimension;
         $dimension->Concept = $dimConcepts[0];
-        $IVDimension        =0;
 
+//Obtiene el indice de valoracion de cada Dimension (suma los indices de los factores de una dimension)
 
-        for ($i=0; $i <4 ; $i++) {
-            $IVDimension += $DimensionA[1][$i][2];
+        // for ($i=0; $i <4 ; $i++) {
+        //     $IVDimension += $DimensionA[1][$i][2];  //ver hojita
+        // }
+        //echo $IVDimension;
+
+        $ivDim = 0;
+        for ($i=0; $i <sizeof($DimensionA[3]) ; $i++) {
+            $ivDim +=$DimensionA[3][$i];
         }
 
-        $specs                       = SlpceController::evaluateDimensionA($IVDimension);
-        $dimension->IV               = $IVDimension;
+        $specs                       = SlpceController::evaluateDimensionA($ivDim);
+        $dimension->IV               = $specs[2];
         $dimension->Recomendation    = $specs[0];
         $dimension->Grade            = $specs[1];
+        $dimension->puntuacion       = $ivDim;
         $dimension->cuestionarios_id = Cuestionario::where('compilations_id','214413693')
                                         ->pluck('id')
-                                        ->first();
+                                        ->last();
 
         $dimension->save();
 
@@ -175,30 +188,36 @@ class SlpceController extends Controller
             $factor->Recomendation = $DimensionA[1][$i][0];
             $factor->Grade         = $DimensionA[1][$i][1];
             $factor->IV            = $DimensionA[1][$i][2];
+            $factor->puntuacion    = $DimensionA[3][$i];
             $factor->dimensions_id = $dimension->id;
-            for ($j=0; $j < $DimensionA[0][$i]; $j++) {
-                $respuesta    = new Respuesta;
-                
-
-            }
+            $factor->save();
         }
 
         //Dimension B
         $dimension = new Dimension;
         $dimension->Concept = $dimConcepts[1];
 
-        $IVDimension=0;
-        for ($i=0; $i <4 ; $i++) {
-            $IVDimension += $DimensionB[1][$i][2];
+        // $IVDimension=0;
+        // for ($i=0; $i <4 ; $i++) {
+        //     $IVDimension += $DimensionB[1][$i][2];
+        // }
+        // $dimension->IV               = $IVDimension;
+
+        $ivDim = 0;
+        for ($i=0; $i <sizeof($DimensionB[3]); $i++) {
+            $ivDim +=$DimensionB[3][$i];
         }
-        $dimension->IV = $IVDimension;
-        $specs                       = SlpceController::evaluateDimensionB($IVDimension);
-        $dimension->IV               = $IVDimension;
+
+        $specs                       = SlpceController::evaluateDimensionB($ivDim);
+        $dimension->IV               = $specs[2];
         $dimension->Recomendation    = $specs[0];
         $dimension->Grade            = $specs[1];
+        $dimension->puntuacion       = $ivDim;
         $dimension->cuestionarios_id = Cuestionario::where('compilations_id','214413693')
                                         ->pluck('id')
-                                        ->first();
+                                        ->last();
+
+
 
         $dimension->save();
         //Factors dimensionB
@@ -216,25 +235,34 @@ class SlpceController extends Controller
             $factor->Recomendation = $DimensionB[1][$i][0];
             $factor->Grade         = $DimensionB[1][$i][1];
             $factor->IV            = $DimensionB[1][$i][2];
+            $factor->puntuacion    = $DimensionB[3][$i];
             $factor->dimensions_id = $dimension->id;
+            $factor->save();
         }
 
         //Dimension C
         $dimension = new Dimension;
         $dimension->Concept = $dimConcepts[2];
 
-        $IVDimension=0;
-        for ($i=0; $i <4 ; $i++) {
-            $IVDimension += $DimensionC[1][$i][2];
+        // $IVDimension=0;
+        // for ($i=0; $i <4 ; $i++) {
+        //     $IVDimension += $DimensionC[1][$i][2];
+        // }
+        // $dimension->IV = $IVDimension;
+
+        $ivDim = 0;
+        for ($i=0; $i <sizeof($DimensionC[3]) ; $i++) {
+            $ivDim +=$DimensionC[3][$i];
         }
-        $dimension->IV = $IVDimension;
-        $specs                       = SlpceController::evaluateDimensionC($IVDimension);
-        $dimension->IV               = $IVDimension;
+
+        $specs                       = SlpceController::evaluateDimensionC($ivDim);
+        $dimension->IV               = $specs[2];
         $dimension->Recomendation    = $specs[0];
         $dimension->Grade            = $specs[1];
+        $dimension->puntuacion       = $ivDim;
         $dimension->cuestionarios_id = Cuestionario::where('compilations_id','214413693')
                                         ->pluck('id')
-                                        ->first();
+                                        ->last();
 
         $dimension->save();
         //Factors dimensionC
@@ -251,25 +279,34 @@ class SlpceController extends Controller
             $factor->Recomendation = $DimensionC[1][$i][0];
             $factor->Grade         = $DimensionC[1][$i][1];
             $factor->IV            = $DimensionC[1][$i][2];
+            $factor->puntuacion    = $DimensionC[3][$i];
             $factor->dimensions_id = $dimension->id;
+            $factor->save();
         }
 
         //Dimension D
         $dimension = new Dimension;
-        $dimension->Concept = $dimConcepts[2];
+        $dimension->Concept = $dimConcepts[3];
 
-        $IVDimension=0;
-        for ($i=0; $i <4 ; $i++) {
-            $IVDimension += $DimensionC[1][$i][2];
+        // $IVDimension=0;
+        // for ($i=0; $i <4 ; $i++) {
+        //     $IVDimension += $DimensionC[1][$i][2];
+        // }
+        // $dimension->IV               = $IVDimension;
+        $ivDim = 0;
+        for ($i=0; $i <sizeof($DimensionD[3]) ; $i++) {
+            $ivDim +=$DimensionD[3][$i];
         }
-        $dimension->IV               = $IVDimension;
-        $specs                       = SlpceController::evaluateDimensionC($IVDimension);
-        $dimension->IV               = $IVDimension;
+
+        $specs                       = SlpceController::evaluateDimensionD($ivDim);
+        $dimension->IV               = $specs[2];
         $dimension->Recomendation    = $specs[0];
         $dimension->Grade            = $specs[1];
+        $dimension->puntuacion       = $ivDim;
         $dimension->cuestionarios_id = Cuestionario::where('compilations_id','214413693')
                                         ->pluck('id')
-                                        ->first();
+                                        ->last();
+
         $dimension->save();
         //Factors dimensionD
         $factorConcepts = [
@@ -285,66 +322,68 @@ class SlpceController extends Controller
             $factor->Recomendation = $DimensionD[1][$i][0];
             $factor->Grade         = $DimensionD[1][$i][1];
             $factor->IV            = $DimensionD[1][$i][2];
+            $factor->puntuacion    = $DimensionD[3][$i];
             $factor->dimensions_id = $dimension->id;
-
+            $factor->save();
         }
 
         //FALTA2: INGRESAR RESPUESTAS Y RELACIONARLAS CON LOS FACTORES CORRESPONDIENTES
+        $answersArray = $request->all();
 
+        $DimensionA = SlpceController::divideInDimensionA($answersArray);
+        $DimensionB = SlpceController::divideInDimensionB($answersArray);
+        $DimensionC = SlpceController::divideInDimensionC($answersArray);
+        $DimensionD = SlpceController::divideInDimensionD($answersArray);
 
+        $dimensions = [
+            $DimensionA,
+            $DimensionB,
+            $DimensionC,
+            $DimensionD
+        ];
 
+        $factors = [
+          'Cultura de organización y gestión',
+          'Papel o rol en la organización',
+          'Interrelación trabajo con problemas familiares o sociales',
+          'Relaciones interpersonales en el trabajo',
+          'Carga y Ritmo de Trabajo',
+          'Ambientes laborales',
+          'Equipos y agentes físicos',
+          'Concepción de las tareas del puesto de trabajo',
+          'Amortiguadores del riesgo psíquico',
+          'Características de la Empresa',
+          'Características Personales',
+          'Síntomas subjetivos y alteraciones de la salud - Estados psicológicos - Respuesta Cognitivo-emocional',
+          'Síntomas subjetivos y alteraciones de la salud - Estados psicológicos - Respuesta Conductal',
+          'Síntomas subjetivos y alteraciones de la salud - Estados psicológicos - Respuesta fisiológica'
+        ];
 
-        /*
-        echo $DimensionA[0][0];
-        echo $DimensionA[0][1];
-        echo $DimensionA[0][2];
-        echo $DimensionA[0][3];
-        */
+        $cont =0;
+        for ($i=0; $i < sizeof($dimensions); $i++) {
+          $dimensiones = Dimension::all();
+          $dimension1 = $dimensiones->where('cuestionarios_id',$cuestionario->id)->where('concept',$dimConcepts[$i])->pluck('id'); //indice representa dimension a,b,c, d
+          //echo "Dimension";
+          //echo $dimension1[0];
+          //dd($dimension1);
+            for ($j=0; $j < sizeof($dimensions[$i][2]); $j++) {
+              $factores    = FactorDim::all();
+              $factor = $factores->where('dimensions_id',$dimension1[0])->where('Concept',$factors[$cont])->pluck('id');
+            $x = $factor[0];
+              echo "contador: ";
 
-        /*echo $factorN;
-        $calculoContexto = SlpceController::evaluateFactorG1($factorN);
-        echo $calculoContexto[2];
-        echo $calculoContexto[1];
-        echo $calculoContexto[0];
-        */
+              echo $cont;
 
-        /*
-        echo "\n";
-
-        $factorN = SlpceController::countNumbers($DimensionA[1]);
-        echo $factorN;
-        $calculoContexto = SlpceController::evaluateFactorG2($factorN);
-        echo $calculoContexto[2];
-        echo $calculoContexto[1];
-        echo $calculoContexto[0];
-
-        dd($request);
-
-        echo "\n";
-
-        $factorN = SlpceController::countNumbers($DimensionA[2]);
-        echo $factorN;
-        $calculoContexto = SlpceController::evaluateFactorG3($factorN);
-        echo $calculoContexto[2];
-        echo $calculoContexto[1];
-        echo $calculoContexto[0];
-
-        echo "\n";
-
-        $factorN = SlpceController::countNumbers($DimensionA[3]);
-        echo $factorN;
-        $calculoContexto = SlpceController::evaluateFactorG4($factorN);
-        echo $calculoContexto[2];
-        echo $calculoContexto[1];
-        echo $calculoContexto[0];
-        */
-
-       // echo SlpceController::countNumbers($DimensionA[1]);
-       // echo SlpceController::countNumbers($DimensionA[2]);
-       // echo SlpceController::countNumbers($DimensionA[3]);
-        //SlpceController::divideInDimensionA($answersArray);
-
-
+              $cont++;
+              for($k =0; $k < sizeof($dimensions[$i][2][$j]); $k++){
+                $respuesta                 = new Respuesta;
+                $respuesta->question       = intval($dimensions[$i][2][$j][$k]);
+                $respuesta->answer         = intval($dimensions[$i][0][$j][$k]);
+                $respuesta->factor_dims_id = $x;
+                $respuesta->save();
+              }
+            }
+        }
     }
 
     private static function evaluateFactorG1($result){
@@ -615,124 +654,152 @@ class SlpceController extends Controller
     private static function evaluateDimensionA($value){
         $grade          = '';
         $recomen        = '';
+        $iv             =0;
 
         if($value >= 22 &&  $value <= 43){
             $recomen = "No exige ningún cambio";
             $grade = "MUY BUENO";
+            $iv = 1;
         }
         else if($value >= 44 &&  $value <= 65){
             $recomen = "Pueden establecerse acciones para la mejora";
             $grade = "BUENO";
+            $iv = 2;
         }
         else if($value == 66){
             $recomen = "Se recomienda promocionar acciones de mejora";
             $grade = "NORMAL";
+            $iv = 3;
         }
         else if($value >= 67 &&  $value <= 88){
             $recomen = "Planificación e intervención con acciones reparadoras";
             $grade = "REGULAR";
+            $iv = 4;
         }
         else if($value >= 89 &&  $value <= 110){
             $recomen = "Intervención inmediata con acciones para evitar el daño";
             $grade = "NOCIVO";
+            $iv = 5;
         }
 
         $results[0] = $recomen;
         $results[1] = $grade;
+        $results[2] = $iv;
 
         return $results;
     }
 
     private static function evaluateDimensionB($value){
-        $grade          = '';
-        $recomen        = '';
+        $grade   = '';
+        $recomen = '';
+        $iv      = 0;
 
         if($value >= 19 &&  $value <= 37){
             $recomen = "No exige ningún cambio";
             $grade = "MUY BUENO";
+            $iv = 1;
         }
         else if($value >= 38 &&  $value <= 56){
             $recomen = "Pueden establecerse acciones para la mejora";
             $grade = "BUENO";
+            $iv = 2;
         }
         else if($value == 57){
             $recomen = "Se recomienda promocionar acciones de mejora";
             $grade = "NORMAL";
+            $iv = 3;
         }
         else if($value >= 58 &&  $value <= 76){
             $recomen = "Planificación e intervención con acciones reparadoras";
             $grade = "REGULAR";
+            $iv = 4;
         }
         else if($value >= 77 &&  $value <= 95){
             $recomen = "Intervención inmediata con acciones para evitar el daño";
             $grade = "NOCIVO";
+            $iv = 5;
         }
 
         $results[0] = $recomen;
         $results[1] = $grade;
+        $results[2] = $iv;
 
         return $results;
     }
 
     public static function evaluateDimensionC($value){
-        $grade          = '';
-        $recomen        = '';
+        $grade   = '';
+        $recomen = '';
+        $iv      = 0;
 
         if($value >= 14 &&  $value <= 27){
             $recomen = "No exige ningún cambio";
             $grade = "MUY BUENO";
+            $iv      = 1;
         }
         else if($value >= 28 &&  $value <= 41){
             $recomen = "Pueden establecerse acciones para la mejora";
             $grade = "BUENO";
+            $iv      = 2;
         }
         else if($value == 42){
             $recomen = "Se recomienda promocionar acciones de mejora";
             $grade = "NORMAL";
+            $iv      = 3;
         }
         else if($value >= 43 &&  $value <= 56){
             $recomen = "Planificación e intervención con acciones reparadoras";
             $grade = "REGULAR";
+            $iv      = 4;
         }
         else if($value >= 57 &&  $value <= 70){
             $recomen = "Intervención inmediata con acciones para evitar el daño";
             $grade = "NOCIVO";
+            $iv      = 5;
         }
 
         $results[0] = $recomen;
         $results[1] = $grade;
+        $results[2] = $iv;
 
         return $results;
 
     }
 
     private static function evaluateDimensionD($value){
-        $grade          = '';
-        $recomen        = '';
+        $grade   = '';
+        $recomen = '';
+        $iv      = 0;
 
         if($value >= 20 &&  $value <= 39){
             $recomen = "No exige ningún cambio";
             $grade = "MUY BUENO";
+            $iv      = 1;
         }
         else if($value >= 40 &&  $value <= 59){
             $recomen = "Pueden establecerse acciones para la mejora";
             $grade = "BUENO";
+            $iv      =2 ;
         }
         else if($value == 60){
             $recomen = "Se recomienda promocionar acciones de mejora";
             $grade = "NORMAL";
+            $iv      =3 ;
         }
         else if($value >= 61 &&  $value <= 80){
             $recomen = "Planificación e intervención con acciones reparadoras";
             $grade = "REGULAR";
+            $iv      = 4;
         }
         else if($value >= 81 &&  $value <= 100){
             $recomen = "Intervención inmediata con acciones para evitar el daño";
             $grade = "NOCIVO";
+            $iv      = 5;
         }
 
         $results[0] = $recomen;
         $results[1] = $grade;
+        $results[2] = $iv;
 
         return $results;
 
@@ -791,7 +858,7 @@ class SlpceController extends Controller
     }
 
     /*
-    Divide all the answers into dimensions and then into factors
+    Divide all the answers into dimensions and then into di
     */
     public static function divideInDimensionA($Answers){
 
@@ -808,7 +875,7 @@ class SlpceController extends Controller
         $arrayRespuestas = [$f1a, $f2a, $f3a, $f4a];
         $countNumbers    = [];
 
-        //this has a 3 column 1 row array
+        //this has a 4 column 1 row array
         $ivFactor        = [];
 
 
@@ -816,9 +883,7 @@ class SlpceController extends Controller
         for ($i=0; $i <sizeof($indicesArray) ; $i++) {
             for ($j=0; $j <sizeof($indicesArray[$i]) ; $j++) {
                 $arrayRespuestas[$i][$j] = $Answers['p'.$indicesArray[$i][$j]];
-                //echo $arrayRespuestas[$i][$j];
             }
-            //echo "\n";
         }
 
         //obtain values from each factor to calculate the IV after this
@@ -833,50 +898,15 @@ class SlpceController extends Controller
         $ivFactor[3] = SlpceController::evaluateFactorG4($countNumbers[3]);
 
 
+
         //return IV value from each factor to calculate afterwards the IV fr
-
-
-
+        // division de las preguntas por factores y dimensiones
         $return = [
-            $arrayRespuestas,
-            $ivFactor,
-            $indicesArray
-            ];
-
-        /*
-        $return = [
-            ($arrayRespuesta=[
-            ])
-            ($ivFactor = [
-
-            ])
-
-        ];
-
-        */
-        /*
-        echo "ivFactor";
-        echo "\n";
-        echo $ivFactor[0][2];
-        echo "\n";
-        echo $ivFactor[1][2];
-        echo "\n";
-        echo $ivFactor[2][2];
-        echo "\n";
-        echo $ivFactor[3][2];
-
-
-        echo "Return";
-        echo $return[1][0][2];
-        echo "\n";
-        echo $return[1][1][2];
-        echo "\n";
-        echo $return[1][2][2];
-        echo "\n";
-        echo $return[1][3][2];
-        */
-
-
+            $arrayRespuestas,  //la respuesta de la pregunta sin invertir
+            $ivFactor,    //
+            $indicesArray,
+            $countNumbers
+          ];
         return $return;
     }
 
@@ -887,7 +917,7 @@ class SlpceController extends Controller
         $f1 = ['18', '32', '34', '44', '52', '57', '61'];
         $f2 = ['23', '30', '47', '56', '60', '71'];
         $f3 = ['68', '72', '74', '75'];
-        $f4 = ['43', '49'];
+        $f4 = ['42', '49'];
         $indicesArray = [$f1,$f2,$f3,$f4];
 
         $f1a =[];
@@ -918,7 +948,8 @@ class SlpceController extends Controller
         $result = [
             $arrayRespuestas,
             $ivFactor,
-            $indicesArray
+            $indicesArray,
+            $countNumbers
         ];
 
         return $result;
@@ -956,11 +987,11 @@ class SlpceController extends Controller
         $ivFactor[1] = SlpceController::evaluateFactorG7($countNumbers[1]);
         $ivFactor[2] = SlpceController::evaluateFactorG3($countNumbers[2]);
 
-
         $result = [
             $arrayRespuestas,
             $ivFactor,
-            $indicesArray
+            $indicesArray,
+            $countNumbers
         ];
 
         return $result;
@@ -998,10 +1029,16 @@ class SlpceController extends Controller
         $ivFactor[1] = SlpceController::evaluateFactorG5($countNumbers[1]);
         $ivFactor[2] = SlpceController::evaluateFactorG2($countNumbers[2]);
 
+        $ivDim = 0;
+        foreach ($countNumbers as $nu) {
+            $ivDim +=$nu;
+        }
+
         $result = [
             $arrayRespuestas,
             $ivFactor,
-            $indicesArray
+            $indicesArray,
+            $countNumbers
         ];
 
         return $result;

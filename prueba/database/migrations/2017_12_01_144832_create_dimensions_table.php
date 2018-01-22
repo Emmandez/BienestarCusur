@@ -15,13 +15,13 @@ class CreateDimensionsTable extends Migration
     {
         Schema::create('dimensions', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('Concept');
-            $table->String('IV');
-            $table->mediumText('Recomendation');
-            $table->integer('Grade');
+            $table->String('concept');
+            $table->integer('IV'); //1,2,3,4,4
+            $table->integer('puntuacion'); //suma de los factores
+            $table->mediumText('recomendation');
+            $table->String('grade');//bueno, regular, etc
 
             $table->integer('cuestionarios_id')->unsigned();
-            
             $table->foreign('cuestionarios_id')
                   ->references('id')
                   ->on('cuestionarios')

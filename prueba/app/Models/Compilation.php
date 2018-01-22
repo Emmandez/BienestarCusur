@@ -10,7 +10,7 @@ class Compilation extends Model
     protected $table     ='compilations';
     public $incrementing = 'false';
 
-    
+
     protected $fillable = [
     'id',
     'questionary',
@@ -78,7 +78,7 @@ class Compilation extends Model
         return $this->hasMany('App\Models\DatosGineco');
     }
 
-    
+
     //Relationships from SplceALController
     public function work(){
         return $this->hasMany('App\Models\Work');
@@ -104,10 +104,10 @@ class Compilation extends Model
 
 
 
- 
-    
 
 
 
-    
+
+
+
 }

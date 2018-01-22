@@ -11,7 +11,8 @@ class FactorDim extends Model
     	'Concept',
     	'Recomendation',
         'IV',
-    	'Grade'
+    	'Grade',
+      'puntuacion'
     ];
 
     public function Respuesta(){

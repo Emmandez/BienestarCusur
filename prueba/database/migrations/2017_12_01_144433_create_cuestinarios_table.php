@@ -11,6 +11,8 @@ class CreateCuestinariosTable extends Migration
      *
      * @return void
      */
+
+     
     public function up()
     {
         Schema::create('cuestionarios', function (Blueprint $table) {

@@ -16,10 +16,11 @@ class CreateFactorDimsTable extends Migration
         Schema::create('factor_dims', function (Blueprint $table) {
             $table->increments('id');
             $table->string('Type');
-            $table->string('Concept');            
+            $table->string('Concept');
             $table->string('Recomendation');
-            $table->string('IV');
-            $table->integer('Grade');
+            $table->integer('IV');
+            $table->integer('puntuacion');
+            $table->string('Grade');
 
             $table->integer('dimensions_id')->unsigned();
 

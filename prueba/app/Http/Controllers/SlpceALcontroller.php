@@ -44,15 +44,15 @@ class SlpceALcontroller extends Controller
        echo $workNumber;
 
        $arrayRequest = $request->all();
-       
+
        echo $arrayRequest["cantPTA"];
        echo $arrayRequest["empAntInm"];
-       
+
        echo dd($arrayRequest);
        */
 
         //insert current work
-        for ($i = 1 ; $i <= (int) $request->get('cantPTA'); $i++) { 
+        for ($i = 1 ; $i <= (int) $request->get('cantPTA'); $i++) {
             $work                = new Work;
 
             $work->type          = 'A'.(String)$i;
@@ -60,17 +60,17 @@ class SlpceALcontroller extends Controller
             $work->work_position = $request->get('pt1_'.(String)$i);
             $work->antiquity     = $request->get('tpa1_'.(String)$i).".".
                                    $request->get('tpm1_'.(String)$i);
- 
+
             $activities = [
-              $request->get('pa1_'.(String)$i.'_1'),  
-              $request->get('pa1_'.(String)$i.'_2'),  
-              $request->get('pa1_'.(String)$i.'_3')  
+              $request->get('pa1_'.(String)$i.'_1'),
+              $request->get('pa1_'.(String)$i.'_2'),
+              $request->get('pa1_'.(String)$i.'_3')
             ];
 
             $activitiesStr =  implode(', ', $activities);
             $work->activities    = $activitiesStr;
             $work->EPP           = $request->get('epp1_'.(String)$i);
-            
+
             if(!empty($request->get('cualesAccidentes'))){
                 $work->accidents     = $request->get('cualesAccidentes');
             }else{
@@ -79,8 +79,8 @@ class SlpceALcontroller extends Controller
 
             $work->compilation_id='214413693';
             $work->save();
-            
-            for ($j=0; $j < sizeof($request->get('agentes'.(String)$i))-1; $j++) { 
+
+            for ($j=0; $j < sizeof($request->get('agentes'.(String)$i))-1; $j++) {
                 $factor = new Factor();
 
                 $factor->conceptofactor = $request->get('agentes'.(String)$i)[$j];
@@ -94,33 +94,33 @@ class SlpceALcontroller extends Controller
             }
         }
 
-        //if has a second current job, inserts it 
+        //if has a second current job, inserts it
         if($request->has('segEmpAct')){
             $work                = new Work;
-                
+
             $work->type          = 'A3';
             $work->center_work   = $request->get('ct2_1');
             $work->work_position = $request->get('pt2_1');
             $work->antiquity     = $request->get('tpa2_1').".".
                                    $request->get('tpm2_1');
- 
+
             $activities = [
-              $request->get('pa2_1_1'),  
-              $request->get('pa2_1_2'),  
-              $request->get('pa2_1_3')  
+              $request->get('pa2_1_1'),
+              $request->get('pa2_1_2'),
+              $request->get('pa2_1_3')
             ];
 
             $activitiesStr =  implode(', ', $activities);
             $work->activities    = $activitiesStr;
             $work->EPP           = $request->get('epp2_1');
-            
+
             $work->accidents     = 'No se registraron accidentes';
-         
+
 
             $work->compilation_id='214413693';
             $work->save();
-            
-            for ($j=0; $j < sizeof($request->get('agentes2_2'))-1; $j++) { 
+
+            for ($j=0; $j < sizeof($request->get('agentes2_2'))-1; $j++) {
                 $factor = new Factor();
 
                 $factor->conceptofactor = $request->get('agentes2_2')[$j];
@@ -136,7 +136,7 @@ class SlpceALcontroller extends Controller
         }
         //Inserts an immediate previous job
         if($request->has('empAntInm')){
-            for ($i = 1 ; $i <= (int) $request->get('cantPTAI'); $i++) { 
+            for ($i = 1 ; $i <= (int) $request->get('cantPTAI'); $i++) {
                 $work                = new Work;
 
                 $work->type          = 'AI'.(String)$i;
@@ -144,25 +144,25 @@ class SlpceALcontroller extends Controller
                 $work->work_position = $request->get('pt3_'.(String)$i);
                 $work->antiquity     = $request->get('tpa3_'.(String)$i).".".
                                        $request->get('tpm3_'.(String)$i);
-     
+
                 $activities = [
-                  $request->get('pa3_'.(String)$i.'_1'),  
-                  $request->get('pa3_'.(String)$i.'_2'),  
-                  $request->get('pa3_'.(String)$i.'_3')  
+                  $request->get('pa3_'.(String)$i.'_1'),
+                  $request->get('pa3_'.(String)$i.'_2'),
+                  $request->get('pa3_'.(String)$i.'_3')
                 ];
 
                 $activitiesStr =  implode(', ', $activities);
                 $work->activities    = $activitiesStr;
                 $work->EPP           = $request->get('epp3_'.(String)$i);
-                
-                
+
+
                 $work->accidents     = 'No se registraron accidentes';
-                
+
 
                 $work->compilation_id='214413693';
                 $work->save();
-                
-                for ($j=0; $j < sizeof($request->get('agentesAI'.(String)$i))-1; $j++) { 
+
+                for ($j=0; $j < sizeof($request->get('agentesAI'.(String)$i))-1; $j++) {
                     $factor = new Factor();
 
                     $factor->conceptofactor = $request->get('agentesAI'.(String)$i)[$j];
@@ -180,30 +180,31 @@ class SlpceALcontroller extends Controller
         //INserts the last job
         if($request->has('empAnt')){
             $work                = new Work;
-                
+
             $work->type          = 'AAI';
             $work->center_work   = $request->get('ct4_1');
             $work->work_position = $request->get('pt4_1');
             $work->antiquity     = $request->get('tpa4_1').".".
                                    $request->get('tpm4_1');
- 
+
             $activities = [
-              $request->get('pa4_1_1'),  
-              $request->get('pa4_1_2'),  
-              $request->get('pa4_1_3')  
+              $request->get('pa4_1_1'),
+              $request->get('pa4_1_2'),
+              $request->get('pa4_1_3')
             ];
 
             $activitiesStr =  implode(', ', $activities);
             $work->activities    = $activitiesStr;
             $work->EPP           = $request->get('epp4_1');
-            
+
             $work->accidents     = 'No se registraron accidentes';
-         
+
 
             $work->compilation_id='214413693';
             $work->save();
+
             
-            for ($j=0; $j < sizeof($request->get('agentes4'))-1; $j++) { 
+            for ($j=0; $j < sizeof($request->get('agentes4'))-1; $j++) {
                 $factor = new Factor();
 
                 $factor->conceptofactor = $request->get('agentes4')[$j];

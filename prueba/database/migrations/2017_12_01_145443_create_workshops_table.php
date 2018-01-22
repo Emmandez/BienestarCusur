@@ -25,7 +25,7 @@ class CreateWorkshopsTable extends Migration
                   ->references('id')
                   ->on('cuestionarios')
                   ->onDelete('cascade');
-                  
+
             $table->timestamps();
         });
     }

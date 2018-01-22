@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dimension extends Model
 {
-    
+
     protected $fillable = [
     	'Concept',
     	'IV',
     	'Recomendation',
-    	'Grade'
+    	'Grade',
+      'puntuacion'
     ];
 
     public function FactorDim(){
