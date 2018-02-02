@@ -1822,9 +1822,9 @@ td .checkbox {
   padding-top: 5px;
   padding-right: 17px;
   align-items: flex-start;
-  flex-direction: column; 
-    
-    
+  flex-direction: column;
+
+
     input{
       width: 50px;
     }
@@ -1836,13 +1836,13 @@ td .checkbox {
   flex-direction: column;
   justify-content: flex-start;
   width: 55%;
-  height: 50% 
+  height: 50%
 }
 
 .desayunoP{
   height: 1.3em;
   margin: 5px 0;
-  
+
 }
 
 .desayunoCheck{
@@ -1864,7 +1864,7 @@ td .checkbox {
 }
 
 .desayunoDiv-otro{
-  
+
   margin: 3px 0;
 }
 
@@ -1878,7 +1878,7 @@ td .checkbox {
 .recordatorioHoras__form-container__item{
   display: flex;
   align-items: flex-start;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .recordatorioComidas__form-container__item{
@@ -1889,10 +1889,6 @@ td .checkbox {
 
 }
 
-
-
-
-
-
-  
-
+.independent{
+  background-color: #b2b2b2;
+}

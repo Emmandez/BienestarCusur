@@ -5,7 +5,11 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     // Main dashboard
     Route::get('/', 'HomeController@index');
-    
+
+    //Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf');
+    Route::get('generate-pdf', 'PdfGenerateController@invoice')->name('generate-pdf');
+    //Route::get('generate-pdf', array('as'=>'invoice','uses'=>'PdfGenerateController@invoice'));
+    Route::get('generate-snappy','PdfGenerateSnappy@pdfview')->name('generate-snappy');
     // RESTful routes
     //Route::get('/prueba/create','pruebaBase@create');
     //Route::post('/prueba', 'pruebaBase@store');
@@ -14,9 +18,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Pasar datos de la tabla en la base, al select en la vista
     //Route::get('slpceEML/create', ['as' => 'create', 'uses' => 'AssignmentController@index']);
-    
+
     Route::resource('nursery', 'NurseryController');
-    
+
     Route::resource('medics', 'MedicsController');
     Route::resource('slpce', 'SlpceController');
     Route::resource('slpceAL', 'SlpceALController');
@@ -28,9 +32,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('diagnostic','DiagController');
 
     //Route::resource('nursery', 'TopController');
-    //Route::post('/nursery/{id}','TopController@show');  Pasar código peticion AJAX. Mandar objeto. 2 callback 
-    
-    
+    //Route::post('/nursery/{id}','TopController@show');  Pasar código peticion AJAX. Mandar objeto. 2 callback
+
+
 });
 // Testing controller
 Route::get('test', 'testController@action');

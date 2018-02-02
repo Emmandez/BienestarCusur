@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
- 
+
 use App\Models\Patient;
 use App\Models\Compilation;
 use App\Models\AnthropometricEvaluation;
@@ -46,8 +46,8 @@ class NutriologyController extends Controller
     {
         // get the data validate it and and fill the new entry...
         # Output debug
-        echo dd($request->all());
-
+        //echo dd($request->all());
+        $codigoUsuario = '214413693';
         $anthroEval = new AnthropometricEvaluation;
 
         $anthroEval->height                  = $request->get('height');
@@ -82,7 +82,7 @@ class NutriologyController extends Controller
         $anthroEval->masa_grasaTanitaKG      = $request->get('grease_massKGTani');
         $anthroEval->physicalActivity        = $request->get('is_active');
         $anthroEval->exercise                = $request->get('does_exercise');
-        $antroEval->compilation_id          = '214413693';
+        $antroEval->compilation_id          = $codigoUsuario;
 
         $anthroEval->save();
 
@@ -90,7 +90,7 @@ class NutriologyController extends Controller
             $pA = new PhysicalActivity;
             $pA->intensity = $request->get('exercise_intensity');
             //Buscar llave
-            $fk = AnthropometricEvaluation::where('compilation_id','214413693')->first()->get();
+            $fk = AnthropometricEvaluation::where('compilation_id',$codigoUsuario)->first()->get();
             $pA->anthropometricEvaluation_id = $fk->id;
 
             $pA->save();
@@ -98,13 +98,13 @@ class NutriologyController extends Controller
 
         if($request->get('does_exercise').equals('SI')){
             $ex = new Exercise;
-            
+
             $ex->type       = $request->get('exercise_type');
             $ex->frecuency  = $request->get('exercise_frecuency');
             $ex->duration   = $request->get('exercise_duration');
             $ex->start_date = $request->get('start_date');
 
-            $fk = AnthropometricEvaluation::where('compilation_id','214413693')->first()->get();
+            $fk = AnthropometricEvaluation::where('compilation_id',$codigoUsuario)->first()->get();
 
             $ex->anthropometricEvaluation_id = $fk->id();
             $ex->save();
@@ -120,7 +120,7 @@ class NutriologyController extends Controller
         $reminder->dinnerHour                  = $request->get('dinnerHour');
         $reminder->morningCollationHour        = $request->get('morningCollationHour');
         $reminder->eveningCollationHour        = $request->get('EvenCollationHour');
-        $fk = AnthropometricEvaluation::find('compilation_id','214413693')->first()->get();
+        $fk = AnthropometricEvaluation::find('compilation_id',$codigoUsuario)->first()->get();
         $reminder->anthropometricEvaluation_id =$fk->id;
 
         $reminder->save();
@@ -184,7 +184,7 @@ class NutriologyController extends Controller
                 $reminderDetail->concept = $reminderConcept[$i];
                 $reminderDetail->detail  = $detailStr[$i];
 
-                $fk = Reminder::find('compilation_id','214413693')->first()->get();
+                $fk = Reminder::find('compilation_id',$codigoUsuario)->first()->get();
                 $reminderDetail->reminder_id = $fk->id;
 
                 $reminderDetail->save();

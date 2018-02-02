@@ -17,21 +17,20 @@ class CreateSystemsTable extends Migration
             $table->increments('id');
             $table->string('concept');
             $table->mediumText('description');
-            
-            //Campo para almacenar las llave foránea. Recordar que es una llave compuesta            
+
+            //Campo para almacenar las llave foránea.
             $table->string('compilation_id');
-            //$table->integer('Compilation_idCaseFile');
 
             //definir llave foranea. Relación entre las tablas
             $table->foreign('compilation_id')
                   ->references('id')
                   ->on('compilations')->onDelete('cascade');
-            /*      
+            /*
             $table->foreign('Compilation_idCaseFile')
                   ->references('idCaseFile')
                   ->on('compilations')->onDelete('cascade');
                   */
-                  
+
             $table->timestamps();
         });
     }

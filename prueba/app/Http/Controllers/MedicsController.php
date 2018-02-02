@@ -1,6 +1,6 @@
 <?php
 
-/*DELETE ALL '214413693' and replace it with functional code.
+/*DELETE ALL $codigoUsuario and replace it with functional code.
     this 214413693 code is just for executing the program without looking
     for the compilation id in the DB.
 
@@ -71,11 +71,12 @@ class MedicsController extends Controller
     {
         $date       = getdate();
         $formatDate = $date['year'].'-'.$date['mon'].'-'.$date['mday'].'-'.$date['hours'].'-'.$date['minutes'].'-'.$date['seconds'];
+        $codigoUsuario = '214413693';
 
         //Updating compilation table.
         //Searching the tuple we want to update
         //$compilation = Compilation::find($request->get('patientCode'));
-        $compilation = Compilation::find('214413693');
+        $compilation = Compilation::find($codigoUsuario);
         //$compilation = new Compilation;
 
         $compilation->delete();
@@ -203,7 +204,7 @@ class MedicsController extends Controller
 
 
         $nonPathHist->housingServices = $housingServices;
-        $nonPathHist->compilation_id = '214413693';
+        $nonPathHist->compilation_id = $codigoUsuario;
 
         $nonPathHist->save();
 
@@ -233,7 +234,7 @@ class MedicsController extends Controller
             $request->get('añosConsumoDrogas')
         ];
 
-        $foreignkey = NonPathologicalHistory::where('compilation_id','214413693')->first();
+        $foreignkey = NonPathologicalHistory::where('compilation_id',$codigoUsuario)->first();
 
 
         for ($i=0; $i < sizeof($ynAnswerFr) ; $i++) {
@@ -294,7 +295,7 @@ class MedicsController extends Controller
         //Fourth Slide gineco obstetric history
 
 
-        //$patient = Patient::where('compilation_id','214413693')->first();
+        //$patient = Patient::where('compilation_id',$codigoUsuario)->first();
 
         //IF   if(strcmp($patient->gender, 'FEME')==0){
 
@@ -318,7 +319,7 @@ class MedicsController extends Controller
 
                     $gynecoHist->concept         = $conceptGineco[$i];
                     $gynecoHist->date            = $dateGineco[$i];
-                    $gynecoHist->compilation_id = '214413693';
+                    $gynecoHist->compilation_id = $codigoUsuario;
 
                     $gynecoHist->save();
                 }
@@ -333,7 +334,7 @@ class MedicsController extends Controller
             ];
 
             //array with ginecoobstetric history objects
-            $GynDescFK = GinecoObstetricHistory::where('compilation_id','214413693')
+            $GynDescFK = GinecoObstetricHistory::where('compilation_id',$codigoUsuario)
                 ->where('concept','Última Citología')
                 ->orwhere('concept','Última Mastografía')
                 ->get();
@@ -375,7 +376,7 @@ class MedicsController extends Controller
 
                     $generalData->concept         = $generalDataConcept[$i];
                     $generalData->answer          = $generalDataArray[$i];
-                    $generalData->compilation_id = '214413693';
+                    $generalData->compilation_id = $codigoUsuario;
 
                     $generalData->save();
                 }
@@ -406,7 +407,7 @@ class MedicsController extends Controller
 
             if(!empty($datosGinecoAnswers[4])){
                 echo "entra VphResult";
-                $vphFK = DatosGineco::where('compilation_id', '214413693')
+                $vphFK = DatosGineco::where('compilation_id', $codigoUsuario)
                             ->where('concept','VPH')->first();
 
                 $vphresult = new VphResult;

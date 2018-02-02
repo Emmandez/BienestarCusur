@@ -1,14 +1,16 @@
 <?php
-
 namespace App\Http\Controllers;
+require __DIR__.'\..\..\..\vendor\autoload.php';
 
 use Illuminate\Http\Request;
+use Spipu\Html2Pdf\Html2Pdf;
 
 use App\Models\Cuestionario;
 use App\Models\Workshop;
 use App\Models\Dimension;
 use App\Models\FactorDim;
 use App\Models\Respuesta;
+use PDF;
 
 class SlpceController extends Controller
 {
@@ -40,12 +42,14 @@ class SlpceController extends Controller
      */
     public function store(Request $request)
     {
+        /*Generar pdf
+        */
 
+        #Se calculan los datos y se genera el pdf al final de cada formulario
 
+        $codigoUsuario = '214413693';
         $cuestionario = new Cuestionario;
         $workshop     = new Workshop;
-
-
 
         /*first we need to calculate the results and then insert them into
         the psychosocialResults table. Next we need to insert data into
@@ -53,22 +57,20 @@ class SlpceController extends Controller
         to link that data to the psychosocialresult inserted before at the
         beggining
 
-        foreach ($answersArray as $ans) {
-            echo $ans;
-        }
+
         */
 
         $cuestionario->Comments        = $request->get('comentariosCuest');
         $cuestionario->Answer          = $request->get('p77');
         $cuestionario->personalOpinion = $request->get('p78Desc');
-        $cuestionario->compilations_id = '214413693';
+        $cuestionario->compilations_id = $codigoUsuario;
         $cuestionario->save();
 
         $workshop->T1               = $request->get('oculto1');
         $workshop->T2               = $request->get('oculto2');
         $workshop->T3               = $request->get('oculto3');
         //hacer un if
-        $workshop->cuestionarios_id = Cuestionario::where('compilations_id','214413693')
+        $workshop->cuestionarios_id = Cuestionario::where('compilations_id',$codigoUsuario)
                                         ->pluck('id')
                                         ->first();
 
@@ -89,9 +91,6 @@ class SlpceController extends Controller
         $DimensionC = SlpceController::divideInDimensionC($AnswersInverted);
         $DimensionD = SlpceController::divideInDimensionD($AnswersInverted);
 
-        for ($i=0; $i <sizeof($DimensionA[1]) ; $i++) {
-          echo $DimensionA[1][$i][2];
-        }
 
 
 
@@ -131,9 +130,6 @@ class SlpceController extends Controller
             'FACTOR 3',
             'FACTOR 4'
         ];
-        /*
-        echo "Tamaño primer factor";
-        echo sizeof($dimensions[0]);
 
         /*
         * First we need to calculate the IV for each factor, add them up and obtain the
@@ -149,10 +145,6 @@ class SlpceController extends Controller
 
 //Obtiene el indice de valoracion de cada Dimension (suma los indices de los factores de una dimension)
 
-        // for ($i=0; $i <4 ; $i++) {
-        //     $IVDimension += $DimensionA[1][$i][2];  //ver hojita
-        // }
-        //echo $IVDimension;
 
         $ivDim = 0;
         for ($i=0; $i <sizeof($DimensionA[3]) ; $i++) {
@@ -164,7 +156,7 @@ class SlpceController extends Controller
         $dimension->Recomendation    = $specs[0];
         $dimension->Grade            = $specs[1];
         $dimension->puntuacion       = $ivDim;
-        $dimension->cuestionarios_id = Cuestionario::where('compilations_id','214413693')
+        $dimension->cuestionarios_id = Cuestionario::where('compilations_id',$codigoUsuario)
                                         ->pluck('id')
                                         ->last();
 
@@ -213,7 +205,7 @@ class SlpceController extends Controller
         $dimension->Recomendation    = $specs[0];
         $dimension->Grade            = $specs[1];
         $dimension->puntuacion       = $ivDim;
-        $dimension->cuestionarios_id = Cuestionario::where('compilations_id','214413693')
+        $dimension->cuestionarios_id = Cuestionario::where('compilations_id',$codigoUsuario)
                                         ->pluck('id')
                                         ->last();
 
@@ -260,7 +252,7 @@ class SlpceController extends Controller
         $dimension->Recomendation    = $specs[0];
         $dimension->Grade            = $specs[1];
         $dimension->puntuacion       = $ivDim;
-        $dimension->cuestionarios_id = Cuestionario::where('compilations_id','214413693')
+        $dimension->cuestionarios_id = Cuestionario::where('compilations_id',$codigoUsuario)
                                         ->pluck('id')
                                         ->last();
 
@@ -303,7 +295,7 @@ class SlpceController extends Controller
         $dimension->Recomendation    = $specs[0];
         $dimension->Grade            = $specs[1];
         $dimension->puntuacion       = $ivDim;
-        $dimension->cuestionarios_id = Cuestionario::where('compilations_id','214413693')
+        $dimension->cuestionarios_id = Cuestionario::where('compilations_id',$codigoUsuario)
                                         ->pluck('id')
                                         ->last();
 
@@ -363,17 +355,11 @@ class SlpceController extends Controller
         for ($i=0; $i < sizeof($dimensions); $i++) {
           $dimensiones = Dimension::all();
           $dimension1 = $dimensiones->where('cuestionarios_id',$cuestionario->id)->where('concept',$dimConcepts[$i])->pluck('id'); //indice representa dimension a,b,c, d
-          //echo "Dimension";
-          //echo $dimension1[0];
-          //dd($dimension1);
+
             for ($j=0; $j < sizeof($dimensions[$i][2]); $j++) {
               $factores    = FactorDim::all();
               $factor = $factores->where('dimensions_id',$dimension1[0])->where('Concept',$factors[$cont])->pluck('id');
-            $x = $factor[0];
-              echo "contador: ";
-
-              echo $cont;
-
+              $x = $factor[0];
               $cont++;
               for($k =0; $k < sizeof($dimensions[$i][2][$j]); $k++){
                 $respuesta                 = new Respuesta;
@@ -384,6 +370,12 @@ class SlpceController extends Controller
               }
             }
         }
+
+        $html2pdf = new Html2Pdf();
+        $html2pdf->writeHTML('<h1>Expediente de paciente ctcps</h1>');
+        $html2pdf->output('prueba.pdf');
+
+
     }
 
     private static function evaluateFactorG1($result){
@@ -929,9 +921,7 @@ class SlpceController extends Controller
         for ($i=0; $i <sizeof($indicesArray) ; $i++) {
             for ($j=0; $j <sizeof($indicesArray[$i]) ; $j++) {
                 $arrayRespuestas[$i][$j] = $Answers['p'.$indicesArray[$i][$j]];
-                //echo $arrayRespuestas[$i][$j];
             }
-            //echo "\n";
         }
 
         //obtain values from each factor to calculate the IV after this
@@ -972,9 +962,7 @@ class SlpceController extends Controller
         for ($i=0; $i <sizeof($indicesArray) ; $i++) {
             for ($j=0; $j <sizeof($indicesArray[$i]) ; $j++) {
                 $arrayRespuestas[$i][$j] = $Answers['p'.$indicesArray[$i][$j]];
-                //echo $arrayRespuestas[$i][$j];
             }
-            //echo "\n";
         }
 
         //obtain values from each factor to calculate the IV after this
@@ -1014,9 +1002,7 @@ class SlpceController extends Controller
         for ($i=0; $i <sizeof($indicesArray) ; $i++) {
             for ($j=0; $j <sizeof($indicesArray[$i]) ; $j++) {
                 $arrayRespuestas[$i][$j] = $Answers['p'.$indicesArray[$i][$j]];
-                //echo $arrayRespuestas[$i][$j];
             }
-            //echo "\n";
         }
 
         //obtain values from each factor to calculate the IV after this
@@ -1056,14 +1042,6 @@ class SlpceController extends Controller
             '5'=>0
         ];
 
-        /*
-        echo "Count numbers";
-        echo $Factor[0];
-        echo $Factor[1];
-        echo $Factor[2];
-        echo $Factor[3];
-        */
-
         for($i=0; $i<sizeof($Factor); $i++){
             switch ($Factor[$i]) {
                 case '1':
@@ -1085,23 +1063,13 @@ class SlpceController extends Controller
                     break;
             }
         }
-        /*
-        echo "NUMBER";
-        echo $number['1'];
-        echo $number['2'];
-        echo $number['3'];
-        echo $number['4'];
-        echo $number['5'];
-        */
+
         $result=0;
         $i=1;
         foreach ($number as $num){
             $result += $num * $i;
             $i++;
         }
-
-        //echo "ESTO ES EL FACTOR";
-        //echo $result;
 
         return $result;
     }

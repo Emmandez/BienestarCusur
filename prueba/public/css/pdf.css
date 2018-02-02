@@ -1,0 +1,81 @@
+*{
+  font-family: Arial;
+}
+.box{
+  width: auto;
+  height: auto;
+  display: flex;
+  padding-bottom: 2em;
+  flex-direction: row;/*cambia el je principal a vertical. row-reverse, column-reverse, row*/
+}
+.foliocontainer{
+  display: flex;
+  align-items: center;/*alinea el contenido*/
+  flex-direction: row;/*cambia el je principal a vertical. row-reverse, column-reverse, row*/
+  justify-content: center; /*espacio entre contenido*/
+}
+.recomendation{
+  width: 50%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+
+}
+.innerRecomendation{
+  display: flex;
+  height: 20%;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.top{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; /*espacio entre contenido*/
+  padding-top: 50px;
+}
+
+img {
+  display: block;
+  max-width:350px;
+  max-height:140px;
+  width: auto;
+  height: auto;
+}
+
+.title{
+  color: rgb(36, 115, 105);
+  font-family: Arial;
+  text-align: center;
+}
+.folio{
+  font-weight: 800;
+  margin: 0 20px;
+}
+p{
+  margin: 0 20px;
+}
+.boldtitle{
+  font-weight: 800;
+}
+
+td, tr {
+  background-color: green;
+}
+
+.dimension{
+  width: 50%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+.innerDimension{
+  display: flex;
+  flex-direction: row;
+  height: 20%;
+  justify-content:space-between;
+  margin-bottom: 10px;
+}

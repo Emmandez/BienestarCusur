@@ -46,7 +46,7 @@ class NurseryController extends Controller
      */
     public function store(Request $request)
     {
-
+        $codigoUsuario = '214413693';
         $date       = getdate();
         $formatDate = $date['year'].'-'.$date['mon'].'-'.$date['mday'].'-'.$date['hours'].'-'.$date['minutes'].'-'.$date['seconds'];
 
@@ -56,22 +56,22 @@ class NurseryController extends Controller
         $vs_data->FC              = $request->get('FC');
         $vs_data->FR              = $request->get('FR');
         $vs_data->Temp            = $request->get('Temp');
-        
-        $vs_data->compilation_id = '214413693';
+
+        $vs_data->compilation_id = $codigoUsuario;
         //$vs_data->compilations_id = $request->get('patientCode');
 
-        
-        
-        
+
+
+
         // Saving new VitalSigns
         $vs_data->save();
 
         //Updating compilation table.
         //Searching the tuple we want to update
         //$compilation = Compilation::find($request->get('patientCode'));
-        $compilation = Compilation::find('214413693');
+        $compilation = Compilation::find($codigoUsuario);
 
-        //Changing data's field we want to update 
+        //Changing data's field we want to update
         $compilation->nurseData       = 'Y';
         $compilation->idResponsibleN  = Auth::user()->UDG_Code;
         $compilation->aplicationDateN = $formatDate;

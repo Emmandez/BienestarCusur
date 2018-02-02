@@ -36,6 +36,7 @@ class MedicsExpController extends Controller
      */
     public function store(Request $request)
     {
+        $codigoUsuario = '214413693';
         //Systems
         $systemsConcept = [
             'Respiratorio/Cardiovascular',
@@ -65,7 +66,7 @@ class MedicsExpController extends Controller
 
                 $system->concept         = $systemsConcept[$i];
                 $system->description     = $systemsDesc[$i];
-                $system->compilation_id = '214413693';
+                $system->compilation_id = $codigoUsuario;
 
                 $system->save();
             }
@@ -137,7 +138,7 @@ class MedicsExpController extends Controller
                 'description2' => $request->get('hallazgosTimpano')
             ]
         ];
-        
+
         $SysOrg = [
             [
                 'OrgSys'      => 'Genitales',
@@ -160,13 +161,13 @@ class MedicsExpController extends Controller
 
 
         //for loop to insert two org system
-        for ($i=0; $i < sizeof($sysTwoOrg); $i++) { 
+        for ($i=0; $i < sizeof($sysTwoOrg); $i++) {
             $exploration = new Exploration;
 
             $exploration->orgsis         = $sysTwoOrg[$i]['OrgSys'];
             $exploration->concept        = $sysTwoOrg[$i]['Concept1'];
             $exploration->condition      = $sysTwoOrg[$i]['Condition1'];
-            $exploration->compilation_id = '214413693';
+            $exploration->compilation_id = $codigoUsuario;
 
             if(!empty($sysTwoOrg[$i]['description1'])){
                 $exploration->description = $sysTwoOrg[$i]['description1'];
@@ -181,7 +182,7 @@ class MedicsExpController extends Controller
             $exploration->orgsis         = $sysTwoOrg[$i]['OrgSys'];
             $exploration->concept        = $sysTwoOrg[$i]['Concept2'];
             $exploration->condition      = $sysTwoOrg[$i]['Condition2'];
-            $exploration->compilation_id = '214413693';
+            $exploration->compilation_id = $codigoUsuario;
 
             if(!empty($sysTwoOrg[$i]['description2'])){
                 $exploration->description = $sysTwoOrg[$i]['description2'];
@@ -192,13 +193,13 @@ class MedicsExpController extends Controller
             $exploration->save();
         }
         //for loop to insert one org system
-        for ($i=0; $i < sizeof($SysOrg) ; $i++) { 
+        for ($i=0; $i < sizeof($SysOrg) ; $i++) {
             $exploration = new Exploration;
 
             $exploration->orgsis         = $SysOrg[$i]['OrgSys'];
             $exploration->concept        = $SysOrg[$i]['Concept'];
             $exploration->condition      = $SysOrg[$i]['Condition'];
-            $exploration->compilation_id = '214413693';
+            $exploration->compilation_id = $codigoUsuario;
 
             if(!empty($SysOrg[$i]['description'])){
                 $exploration->description = $SysOrg[$i]['description'];
@@ -210,8 +211,8 @@ class MedicsExpController extends Controller
         }
 
         return redirect('medicsExp/create');
-    
-        
+
+
     }
 
     /**

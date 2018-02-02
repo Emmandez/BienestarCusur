@@ -50,6 +50,7 @@ class SlpceALcontroller extends Controller
 
        echo dd($arrayRequest);
        */
+       $codigoUsuario = '214413693';
 
         //insert current work
         for ($i = 1 ; $i <= (int) $request->get('cantPTA'); $i++) {
@@ -77,7 +78,7 @@ class SlpceALcontroller extends Controller
                 $work->accidents     = 'No se registraron accidentes';
             }
 
-            $work->compilation_id='214413693';
+            $work->compilation_id=$codigoUsuario;
             $work->save();
 
             for ($j=0; $j < sizeof($request->get('agentes'.(String)$i))-1; $j++) {
@@ -85,7 +86,7 @@ class SlpceALcontroller extends Controller
 
                 $factor->conceptofactor = $request->get('agentes'.(String)$i)[$j];
 
-                $id_work = Work::where('compilation_id', '214413693')
+                $id_work = Work::where('compilation_id', $codigoUsuario)
                                ->where('type','A'.(String)$i)
                                ->first();
                 $factor->work_id = $id_work->id;
@@ -117,7 +118,7 @@ class SlpceALcontroller extends Controller
             $work->accidents     = 'No se registraron accidentes';
 
 
-            $work->compilation_id='214413693';
+            $work->compilation_id=$codigoUsuario;
             $work->save();
 
             for ($j=0; $j < sizeof($request->get('agentes2_2'))-1; $j++) {
@@ -125,7 +126,7 @@ class SlpceALcontroller extends Controller
 
                 $factor->conceptofactor = $request->get('agentes2_2')[$j];
 
-                $id_work = Work::where('compilation_id', '214413693')
+                $id_work = Work::where('compilation_id', $codigoUsuario)
                                ->where('type','A3')
                                ->first();
                 $factor->work_id = $id_work->id;
@@ -159,7 +160,7 @@ class SlpceALcontroller extends Controller
                 $work->accidents     = 'No se registraron accidentes';
 
 
-                $work->compilation_id='214413693';
+                $work->compilation_id=$codigoUsuario;
                 $work->save();
 
                 for ($j=0; $j < sizeof($request->get('agentesAI'.(String)$i))-1; $j++) {
@@ -167,7 +168,7 @@ class SlpceALcontroller extends Controller
 
                     $factor->conceptofactor = $request->get('agentesAI'.(String)$i)[$j];
 
-                    $id_work = Work::where('compilation_id', '214413693')
+                    $id_work = Work::where('compilation_id', $codigoUsuario)
                                    ->where('type','A3'.(String)$i)
                                    ->first();
                     $factor->work_id = $id_work->id;
@@ -200,16 +201,16 @@ class SlpceALcontroller extends Controller
             $work->accidents     = 'No se registraron accidentes';
 
 
-            $work->compilation_id='214413693';
+            $work->compilation_id=$codigoUsuario;
             $work->save();
 
-            
+
             for ($j=0; $j < sizeof($request->get('agentes4'))-1; $j++) {
                 $factor = new Factor();
 
                 $factor->conceptofactor = $request->get('agentes4')[$j];
 
-                $id_work = Work::where('compilation_id', '214413693')
+                $id_work = Work::where('compilation_id', $codigoUsuario)
                                ->where('type','AAI')
                                ->first();
                 $factor->work_id = $id_work->id;

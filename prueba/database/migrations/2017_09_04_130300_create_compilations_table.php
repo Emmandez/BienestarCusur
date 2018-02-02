@@ -24,7 +24,7 @@ class CreateCompilationsTable extends Migration
             $table->char('idResponsibleD',9);
             $table->dateTime('aplicationDateD');
             $table->enum('medicalData',['Y','N']);
-            $table->char('idResponsibleM',9);   
+            $table->char('idResponsibleM',9);
             $table->dateTime('aplicationDateM');
             $table->enum('nurseData',['Y','N']);
             $table->char('idResponsibleN',9);
@@ -32,8 +32,6 @@ class CreateCompilationsTable extends Migration
             $table->enum('nutritionFacts',['Y','N']);
             $table->char('idResponsibleF',9);
             $table->dateTime('aplicationDateF');
-
-
             
             $table->timestamps();
         });
